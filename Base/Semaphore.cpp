@@ -1,0 +1,86 @@
+//
+// Created by kiwi on 19-1-5.
+//
+
+#include "Semaphore.h"
+
+Kiwi::Semaphore::Semaphore(const unsigned int &value, bool pshared)
+{
+	int retval = sem_init(&_sem_, pshared, value);
+	if (retval < 0)
+	{
+		std::cerr << "Semaphore construct error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Kiwi::Semaphore::post()
+{
+	int retval = sem_post(&_sem_);
+	if (retval < 0)
+	{
+		std::cerr << "Semaphore post error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Kiwi::Semaphore::wait()
+{
+	int retval;
+	flag:
+	retval = sem_wait(&_sem_);
+	if (retval < 0)
+	{
+		switch (errno)
+		{
+			case EINTR:
+				goto flag;
+			default:
+				std::cerr << "Semaphore wait error : " << errno << " " << strerror(errno) << std::endl;
+				std::terminate();
+		}
+	}
+}
+
+bool Kiwi::Semaphore::try_wait()
+{
+	int retval;
+	flag:
+	retval = sem_trywait(&_sem_);
+	if (retval < 0)
+	{
+		switch (errno)
+		{
+			case EAGAIN:
+				return false;
+			case EINTR:
+				goto flag;
+			default:
+				std::cerr << "Semaphore try_wait error : " << errno << " " << strerror(errno) << std::endl;
+				std::terminate();
+		}
+	}
+	return true;
+}
+
+int Kiwi::Semaphore::get_value()
+{
+	int res;
+	int retval = sem_getvalue(&_sem_, &res);
+	if (retval < 0)
+	{
+		std::cerr << "Semaphore get_value error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+	return res;
+}
+
+Kiwi::Semaphore::~Semaphore()
+{
+	int retval = sem_destroy(&_sem_);
+	if (retval < 0)
+	{
+		std::cerr << "Semaphore destruct error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
