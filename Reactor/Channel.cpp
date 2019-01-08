@@ -4,10 +4,11 @@
 
 #include "Channel.h"
 
-Kiwi::Channel::Channel(Kiwi::EventLoop *loop, int fd) : _owner_event_loop_(loop), _fd_(fd), _events_(0), _revents_(0)
-{
-
-}
+Kiwi::Channel::Channel(Kiwi::EventLoop *loop, int fd) :
+		_owner_event_loop_(loop),
+		_fd_(fd),
+		_events_(0),
+		_revents_(0) {}
 
 void Kiwi::Channel::set_read_handler(const Kiwi::Channel::EventHandler &handler)
 {

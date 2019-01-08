@@ -6,11 +6,12 @@
 
 thread_local Kiwi::EventLoop *_thread_local_event_loop_ = nullptr;
 
-Kiwi::EventLoop::EventLoop()
+Kiwi::EventLoop::EventLoop() :
+		_looping_(false),
+		_stop_(false),
+		_thread_id_(std::this_thread::get_id()),
+		_epoll_ptr_(new Epoll(this))
 {
-	_looping_.store(false);
-	_stop_.store(false);
-	_thread_id_ = std::this_thread::get_id();
 	if (_thread_local_event_loop_)
 	{
 		std::cerr << "EventLoop construct error : " << _thread_local_event_loop_

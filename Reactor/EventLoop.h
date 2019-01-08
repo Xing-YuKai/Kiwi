@@ -35,7 +35,7 @@ namespace Kiwi
 	private:
 		std::atomic<bool> _looping_;
 		std::atomic<bool> _stop_;
-		std::shared_ptr<Epoll>  _epoll_ptr_;
+		std::unique_ptr<Epoll>  _epoll_ptr_;
 		std::thread::id _thread_id_;
 		ChannelList _active_channels_;
 	};
