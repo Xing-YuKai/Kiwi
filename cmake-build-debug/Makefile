@@ -204,6 +204,33 @@ Reactor/Channel.cpp.s:
 	$(MAKE) -f CMakeFiles/Kiwi.dir/build.make CMakeFiles/Kiwi.dir/Reactor/Channel.cpp.s
 .PHONY : Reactor/Channel.cpp.s
 
+Reactor/Epoll.o: Reactor/Epoll.cpp.o
+
+.PHONY : Reactor/Epoll.o
+
+# target to build an object file
+Reactor/Epoll.cpp.o:
+	$(MAKE) -f CMakeFiles/Kiwi.dir/build.make CMakeFiles/Kiwi.dir/Reactor/Epoll.cpp.o
+.PHONY : Reactor/Epoll.cpp.o
+
+Reactor/Epoll.i: Reactor/Epoll.cpp.i
+
+.PHONY : Reactor/Epoll.i
+
+# target to preprocess a source file
+Reactor/Epoll.cpp.i:
+	$(MAKE) -f CMakeFiles/Kiwi.dir/build.make CMakeFiles/Kiwi.dir/Reactor/Epoll.cpp.i
+.PHONY : Reactor/Epoll.cpp.i
+
+Reactor/Epoll.s: Reactor/Epoll.cpp.s
+
+.PHONY : Reactor/Epoll.s
+
+# target to generate assembly for a file
+Reactor/Epoll.cpp.s:
+	$(MAKE) -f CMakeFiles/Kiwi.dir/build.make CMakeFiles/Kiwi.dir/Reactor/Epoll.cpp.s
+.PHONY : Reactor/Epoll.cpp.s
+
 Reactor/EventLoop.o: Reactor/EventLoop.cpp.o
 
 .PHONY : Reactor/EventLoop.o
@@ -276,6 +303,9 @@ help:
 	@echo "... Reactor/Channel.o"
 	@echo "... Reactor/Channel.i"
 	@echo "... Reactor/Channel.s"
+	@echo "... Reactor/Epoll.o"
+	@echo "... Reactor/Epoll.i"
+	@echo "... Reactor/Epoll.s"
 	@echo "... Reactor/EventLoop.o"
 	@echo "... Reactor/EventLoop.i"
 	@echo "... Reactor/EventLoop.s"

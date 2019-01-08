@@ -8,17 +8,21 @@
 #include <atomic>
 #include <thread>
 #include <iostream>
-
+#include <vector>
+#include <memory>
+#include "Channel.h"
+#include "Epoll.h"
 namespace Kiwi
 {
 	class EventLoop
 	{
+		using ChannelList = std::vector<std::shared_ptr<Channel>>;
 	public:
 		EventLoop();
 
 		void loop();
 
-		void quit();
+		void stop();
 
 		void assert_in_event_loop_thread();
 
@@ -30,8 +34,10 @@ namespace Kiwi
 
 	private:
 		std::atomic<bool> _looping_;
+		std::atomic<bool> _stop_;
+		std::shared_ptr<Epoll>  _epoll_ptr_;
 		std::thread::id _thread_id_;
-
+		ChannelList _active_channels_;
 	};
 }
 

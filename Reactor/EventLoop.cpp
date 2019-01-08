@@ -9,6 +9,7 @@ thread_local Kiwi::EventLoop *_thread_local_event_loop_ = nullptr;
 Kiwi::EventLoop::EventLoop()
 {
 	_looping_.store(false);
+	_stop_.store(false);
 	_thread_id_ = std::this_thread::get_id();
 	if (_thread_local_event_loop_)
 	{
@@ -23,19 +24,28 @@ Kiwi::EventLoop::EventLoop()
 
 void Kiwi::EventLoop::loop()
 {
-	if (_looping_)
+	if (_looping_.load())
 	{
 		std::cerr << "EventLoop loop error : " << "loop on a looping EventLoop" << std::endl;
 		std::terminate();
 	}
 	assert_in_event_loop_thread();
-	_looping_ = true;
+	_looping_.store(true);
 
+	while (!_stop_.load())
+	{
+		_active_channels_.clear();
+		_epoll_ptr_->poll(_active_channels_);
+		for (const auto &channel:_active_channels_)
+		{
+			channel->handle_event();
+		}
+	}
 }
 
-void Kiwi::EventLoop::quit()
+void Kiwi::EventLoop::stop()
 {
-
+	_stop_.store(false);
 }
 
 void Kiwi::EventLoop::assert_in_event_loop_thread()
