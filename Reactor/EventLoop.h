@@ -5,6 +5,7 @@
 #ifndef KIWI_EVENT_LOOP_H
 #define KIWI_EVENT_LOOP_H
 
+#include <cassert>
 #include <atomic>
 #include <thread>
 #include <iostream>
@@ -12,6 +13,7 @@
 #include <memory>
 #include "Channel.h"
 #include "Epoll.h"
+
 namespace Kiwi
 {
 	class EventLoop
@@ -24,6 +26,13 @@ namespace Kiwi
 
 		void stop();
 
+		void add_channel(const Channel &channel);
+
+		void remove_channel(const Channel& channel);
+
+		void update_channel(const Channel& channel);
+
+
 		void assert_in_event_loop_thread();
 
 		~EventLoop();
@@ -35,7 +44,7 @@ namespace Kiwi
 	private:
 		std::atomic<bool> _looping_;
 		std::atomic<bool> _stop_;
-		std::unique_ptr<Epoll>  _epoll_ptr_;
+		std::unique_ptr<Epoll> _epoll_ptr_;
 		std::thread::id _thread_id_;
 		ChannelList _active_channels_;
 	};

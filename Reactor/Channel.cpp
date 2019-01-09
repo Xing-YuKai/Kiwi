@@ -8,23 +8,10 @@ Kiwi::Channel::Channel(Kiwi::EventLoop *loop, int fd) :
 		_owner_event_loop_(loop),
 		_fd_(fd),
 		_events_(0),
-		_revents_(0) {}
+		_revents_(0),
+		_handling_event_(false),
+		_in_loop_(false),{}
 
-void Kiwi::Channel::set_read_handler(const Kiwi::Channel::EventHandler &handler)
-{
-	_read_handler_ = handler;
-}
-
-void Kiwi::Channel::set_write_handler(const Kiwi::Channel::EventHandler &handler)
-{
-	_write_handler_ = handler;
-}
-
-void Kiwi::Channel::set_error_handler(const Kiwi::Channel::EventHandler &handler)
-{
-	_error_handler_ = handler
-	''
-}
 
 void Kiwi::Channel::handle_event()
 {
@@ -39,33 +26,14 @@ void Kiwi::Channel::handle_event()
 			_write_handler_();
 }
 
-void Kiwi::Channel::set_events(uint32_t events)
-{
-	_events_ = events;
-}
-
-void Kiwi::Channel::set_revents(uint32_t revents)
-{
-	_revents_ = revents;
-}
-
-uint32_t Kiwi::Channel::get_events() const
-{
-	return _events_;
-}
-
-int Kiwi::Channel::get_fd() const
-{
-	return _fd_;
-}
-
-Kiwi::EventLoop *Kiwi::Channel::get_loop() const
-{
-	return _owner_event_loop_;
-}
 
 Kiwi::Channel::~Channel()
 {
 
+}
+
+void Kiwi::Channel::update()
+{
+	_owner_event_loop_->update_channel(*this);
 }
 

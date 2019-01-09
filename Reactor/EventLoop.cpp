@@ -49,6 +49,26 @@ void Kiwi::EventLoop::stop()
 	_stop_.store(false);
 }
 
+void Kiwi::EventLoop::add_channel(const Channel &channel)
+{
+	assert_in_event_loop_thread();
+	_epoll_ptr_->add_channel(channel);
+}
+
+void Kiwi::EventLoop::remove_channel(const Channel &channel)
+{
+	assert_in_event_loop_thread();
+	assert(channel.get_loop() == this);
+	_epoll_ptr_->remove_channel(channel);
+}
+
+void Kiwi::EventLoop::update_channel(const Channel &channel)
+{
+	assert_in_event_loop_thread();
+	assert(channel.get_loop() == this);
+	_epoll_ptr_->update_channel(channel);
+}
+
 void Kiwi::EventLoop::assert_in_event_loop_thread()
 {
 	if (_thread_id_ != std::this_thread::get_id())
@@ -61,7 +81,5 @@ void Kiwi::EventLoop::assert_in_event_loop_thread()
 
 Kiwi::EventLoop::~EventLoop()
 {
-
+	_thread_local_event_loop_ = nullptr;
 }
-
-
