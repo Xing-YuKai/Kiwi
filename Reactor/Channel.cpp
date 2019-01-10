@@ -4,13 +4,13 @@
 
 #include "Channel.h"
 
-Kiwi::Channel::Channel(Kiwi::EventLoop *loop, int fd) :
-		_owner_event_loop_(loop),
+Kiwi::Channel::Channel(Kiwi::EventLoop *event_loop, int fd) :
+		_owner_event_loop_(event_loop),
 		_fd_(fd),
 		_events_(0),
 		_revents_(0),
 		_handling_event_(false),
-		_in_loop_(false),{}
+		_in_loop_(false){}
 
 
 void Kiwi::Channel::handle_event()
@@ -34,6 +34,6 @@ Kiwi::Channel::~Channel()
 
 void Kiwi::Channel::update()
 {
-	_owner_event_loop_->update_channel(*this);
+	_owner_event_loop_->update_channel(this);
 }
 

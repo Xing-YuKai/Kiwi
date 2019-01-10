@@ -3,6 +3,8 @@
 //
 
 #include "EventLoop.h"
+#include "Epoll.h"
+#include "Channel.h"
 
 thread_local Kiwi::EventLoop *_thread_local_event_loop_ = nullptr;
 
@@ -46,26 +48,26 @@ void Kiwi::EventLoop::loop()
 
 void Kiwi::EventLoop::stop()
 {
-	_stop_.store(false);
+	_stop_.store(true);
 }
 
-void Kiwi::EventLoop::add_channel(const Channel &channel)
+void Kiwi::EventLoop::add_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
 	_epoll_ptr_->add_channel(channel);
 }
 
-void Kiwi::EventLoop::remove_channel(const Channel &channel)
+void Kiwi::EventLoop::remove_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel.get_loop() == this);
+	assert(channel->get_loop() == this);
 	_epoll_ptr_->remove_channel(channel);
 }
 
-void Kiwi::EventLoop::update_channel(const Channel &channel)
+void Kiwi::EventLoop::update_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel.get_loop() == this);
+	assert(channel->get_loop() == this);
 	_epoll_ptr_->update_channel(channel);
 }
 

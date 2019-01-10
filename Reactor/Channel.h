@@ -8,14 +8,13 @@
 #include <functional>
 #include <sys/epoll.h>
 #include "EventLoop.h"
-
 namespace Kiwi
 {
 	class Channel
 	{
 		using EventHandler = std::function<void()>;
 	public:
-		Channel(EventLoop *loop, int fd);
+		Channel(EventLoop *event_loop, int fd);
 
 		void set_read_handler(const EventHandler &handler) { _read_handler_ = handler; }
 

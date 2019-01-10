@@ -28,35 +28,34 @@ void Kiwi::Epoll::poll(Kiwi::Epoll::ChannelList &active_channels)
 	{
 		for (int i = 0; i < event_count; i++)
 		{
-			auto *channel = reinterpret_cast<Channel *>(_event_list_[i].data.ptr);
+			Channel *channel = reinterpret_cast<Channel *>(_event_list_[i].data.ptr);
 			channel->set_revents(_event_list_[i].events);
 			active_channels.emplace_back(channel);
 		}
 	}
 }
 
-void Kiwi::Epoll::add_channel(const Kiwi::Channel &channel)
+void Kiwi::Epoll::add_channel(Channel *channel)
 {
-	int fd = channel.get_fd();
+	int fd = channel->get_fd();
 	assert(_channels_.find(fd) == _channels_.end());
 	_channels_.emplace(fd, channel);
-	epoll_add(_channels_[fd]);
+	epoll_add(channel);
 }
 
-void Kiwi::Epoll::remove_channel(const Kiwi::Channel &channel)
+void Kiwi::Epoll::remove_channel(Channel *channel)
 {
-	int fd = channel.get_fd();
+	int fd = channel->get_fd();
 	assert(_channels_.find(fd) != _channels_.end());
 	_channels_.erase(fd);
-	epoll_del(_channels_[fd]);
+	epoll_del(channel);
 }
 
-void Kiwi::Epoll::update_channel(const Kiwi::Channel &channel)
+void Kiwi::Epoll::update_channel(Channel *channel)
 {
-	int fd = channel.get_fd();
+	int fd = channel->get_fd();
 	assert(_channels_.find(fd) != _channels_.end());
-	_channels_[fd]->set_events(channel.get_events());
-	epoll_mod(_channels_[fd]);
+	epoll_mod(channel);
 }
 
 Kiwi::Epoll::~Epoll()
@@ -64,11 +63,11 @@ Kiwi::Epoll::~Epoll()
 	close(_epoll_fd_);
 }
 
-void Kiwi::Epoll::epoll_add(std::shared_ptr<Channel> channel)
+void Kiwi::Epoll::epoll_add(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
-	event.data.ptr = reinterpret_cast<void *>(channel.get());
+	event.data.ptr = channel;
 	event.events = channel->get_events();
 	int retval = epoll_ctl(_epoll_fd_, EPOLL_CTL_ADD, fd, &event);
 	if (retval < 0)
@@ -84,11 +83,11 @@ void Kiwi::Epoll::epoll_add(std::shared_ptr<Channel> channel)
 	}
 }
 
-void Kiwi::Epoll::epoll_del(std::shared_ptr<Channel> channel)
+void Kiwi::Epoll::epoll_del(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
-	event.data.ptr = reinterpret_cast<void *>(channel.get());
+	event.data.ptr = channel;
 	event.events = channel->get_events();
 	int retval = epoll_ctl(_epoll_fd_, EPOLL_CTL_DEL, fd, &event);
 	if (retval < 0)
@@ -98,11 +97,11 @@ void Kiwi::Epoll::epoll_del(std::shared_ptr<Channel> channel)
 	}
 }
 
-void Kiwi::Epoll::epoll_mod(std::shared_ptr<Channel> channel)
+void Kiwi::Epoll::epoll_mod(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
-	event.data.ptr = reinterpret_cast<void *>(channel.get());
+	event.data.ptr = channel;
 	event.events = channel->get_events();
 	int retval = epoll_ctl(_epoll_fd_, EPOLL_CTL_MOD, fd, &event);
 	if (retval < 0)

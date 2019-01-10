@@ -11,14 +11,15 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include "Channel.h"
-#include "Epoll.h"
+
 
 namespace Kiwi
 {
+	class Epoll;
+	class Channel;
 	class EventLoop
 	{
-		using ChannelList = std::vector<std::shared_ptr<Channel>>;
+		using ChannelList = std::vector<Channel*>;
 	public:
 		EventLoop();
 
@@ -26,12 +27,11 @@ namespace Kiwi
 
 		void stop();
 
-		void add_channel(const Channel &channel);
+		void add_channel(Channel *channel);
 
-		void remove_channel(const Channel& channel);
+		void remove_channel(Channel *channel);
 
-		void update_channel(const Channel& channel);
-
+		void update_channel(Channel *channel);
 
 		void assert_in_event_loop_thread();
 
