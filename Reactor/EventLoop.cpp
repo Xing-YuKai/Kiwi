@@ -39,7 +39,7 @@ void Kiwi::EventLoop::loop()
 	{
 		_active_channels_.clear();
 		_epoll_ptr_->poll(_active_channels_);
-		for (const auto &channel:_active_channels_)
+		for (Channel* channel:_active_channels_)
 		{
 			channel->handle_event();
 		}

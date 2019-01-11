@@ -22,15 +22,15 @@ namespace Kiwi
 
 		void set_error_handler(const EventHandler &handler) { _error_handler_ = handler; }
 
-		void enable_reading() {_events_|=READ_EVENT;update();}
+		void enable_reading() {_events_|=READ_EVENT;}
 
-		void disable_reading() {_events_&=~READ_EVENT;update();}
+		void disable_reading() {_events_&=~READ_EVENT;}
 
-		void enable_writing() {_events_|=WRITE_EVENT;update();}
+		void enable_writing() {_events_|=WRITE_EVENT;}
 
-		void disable_writing() {_events_&=~WRITE_EVENT;update();}
+		void disable_writing() {_events_&=~WRITE_EVENT;}
 
-		void disable_all() {_events_=NONE_EVENT;update();}
+		void disable_all() {_events_=NONE_EVENT;}
 
 		bool is_reading() const {return _events_&READ_EVENT;}
 
@@ -57,8 +57,6 @@ namespace Kiwi
 		Channel &operator=(const Channel &) = delete;
 
 	private:
-		void update();
-
 		EventLoop *_owner_event_loop_;
 		const int _fd_;
 

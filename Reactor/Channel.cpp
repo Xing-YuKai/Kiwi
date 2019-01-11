@@ -32,8 +32,3 @@ Kiwi::Channel::~Channel()
 
 }
 
-void Kiwi::Channel::update()
-{
-	_owner_event_loop_->update_channel(this);
-}
-
