@@ -14,6 +14,8 @@ namespace Kiwi
 	class Socket
 	{
 	public:
+		static const int BACKLOG_SIZE = 16;
+
 		explicit Socket(int socket_fd);
 
 		void connect(const InetAddress &addr);
@@ -33,11 +35,6 @@ namespace Kiwi
 		void set_reuse_port(bool on);
 
 		~Socket();
-
-		Socket(const Socket &) = delete;
-
-		Socket &operator=(const Socket &) = delete;
-
 	private:
 		int _socket_fd_;
 	};

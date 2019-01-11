@@ -18,6 +18,8 @@ namespace Kiwi
 	public:
 		InetAddress();
 
+		InetAddress(sockaddr_in sockaddr);
+
 		InetAddress(uint16_t port, std::string address);
 
 		void set_address(std::string address);

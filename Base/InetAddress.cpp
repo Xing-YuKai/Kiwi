@@ -10,6 +10,9 @@ Kiwi::InetAddress::InetAddress()
 	_inet_addr_.sin_family = AF_INET;
 }
 
+Kiwi::InetAddress::InetAddress(sockaddr_in sockaddr) :
+		_inet_addr_(sockaddr) {}
+
 Kiwi::InetAddress::InetAddress(uint16_t port, std::string address)
 {
 	bzero(&_inet_addr_, sizeof(_inet_addr_));
