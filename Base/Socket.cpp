@@ -71,6 +71,50 @@ Kiwi::Socket Kiwi::Socket::accept(Kiwi::InetAddress &addr)
 	return res;
 }
 
+void Kiwi::Socket::set_tcp_no_delay(bool on)
+{
+	int optval = on ? 1 : 0;
+	int retval = setsockopt(_socket_fd_, IPPROTO_TCP, TCP_NODELAY, &optval, static_cast<socklen_t >(sizeof(optval)));
+	if (retval < 0)
+	{
+		std::cerr << "Socket set_tcp_no_delay error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Kiwi::Socket::set_keep_alive(bool on)
+{
+	int optval = on ? 1 : 0;
+	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_KEEPALIVE, &optval, static_cast<socklen_t >(sizeof(optval)));
+	if (retval < 0)
+	{
+		std::cerr << "Socket set_keep_alive error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Kiwi::Socket::set_reuse_address(bool on)
+{
+	int optval = on ? 1 : 0;
+	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_REUSEADDR, &optval, static_cast<socklen_t >(sizeof(optval)));
+	if (retval < 0)
+	{
+		std::cerr << "Socket set_reuse_address error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Kiwi::Socket::set_reuse_port(bool on)
+{
+	int optval = on ? 1 : 0;
+	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_REUSEPORT, &optval, static_cast<socklen_t >(sizeof(optval)));
+	if (retval < 0)
+	{
+		std::cerr << "Socket set_reuse_port error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
 Kiwi::Socket::~Socket()
 {
 	close(_socket_fd_);

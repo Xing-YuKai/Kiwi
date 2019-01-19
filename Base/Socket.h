@@ -5,6 +5,7 @@
 #ifndef KIWI_SOCKET_H
 #define KIWI_SOCKET_H
 
+#include <netinet/tcp.h>
 #include <sys/socket.h>
 #include <unistd.h>
 #include "InetAddress.h"
