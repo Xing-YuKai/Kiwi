@@ -27,6 +27,20 @@ void Kiwi::EventLoopPool::add_loop(size_t size)
 {
 	for (size_t i = 0; i < size; i++)
 	{
-		_threads_.emplace_back([] { EventLoop loop; })
+		EventLoop *loop_ptr;
+		_threads_.emplace_back([this, &loop_ptr]
+							   {
+								   EventLoop loop;
+								   {
+									   std::unique_lock<std::mutex> unique_lock(this->_mutex_);
+									   loop_ptr = &loop;
+									   _cv_.notify_one();
+								   }
+							   });
+		{
+			std::unique_lock<std::mutex> unique_lock(_mutex_);
+			_cv_.wait(unique_lock);
+			_loops_.emplace_back(loop_ptr);
+		}
 	}
 }

@@ -7,6 +7,8 @@
 
 #include <thread>
 #include <vector>
+#include <mutex>
+#include <condition_variable>
 #include "EventLoop.h"
 
 namespace Kiwi
@@ -27,6 +29,8 @@ namespace Kiwi
 		EventLoopPool &operator=(const EventLoopPool &) = delete;
 
 	private:
+		std::mutex _mutex_;
+		std::condition_variable _cv_;
 		EventLoop *_base_loop_;
 		size_t _loop_num_;
 		size_t _next_;

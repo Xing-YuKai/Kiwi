@@ -19,8 +19,8 @@ namespace Kiwi
 {
 	class Epoll
 	{
-		using ChannelList = std::vector<Channel*>;
-		using ChannelMap = std::map<int, Channel*>;
+		using ChannelList = std::vector<Channel *>;
+		using ChannelMap = std::map<int, Channel *>;
 		using EventList = std::vector<struct epoll_event>;
 	public:
 		explicit Epoll(EventLoop *event_loop);
