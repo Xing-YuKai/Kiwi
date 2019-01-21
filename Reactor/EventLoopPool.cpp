@@ -3,6 +3,8 @@
 //
 
 #include "EventLoopPool.h"
+#include "EventLoop.h"
+
 
 Kiwi::EventLoopPool::EventLoopPool(Kiwi::EventLoop *base_loop, size_t size = 0) :
 		_base_loop_(base_loop),
@@ -25,22 +27,38 @@ Kiwi::EventLoop *Kiwi::EventLoopPool::get_loop()
 
 void Kiwi::EventLoopPool::add_loop(size_t size)
 {
+	EventLoop *loop_ptr;
+	bool flag = false;
 	for (size_t i = 0; i < size; i++)
 	{
-		EventLoop *loop_ptr;
-		_threads_.emplace_back([this, &loop_ptr]
+		_threads_.emplace_back([this, &loop_ptr, &flag]
 							   {
 								   EventLoop loop;
 								   {
-									   std::unique_lock<std::mutex> unique_lock(this->_mutex_);
+									   std::lock_guard<std::mutex> lock_guard(this->_mutex_);
 									   loop_ptr = &loop;
-									   _cv_.notify_one();
+									   flag = true;
+									   this->_cv_.notify_one();
 								   }
+								   loop.loop();
 							   });
+
 		{
 			std::unique_lock<std::mutex> unique_lock(_mutex_);
-			_cv_.wait(unique_lock);
+			_cv_.wait(unique_lock, [&flag] { return flag; });
 			_loops_.emplace_back(loop_ptr);
+			flag = false;
 		}
 	}
+}
+
+Kiwi::EventLoopPool::~EventLoopPool()
+{
+	for (auto &ptr : _loops_)
+	{
+		ptr->stop();
+		ptr = nullptr;
+	}
+	for (auto &thread : _threads_)
+		thread.detach();
 }

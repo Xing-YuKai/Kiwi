@@ -9,10 +9,10 @@
 #include <vector>
 #include <mutex>
 #include <condition_variable>
-#include "EventLoop.h"
 
 namespace Kiwi
 {
+	class EventLoop;
 	class EventLoopPool
 	{
 	public:
