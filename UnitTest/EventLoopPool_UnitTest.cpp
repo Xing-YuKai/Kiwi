@@ -9,7 +9,7 @@ int main()
 {
 	Kiwi::EventLoop base;
 	Kiwi::EventLoopPool pool(&base, 4);
-	
+
 	auto loop1 = pool.get_loop();
 	auto loop2 = pool.get_loop();
 	auto loop3 = pool.get_loop();

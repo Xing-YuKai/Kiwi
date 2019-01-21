@@ -10,3 +10,4 @@ add_executable(InetAddress_UnitTest UnitTest/InetAddress_UnitTest.cpp Base/InetA
 add_executable(EventLoopPool_UnitTest UnitTest/EventLoopPool_UnitTest.cpp Reactor/EventLoopPool.cpp Reactor/EventLoopPool.h Reactor/EventLoop.cpp Reactor/EventLoop.h Reactor/Channel.cpp Reactor/Channel.h Reactor/Epoll.cpp Reactor/Epoll.h)
 add_executable(EchoClient Example/EchoClient.cpp Network/TcpClient.cpp Network/TcpClient.h Network/Connector.cpp Network/Connector.h)
 add_executable(EchoServer Example/EchoServer.cpp Network/TcpServer.cpp Network/TcpServer.h Network/Acceptor.cpp Network/Acceptor.h Network/TcpConnection.cpp Network/TcpConnection.h)
+add_executable(TimePoint_UnitTest UnitTest/TimePoint_UnitTest.cpp Base/TimePoint.cpp Base/TimePoint.h)
