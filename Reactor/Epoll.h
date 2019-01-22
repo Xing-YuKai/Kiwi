@@ -19,10 +19,14 @@ namespace Kiwi
 {
 	class Epoll
 	{
+	public:
+
 		using ChannelList = std::vector<Channel *>;
 		using ChannelMap = std::map<int, Channel *>;
 		using EventList = std::vector<struct epoll_event>;
+
 	public:
+
 		explicit Epoll(EventLoop *event_loop);
 
 		void poll(ChannelList &active_channels);
@@ -40,6 +44,7 @@ namespace Kiwi
 		Epoll &operator=(const Epoll &) = delete;
 
 	private:
+
 		void epoll_add(Channel *channel);
 
 		void epoll_del(Channel *channel);
@@ -47,6 +52,7 @@ namespace Kiwi
 		void epoll_mod(Channel *channel);
 
 	private:
+
 		static const int INIT_EVENT_LIST_SIZE = 16;
 		ChannelMap _channels_;
 		EventList _event_list_;

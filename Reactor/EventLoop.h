@@ -16,11 +16,17 @@
 namespace Kiwi
 {
 	class Epoll;
+
 	class Channel;
+
 	class EventLoop
 	{
-		using ChannelList = std::vector<Channel*>;
 	public:
+
+		using ChannelList = std::vector<Channel *>;
+
+	public:
+
 		EventLoop();
 
 		void loop();
@@ -42,6 +48,7 @@ namespace Kiwi
 		EventLoop &operator=(const EventLoop &) = delete;
 
 	private:
+
 		std::atomic<bool> _looping_;
 		std::atomic<bool> _stop_;
 		std::unique_ptr<Epoll> _epoll_ptr_;

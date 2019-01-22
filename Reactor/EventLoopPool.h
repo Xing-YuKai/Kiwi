@@ -13,9 +13,11 @@
 namespace Kiwi
 {
 	class EventLoop;
+
 	class EventLoopPool
 	{
 	public:
+
 		EventLoopPool(EventLoop *base_loop, size_t size);
 
 		EventLoop *get_loop();
@@ -29,6 +31,7 @@ namespace Kiwi
 		EventLoopPool &operator=(const EventLoopPool &) = delete;
 
 	private:
+
 		std::mutex _mutex_;
 		std::condition_variable _cv_;
 		EventLoop *_base_loop_;

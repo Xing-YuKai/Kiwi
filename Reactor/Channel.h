@@ -8,11 +8,15 @@
 #include <functional>
 #include <sys/epoll.h>
 #include "EventLoop.h"
+
 namespace Kiwi
 {
 	class Channel
 	{
+	public:
+
 		using EventHandler = std::function<void()>;
+
 	public:
 		Channel(EventLoop *event_loop, int fd);
 
@@ -22,21 +26,21 @@ namespace Kiwi
 
 		void set_error_handler(const EventHandler &handler) { _error_handler_ = handler; }
 
-		void enable_reading() {_events_|=READ_EVENT;}
+		void enable_reading() { _events_ |= READ_EVENT; }
 
-		void disable_reading() {_events_&=~READ_EVENT;}
+		void disable_reading() { _events_ &= ~READ_EVENT; }
 
-		void enable_writing() {_events_|=WRITE_EVENT;}
+		void enable_writing() { _events_ |= WRITE_EVENT; }
 
-		void disable_writing() {_events_&=~WRITE_EVENT;}
+		void disable_writing() { _events_ &= ~WRITE_EVENT; }
 
-		void disable_all() {_events_=NONE_EVENT;}
+		void disable_all() { _events_ = NONE_EVENT; }
 
-		bool is_reading() const {return _events_&READ_EVENT;}
+		bool is_reading() const { return _events_ & READ_EVENT; }
 
-		bool is_writing() const {return _events_&WRITE_EVENT;}
+		bool is_writing() const { return _events_ & WRITE_EVENT; }
 
-		bool is_none_event() const {return _events_==NONE_EVENT;}
+		bool is_none_event() const { return _events_ == NONE_EVENT; }
 
 		void handle_event();
 
@@ -57,6 +61,7 @@ namespace Kiwi
 		Channel &operator=(const Channel &) = delete;
 
 	private:
+
 		EventLoop *_owner_event_loop_;
 		const int _fd_;
 
