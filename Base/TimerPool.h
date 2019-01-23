@@ -46,9 +46,10 @@ namespace Kiwi
 		static const int TV_MAX_NUM = 4;
 	private:
 		int64_t _pool_time_;
-		int64_t _jiffy_;
+		int32_t _jiffy_;
 		TimerList _buckets_[TV_MAX_NUM][TV_SIZE];
 		std::unordered_map<TimerID, TimerNode *> _timer_node_ref_;
+		uint32_t _id_counter_;
 	};
 }
 

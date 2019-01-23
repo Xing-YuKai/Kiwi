@@ -24,6 +24,7 @@ namespace Kiwi
 		bool _stoped_;
 		TimerHandler _handler_;
 		TimerID _id_;
+		uint32_t _expire_time_;
 	};
 }
 
