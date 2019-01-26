@@ -10,7 +10,7 @@
 namespace Kiwi
 {
 	using TimerHandler = std::function<void()>;
-	using TimerID = int;
+	using TimerID = uint32_t;
 
 	class TimerNode
 	{
@@ -21,10 +21,10 @@ namespace Kiwi
 		TimerNode();
 
 	private:
-		bool _stoped_;
+		bool _stopped_;
 		TimerHandler _handler_;
 		TimerID _id_;
-		uint32_t _expire_time_;
+		uint64_t _expire_time_;
 	};
 }
 

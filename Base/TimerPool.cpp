@@ -6,17 +6,17 @@
 
 void Kiwi::TimerPool::tick()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		int index = (_jiffy_ >> (TV_BITS * i)) & TV_MASK;
-		if(index == 0)
-	}
 	int index = _jiffy_ & TV_MASK;
-	if (index == 0)
+	for (int i = 1; i <= 3; i++)
 	{
-
+		if (index == 0)
+		{
+			index = (_jiffy_ >> (TV_BITS * i)) & TV_MASK;
+			cascade(1,index);
+		}
 	}
-
+	execute();
+	_jiffy_++;
 }
 
 void Kiwi::TimerPool::execute()
@@ -26,7 +26,7 @@ void Kiwi::TimerPool::execute()
 	_buckets_[0][index].swap(expired_timer);
 	for (auto node_ptr:expired_timer)
 	{
-		if (!node_ptr->_stoped_ && node_ptr->_handler_)
+		if (!node_ptr->_stopped_ && node_ptr->_handler_)
 			node_ptr->_handler_();
 		_timer_node_ref_.erase(node_ptr->_id_);
 	}
@@ -43,8 +43,8 @@ void Kiwi::TimerPool::cascade(const int &tv_num, const int &tv_index)
 
 void Kiwi::TimerPool::add_timer_node(TimerNodePtr node_ptr)
 {
-	uint32_t expire = node_ptr->_expire_time_;
-	uint32_t interval = node_ptr->_expire_time_ - _jiffy_;
+	uint64_t expire = node_ptr->_expire_time_;
+	uint64_t interval = node_ptr->_expire_time_ - _jiffy_;
 	TimerList *list_ptr = nullptr;
 	if (interval < (1 << TV_BITS))
 	{
@@ -68,8 +68,8 @@ void Kiwi::TimerPool::add_timer_node(TimerNodePtr node_ptr)
 
 Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, const Kiwi::TimerHandler &handler)
 {
-	uint32_t time_units = interval.cast_to_10_milliseconds();
-	if (UINT32_MAX - _jiffy_ < time_units)
+	uint64_t time_units = interval.cast_to_10_milliseconds();
+	if (UINT64_MAX - _jiffy_ < time_units)
 	{
 		std::cerr << "TimerPool start_timer error : " << "The interval is too long for this TimerPool" << std::endl
 				  << "Current jiffy of this TimerPool is : " << _jiffy_ << " * 10ms" << std::endl
@@ -86,8 +86,14 @@ Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, cons
 	return node_ptr->_id_;
 }
 
-bool Kiwi::TimerPool::stop_timer(const Kiwi::TimerID &timer_id)
+void Kiwi::TimerPool::stop_timer(const Kiwi::TimerID &timer_id)
 {
 	TimerNodePtr node_ptr = _timer_node_ref_[timer_id];
+	node_ptr->_stopped_ = true;
+}
 
+Kiwi::TimerPool::TimerPool()
+{
+	_timer_node_ref_.rehash(128);
+	_pool_time_ = TimeRange::now().cast_to_10_milliseconds();
 }
