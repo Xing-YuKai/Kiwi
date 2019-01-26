@@ -23,11 +23,11 @@ namespace Kiwi
 		static TimeRange now();
 
 	public:
-		static const uint64_t MILLISECOND_RATIO = 1000;
-		static const uint64_t SECOND_RATIO = 1000 * 1000;
-		static const uint64_t MINUTE_RATIO = 60 * 1000 * 1000;
-		static const uint64_t HOUR_RATIO = 60 * 60 * 1000 * 1000;
-		static const uint64_t DAY_RATIO = 24 * 60 * 60 * 1000 * 1000;
+		static const uint64_t MILLISECOND_RATIO = 1000ULL;
+		static const uint64_t SECOND_RATIO = 1000ULL * 1000ULL;
+		static const uint64_t MINUTE_RATIO = 60ULL * 1000ULL * 1000ULL;
+		static const uint64_t HOUR_RATIO = 60ULL * 60ULL * 1000ULL * 1000ULL;
+		static const uint64_t DAY_RATIO = 24ULL * 60ULL * 60ULL * 1000ULL * 1000ULL;
 	private:
 		uint64_t _micro_second_units_;
 	};

@@ -46,19 +46,19 @@ void Kiwi::TimerPool::add_timer_node(TimerNodePtr node_ptr)
 	uint64_t expire = node_ptr->_expire_time_;
 	uint64_t interval = node_ptr->_expire_time_ - _jiffy_;
 	TimerList *list_ptr = nullptr;
-	if (interval < (1 << TV_BITS))
+	if (interval < (1ULL << TV_BITS))
 	{
 		int index = expire & (TV_MASK);
 		list_ptr = &_buckets_[0][index];
-	} else if (interval < (1 << TV_BITS * 2))
+	} else if (interval < (1ULL << TV_BITS * 2))
 	{
 		int index = (expire >> TV_BITS) & (TV_MASK);
 		list_ptr = &_buckets_[1][index];
-	} else if (interval < (1 << TV_BITS * 3))
+	} else if (interval < (1ULL << TV_BITS * 3))
 	{
 		int index = (expire >> TV_BITS * 2) & (TV_MASK);
 		list_ptr = &_buckets_[2][index];
-	} else if (interval < (1 << TV_BITS * 4))
+	} else if (interval < (1ULL << TV_BITS * 4))
 	{
 		int index = (expire >> TV_BITS * 3) & (TV_MASK);
 		list_ptr = &_buckets_[3][index];
@@ -77,7 +77,7 @@ Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, cons
 		std::terminate();
 	}
 
-	TimerNodePtr node_ptr = std::make_shared();
+	TimerNodePtr node_ptr = std::make_shared<TimerNode>();
 	node_ptr->_id_ = ++_id_counter_;
 	node_ptr->_handler_ = handler;
 	node_ptr->_expire_time_ = time_units + _jiffy_;

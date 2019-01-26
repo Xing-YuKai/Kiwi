@@ -18,7 +18,7 @@ namespace Kiwi
 		friend class TimerPool;
 
 	public:
-		TimerNode();
+		TimerNode() = default;
 
 	private:
 		bool _stopped_;
