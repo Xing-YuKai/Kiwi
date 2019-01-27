@@ -6,12 +6,10 @@
 #define KIWI_TIMERNODE_H
 
 #include <functional>
+#include "Types.h"
 
 namespace Kiwi
 {
-	using TimerHandler = std::function<void()>;
-	using TimerID = uint32_t;
-
 	class TimerNode
 	{
 		friend class TimerPool;
@@ -23,8 +21,8 @@ namespace Kiwi
 
 	private:
 		bool _stopped_;
-		TimerHandler _handler_;
-		TimerID _id_;
+		Type::TimerHandler _handler_;
+		Type::TimerID _id_;
 		uint64_t _expire_time_;
 	};
 }

@@ -4,13 +4,16 @@
 
 #include "TimerPool.h"
 
-Kiwi::TimerPool::TimerPool()
+using namespace Kiwi;
+using namespace Kiwi::Type;
+
+TimerPool::TimerPool()
 {
 	_timer_node_ref_.rehash(128);
 	_pool_time_ = TimeRange::now().cast_to_10_milliseconds();
 }
 
-Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, const Kiwi::TimerHandler &handler)
+TimerID TimerPool::start_timer(const TimeRange &interval, const TimerHandler &handler)
 {
 	uint64_t time_units = interval.cast_to_10_milliseconds();
 	if (UINT64_MAX - _jiffy_ < time_units)
@@ -30,13 +33,13 @@ Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, cons
 	return node_ptr->_id_;
 }
 
-void Kiwi::TimerPool::stop_timer(const Kiwi::TimerID &timer_id)
+void TimerPool::stop_timer(const TimerID &timer_id)
 {
 	TimerNodePtr node_ptr = _timer_node_ref_[timer_id];
 	node_ptr->_stopped_ = true;
 }
 
-void Kiwi::TimerPool::update()
+void TimerPool::update()
 {
 	uint64_t current = TimeRange::now().cast_to_10_milliseconds();
 	uint64_t ticks = current - _pool_time_;
@@ -45,7 +48,7 @@ void Kiwi::TimerPool::update()
 		tick();
 }
 
-void Kiwi::TimerPool::tick()
+void TimerPool::tick()
 {
 	size_t index = _jiffy_ & TV_MASK;
 	for (size_t i = 1; i <= 7; i++)
@@ -60,7 +63,7 @@ void Kiwi::TimerPool::tick()
 	_jiffy_++;
 }
 
-void Kiwi::TimerPool::execute()
+void TimerPool::execute()
 {
 	size_t index = _jiffy_ & TV_MASK;
 	TimerList expired_timer;
@@ -73,7 +76,7 @@ void Kiwi::TimerPool::execute()
 	}
 }
 
-void Kiwi::TimerPool::cascade(const size_t &tv_num, const size_t &tv_index)
+void TimerPool::cascade(const size_t &tv_num, const size_t &tv_index)
 {
 	TimerList list;
 	_buckets_[tv_num][tv_index].swap(list);
@@ -82,7 +85,7 @@ void Kiwi::TimerPool::cascade(const size_t &tv_num, const size_t &tv_index)
 		add_timer_node(node_ptr);
 }
 
-void Kiwi::TimerPool::add_timer_node(const TimerNodePtr &node_ptr)
+void TimerPool::add_timer_node(const TimerNodePtr &node_ptr)
 {
 	uint64_t expire = node_ptr->_expire_time_;
 	uint64_t interval = node_ptr->_expire_time_ - _jiffy_;

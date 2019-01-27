@@ -17,14 +17,11 @@ namespace Kiwi
 	class TimerPool
 	{
 	public:
-		using TimerNodePtr = std::shared_ptr<TimerNode>;
-		using TimerList = std::vector<TimerNodePtr>;
-	public:
 		TimerPool();
 
-		TimerID start_timer(const TimeRange &interval, const TimerHandler &handler);
+		Type::TimerID start_timer(const TimeRange &interval, const Type::TimerHandler &handler);
 
-		void stop_timer(const TimerID &timer_id);
+		void stop_timer(const Type::TimerID &timer_id);
 
 		void update();
 
@@ -41,7 +38,7 @@ namespace Kiwi
 
 		void cascade(const size_t &tv_num, const size_t &tv_index);
 
-		void add_timer_node(const TimerNodePtr &node_ptr);
+		void add_timer_node(const Type::TimerNodePtr &node_ptr);
 
 	private:
 		static const size_t TV_BITS = 8;
@@ -51,8 +48,8 @@ namespace Kiwi
 	private:
 		uint64_t _pool_time_;
 		uint64_t _jiffy_;
-		TimerList _buckets_[TV_MAX_NUM][TV_SIZE];
-		std::unordered_map<TimerID, TimerNodePtr> _timer_node_ref_;
+		Type::TimerList _buckets_[TV_MAX_NUM][TV_SIZE];
+		std::unordered_map<Type::TimerID, Type::TimerNodePtr> _timer_node_ref_;
 		uint32_t _id_counter_;
 	};
 }
