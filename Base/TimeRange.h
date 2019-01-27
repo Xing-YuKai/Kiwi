@@ -14,7 +14,7 @@ namespace Kiwi
 	class TimeRange
 	{
 	public:
-		explicit TimeRange(uint64_t micro_seconds) : _micro_second_units_(micro_seconds) {}
+		explicit TimeRange(uint64_t micro_seconds = 0) : _micro_second_units_(micro_seconds) {}
 
 		uint64_t get_micro_second_units() const { return _micro_second_units_; }
 
@@ -32,5 +32,10 @@ namespace Kiwi
 		uint64_t _micro_second_units_;
 	};
 }
+Kiwi::TimeRange operator "" ms(unsigned long long milliseconds);
+Kiwi::TimeRange operator "" s(unsigned long long seconds);
+Kiwi::TimeRange operator "" min(unsigned long long minutes);
+Kiwi::TimeRange operator "" h(unsigned long long hours);
+Kiwi::TimeRange operator "" day(unsigned long long days);
 
 #endif //KIWI_TIMEPOINT_H

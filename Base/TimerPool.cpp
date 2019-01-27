@@ -4,66 +4,10 @@
 
 #include "TimerPool.h"
 
-void Kiwi::TimerPool::tick()
+Kiwi::TimerPool::TimerPool()
 {
-	int index = _jiffy_ & TV_MASK;
-	for (int i = 1; i <= 3; i++)
-	{
-		if (index == 0)
-		{
-			index = (_jiffy_ >> (TV_BITS * i)) & TV_MASK;
-			cascade(1,index);
-		}
-	}
-	execute();
-	_jiffy_++;
-}
-
-void Kiwi::TimerPool::execute()
-{
-	int index = _jiffy_ & TV_MASK;
-	TimerList expired_timer;
-	_buckets_[0][index].swap(expired_timer);
-	for (auto node_ptr:expired_timer)
-	{
-		if (!node_ptr->_stopped_ && node_ptr->_handler_)
-			node_ptr->_handler_();
-		_timer_node_ref_.erase(node_ptr->_id_);
-	}
-}
-
-void Kiwi::TimerPool::cascade(const int &tv_num, const int &tv_index)
-{
-	TimerList list;
-	_buckets_[tv_num][tv_index].swap(list);
-
-	for (auto node_ptr:list)
-		add_timer_node(node_ptr);
-}
-
-void Kiwi::TimerPool::add_timer_node(TimerNodePtr node_ptr)
-{
-	uint64_t expire = node_ptr->_expire_time_;
-	uint64_t interval = node_ptr->_expire_time_ - _jiffy_;
-	TimerList *list_ptr = nullptr;
-	if (interval < (1ULL << TV_BITS))
-	{
-		int index = expire & (TV_MASK);
-		list_ptr = &_buckets_[0][index];
-	} else if (interval < (1ULL << TV_BITS * 2))
-	{
-		int index = (expire >> TV_BITS) & (TV_MASK);
-		list_ptr = &_buckets_[1][index];
-	} else if (interval < (1ULL << TV_BITS * 3))
-	{
-		int index = (expire >> TV_BITS * 2) & (TV_MASK);
-		list_ptr = &_buckets_[2][index];
-	} else if (interval < (1ULL << TV_BITS * 4))
-	{
-		int index = (expire >> TV_BITS * 3) & (TV_MASK);
-		list_ptr = &_buckets_[3][index];
-	}
-	list_ptr->emplace_back(node_ptr);
+	_timer_node_ref_.rehash(128);
+	_pool_time_ = TimeRange::now().cast_to_10_milliseconds();
 }
 
 Kiwi::TimerID Kiwi::TimerPool::start_timer(const Kiwi::TimeRange &interval, const Kiwi::TimerHandler &handler)
@@ -92,8 +36,87 @@ void Kiwi::TimerPool::stop_timer(const Kiwi::TimerID &timer_id)
 	node_ptr->_stopped_ = true;
 }
 
-Kiwi::TimerPool::TimerPool()
+void Kiwi::TimerPool::update()
 {
-	_timer_node_ref_.rehash(128);
-	_pool_time_ = TimeRange::now().cast_to_10_milliseconds();
+	uint64_t current = TimeRange::now().cast_to_10_milliseconds();
+	uint64_t ticks = current - _pool_time_;
+	_pool_time_ = current;
+	for (uint64_t i = 1; i <= ticks; i++)
+		tick();
+}
+
+void Kiwi::TimerPool::tick()
+{
+	size_t index = _jiffy_ & TV_MASK;
+	for (size_t i = 1; i <= 7; i++)
+	{
+		if (index == 0)
+		{
+			index = (_jiffy_ >> (TV_BITS * i)) & TV_MASK;
+			cascade(i, index);
+		}
+	}
+	execute();
+	_jiffy_++;
+}
+
+void Kiwi::TimerPool::execute()
+{
+	size_t index = _jiffy_ & TV_MASK;
+	TimerList expired_timer;
+	_buckets_[0][index].swap(expired_timer);
+	for (const auto &node_ptr:expired_timer)
+	{
+		if (!node_ptr->_stopped_ && node_ptr->_handler_)
+			node_ptr->_handler_();
+		_timer_node_ref_.erase(node_ptr->_id_);
+	}
+}
+
+void Kiwi::TimerPool::cascade(const size_t &tv_num, const size_t &tv_index)
+{
+	TimerList list;
+	_buckets_[tv_num][tv_index].swap(list);
+
+	for (const auto &node_ptr:list)
+		add_timer_node(node_ptr);
+}
+
+void Kiwi::TimerPool::add_timer_node(const TimerNodePtr &node_ptr)
+{
+	uint64_t expire = node_ptr->_expire_time_;
+	uint64_t interval = node_ptr->_expire_time_ - _jiffy_;
+	if (interval < (1ULL << TV_BITS))
+	{
+		size_t index = expire & (TV_MASK);
+		_buckets_[0][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 2))
+	{
+		size_t index = (expire >> TV_BITS) & (TV_MASK);
+		_buckets_[1][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 3))
+	{
+		size_t index = (expire >> TV_BITS * 2) & (TV_MASK);
+		_buckets_[2][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 4))
+	{
+		size_t index = (expire >> TV_BITS * 3) & (TV_MASK);
+		_buckets_[3][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 5))
+	{
+		size_t index = (expire >> TV_BITS * 4) & (TV_MASK);
+		_buckets_[4][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 6))
+	{
+		size_t index = (expire >> TV_BITS * 5) & (TV_MASK);
+		_buckets_[5][index].emplace_back(node_ptr);
+	} else if (interval < (1ULL << TV_BITS * 7))
+	{
+		size_t index = (expire >> TV_BITS * 6) & (TV_MASK);
+		_buckets_[6][index].emplace_back(node_ptr);
+	} else if (interval < UINT64_MAX)
+	{
+		size_t index = (expire >> TV_BITS * 7) & (TV_MASK);
+		_buckets_[7][index].emplace_back(node_ptr);
+	}
 }

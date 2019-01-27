@@ -14,11 +14,12 @@ namespace Kiwi
 
 	class TimerNode
 	{
-	public:
 		friend class TimerPool;
 
 	public:
 		TimerNode() = default;
+
+		~TimerNode() = default;
 
 	private:
 		bool _stopped_;

@@ -14,27 +14,27 @@ Kiwi::TimeRange Kiwi::TimeRange::now()
 	return res;
 }
 
-Kiwi::TimeRange operator "" ms(uint64_t milliseconds)
+Kiwi::TimeRange operator "" ms(unsigned long long milliseconds)
 {
 	return Kiwi::TimeRange(milliseconds * Kiwi::TimeRange::MILLISECOND_RATIO);
 }
 
-Kiwi::TimeRange operator "" s(uint64_t seconds)
+Kiwi::TimeRange operator "" s(unsigned long long seconds)
 {
 	return Kiwi::TimeRange(seconds * Kiwi::TimeRange::SECOND_RATIO);
 }
 
-Kiwi::TimeRange operator "" min(uint64_t minutes)
+Kiwi::TimeRange operator "" min(unsigned long long minutes)
 {
 	return Kiwi::TimeRange(minutes * Kiwi::TimeRange::MINUTE_RATIO);
 }
 
-Kiwi::TimeRange operator "" h(uint64_t hours)
+Kiwi::TimeRange operator "" h(unsigned long long hours)
 {
 	return Kiwi::TimeRange(hours * Kiwi::TimeRange::HOUR_RATIO);
 }
 
-Kiwi::TimeRange operator "" day(uint64_t days)
+Kiwi::TimeRange operator "" day(unsigned long long days)
 {
 	return Kiwi::TimeRange(days * Kiwi::TimeRange::DAY_RATIO);
 }

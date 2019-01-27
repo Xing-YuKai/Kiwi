@@ -26,7 +26,9 @@ namespace Kiwi
 
 		void stop_timer(const TimerID &timer_id);
 
-		~TimerPool();
+		void update();
+
+		~TimerPool() = default;
 
 		TimerPool(const TimerPool &) = delete;
 
@@ -37,15 +39,15 @@ namespace Kiwi
 
 		void execute();
 
-		void cascade(const int &tv_num, const int &tv_index);
+		void cascade(const size_t &tv_num, const size_t &tv_index);
 
-		void add_timer_node(TimerNodePtr node_ptr);
+		void add_timer_node(const TimerNodePtr &node_ptr);
 
 	private:
-		static const int TV_BITS = 8;
-		static const int TV_SIZE = 1 << TV_BITS;
-		static const int TV_MASK = TV_SIZE - 1;
-		static const int TV_MAX_NUM = 4;
+		static const size_t TV_BITS = 8;
+		static const size_t TV_SIZE = 1ULL << TV_BITS;
+		static const size_t TV_MASK = TV_SIZE - 1;
+		static const size_t TV_MAX_NUM = 8;
 	private:
 		uint64_t _pool_time_;
 		uint64_t _jiffy_;
