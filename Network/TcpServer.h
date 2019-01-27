@@ -5,11 +5,22 @@
 #ifndef KIWI_TCPSERVER_H
 #define KIWI_TCPSERVER_H
 
-
-class TcpServer
+namespace Kiwi
 {
+	class TcpServer
+	{
+	public:
+		TcpServer();
 
-};
+		~TcpServer();
 
+		TcpServer(const TcpServer &) = delete;
+
+		TcpServer &operator=(const TcpServer &) = delete;
+
+	private:
+
+	};
+}
 
 #endif //KIWI_TCPSERVER_H
