@@ -23,6 +23,7 @@ namespace Kiwi
 
 	namespace Type
 	{
+		using Functor = std::function<void()>;
 		using EventHandler = std::function<void()>;
 		using ChannelList = std::vector<Channel *>;
 		using ChannelMap = std::map<int, Channel *>;
