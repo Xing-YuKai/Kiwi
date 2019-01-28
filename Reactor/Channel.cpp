@@ -4,7 +4,10 @@
 
 #include "Channel.h"
 
-Kiwi::Channel::Channel(Kiwi::EventLoop *event_loop, int fd) :
+using namespace Kiwi;
+using namespace Kiwi::Type;
+
+Channel::Channel(EventLoop *event_loop, int fd) :
 		_owner_event_loop_(event_loop),
 		_fd_(fd),
 		_events_(0),
@@ -13,7 +16,7 @@ Kiwi::Channel::Channel(Kiwi::EventLoop *event_loop, int fd) :
 		_in_loop_(false){}
 
 
-void Kiwi::Channel::handle_event()
+void Channel::handle_event()
 {
 	if (_revents_ & EPOLLERR)
 		if (_error_handler_)
@@ -27,7 +30,7 @@ void Kiwi::Channel::handle_event()
 }
 
 
-Kiwi::Channel::~Channel()
+Channel::~Channel()
 {
 
 }

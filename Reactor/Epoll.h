@@ -14,6 +14,7 @@
 #include <map>
 #include "EventLoop.h"
 #include "Channel.h"
+#include "../Base/Types.h"
 
 namespace Kiwi
 {
@@ -21,15 +22,9 @@ namespace Kiwi
 	{
 	public:
 
-		using ChannelList = std::vector<Channel *>;
-		using ChannelMap = std::map<int, Channel *>;
-		using EventList = std::vector<struct epoll_event>;
-
-	public:
-
 		explicit Epoll(EventLoop *event_loop);
 
-		void poll(ChannelList &active_channels);
+		void poll(Type::ChannelList &active_channels);
 
 		void add_channel(Channel *channel);
 
@@ -54,8 +49,8 @@ namespace Kiwi
 	private:
 
 		static const int INIT_EVENT_LIST_SIZE = 16;
-		ChannelMap _channels_;
-		EventList _event_list_;
+		Type::ChannelMap _channels_;
+		Type::EventList _event_list_;
 		EventLoop *_owner_event_loop_;
 		int _epoll_fd_;
 	};

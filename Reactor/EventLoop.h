@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-
+#include "../Base/Types.h"
 
 namespace Kiwi
 {
@@ -21,10 +21,6 @@ namespace Kiwi
 
 	class EventLoop
 	{
-	public:
-
-		using ChannelList = std::vector<Channel *>;
-
 	public:
 
 		EventLoop();
@@ -53,7 +49,7 @@ namespace Kiwi
 		std::atomic<bool> _stop_;
 		std::unique_ptr<Epoll> _epoll_ptr_;
 		std::thread::id _thread_id_;
-		ChannelList _active_channels_;
+		Type::ChannelList _active_channels_;
 	};
 }
 

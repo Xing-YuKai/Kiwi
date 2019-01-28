@@ -8,23 +8,19 @@
 #include <functional>
 #include <sys/epoll.h>
 #include "EventLoop.h"
-
+#include "../Base/Types.h"
 namespace Kiwi
 {
 	class Channel
 	{
 	public:
-
-		using EventHandler = std::function<void()>;
-
-	public:
 		Channel(EventLoop *event_loop, int fd);
 
-		void set_read_handler(const EventHandler &handler) { _read_handler_ = handler; }
+		void set_read_handler(const Type::EventHandler &handler) { _read_handler_ = handler; }
 
-		void set_write_handler(const EventHandler &handler) { _write_handler_ = handler; }
+		void set_write_handler(const Type::EventHandler &handler) { _write_handler_ = handler; }
 
-		void set_error_handler(const EventHandler &handler) { _error_handler_ = handler; }
+		void set_error_handler(const Type::EventHandler &handler) { _error_handler_ = handler; }
 
 		void enable_reading() { _events_ |= READ_EVENT; }
 
@@ -75,9 +71,9 @@ namespace Kiwi
 		uint32_t _events_;
 		uint32_t _revents_;
 
-		EventHandler _read_handler_;
-		EventHandler _write_handler_;
-		EventHandler _error_handler_;
+		Type::EventHandler _read_handler_;
+		Type::EventHandler _write_handler_;
+		Type::EventHandler _error_handler_;
 	};
 }
 

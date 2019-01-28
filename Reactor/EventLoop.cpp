@@ -6,9 +6,12 @@
 #include "Epoll.h"
 #include "Channel.h"
 
-thread_local Kiwi::EventLoop *_thread_local_event_loop_ = nullptr;
+using namespace Kiwi;
+using namespace Kiwi::Type;
 
-Kiwi::EventLoop::EventLoop() :
+thread_local EventLoop *_thread_local_event_loop_ = nullptr;
+
+EventLoop::EventLoop() :
 		_looping_(false),
 		_stop_(false),
 		_thread_id_(std::this_thread::get_id()),
@@ -25,7 +28,7 @@ Kiwi::EventLoop::EventLoop() :
 	}
 }
 
-void Kiwi::EventLoop::loop()
+void EventLoop::loop()
 {
 	if (_looping_.load())
 	{
@@ -46,32 +49,32 @@ void Kiwi::EventLoop::loop()
 	}
 }
 
-void Kiwi::EventLoop::stop()
+void EventLoop::stop()
 {
 	_stop_.store(true);
 }
 
-void Kiwi::EventLoop::add_channel(Channel *channel)
+void EventLoop::add_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
 	_epoll_ptr_->add_channel(channel);
 }
 
-void Kiwi::EventLoop::remove_channel(Channel *channel)
+void EventLoop::remove_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
 	assert(channel->get_loop() == this);
 	_epoll_ptr_->remove_channel(channel);
 }
 
-void Kiwi::EventLoop::update_channel(Channel *channel)
+void EventLoop::update_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
 	assert(channel->get_loop() == this);
 	_epoll_ptr_->update_channel(channel);
 }
 
-void Kiwi::EventLoop::assert_in_event_loop_thread()
+void EventLoop::assert_in_event_loop_thread()
 {
 	if (_thread_id_ != std::this_thread::get_id())
 	{
@@ -81,7 +84,7 @@ void Kiwi::EventLoop::assert_in_event_loop_thread()
 	}
 }
 
-Kiwi::EventLoop::~EventLoop()
+EventLoop::~EventLoop()
 {
 	_thread_local_event_loop_ = nullptr;
 }

@@ -5,8 +5,9 @@
 #include "EventLoopPool.h"
 #include "EventLoop.h"
 
+using namespace Kiwi;
 
-Kiwi::EventLoopPool::EventLoopPool(Kiwi::EventLoop *base_loop, size_t size = 0) :
+EventLoopPool::EventLoopPool(EventLoop *base_loop, size_t size = 0) :
 		_base_loop_(base_loop),
 		_next_(0),
 		_loop_num_(size)
@@ -14,7 +15,7 @@ Kiwi::EventLoopPool::EventLoopPool(Kiwi::EventLoop *base_loop, size_t size = 0) 
 	add_loop(size);
 }
 
-Kiwi::EventLoop *Kiwi::EventLoopPool::get_loop()
+EventLoop *EventLoopPool::get_loop()
 {
 	EventLoop *res = _base_loop_;
 	if (!_loops_.empty())
@@ -25,7 +26,7 @@ Kiwi::EventLoop *Kiwi::EventLoopPool::get_loop()
 	return res;
 }
 
-void Kiwi::EventLoopPool::add_loop(size_t size)
+void EventLoopPool::add_loop(size_t size)
 {
 	EventLoop *loop_ptr;
 	bool flag = false;
@@ -52,7 +53,7 @@ void Kiwi::EventLoopPool::add_loop(size_t size)
 	}
 }
 
-Kiwi::EventLoopPool::~EventLoopPool()
+EventLoopPool::~EventLoopPool()
 {
 	for (auto &ptr : _loops_)
 	{

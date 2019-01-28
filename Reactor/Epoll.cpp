@@ -4,12 +4,15 @@
 
 #include "Epoll.h"
 
-Kiwi::Epoll::Epoll(Kiwi::EventLoop *event_loop) :
+using namespace Kiwi;
+using namespace Kiwi::Type;
+
+Epoll::Epoll(EventLoop *event_loop) :
 		_epoll_fd_(epoll_create(INIT_EVENT_LIST_SIZE)),
 		_owner_event_loop_(event_loop),
 		_event_list_(INIT_EVENT_LIST_SIZE) {}
 
-void Kiwi::Epoll::poll(Kiwi::Epoll::ChannelList &active_channels)
+void Epoll::poll(ChannelList &active_channels)
 {
 	flag:
 	int event_count = epoll_wait(_epoll_fd_, _event_list_.begin().base(), static_cast<int>(_event_list_.size()),
@@ -35,7 +38,7 @@ void Kiwi::Epoll::poll(Kiwi::Epoll::ChannelList &active_channels)
 	}
 }
 
-void Kiwi::Epoll::add_channel(Channel *channel)
+void Epoll::add_channel(Channel *channel)
 {
 	int fd = channel->get_fd();
 	assert(_channels_.find(fd) == _channels_.end());
@@ -43,7 +46,7 @@ void Kiwi::Epoll::add_channel(Channel *channel)
 	epoll_add(channel);
 }
 
-void Kiwi::Epoll::remove_channel(Channel *channel)
+void Epoll::remove_channel(Channel *channel)
 {
 	int fd = channel->get_fd();
 	assert(_channels_.find(fd) != _channels_.end());
@@ -51,19 +54,19 @@ void Kiwi::Epoll::remove_channel(Channel *channel)
 	epoll_del(channel);
 }
 
-void Kiwi::Epoll::update_channel(Channel *channel)
+void Epoll::update_channel(Channel *channel)
 {
 	int fd = channel->get_fd();
 	assert(_channels_.find(fd) != _channels_.end());
 	epoll_mod(channel);
 }
 
-Kiwi::Epoll::~Epoll()
+Epoll::~Epoll()
 {
 	close(_epoll_fd_);
 }
 
-void Kiwi::Epoll::epoll_add(Channel *channel)
+void Epoll::epoll_add(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
@@ -83,7 +86,7 @@ void Kiwi::Epoll::epoll_add(Channel *channel)
 	}
 }
 
-void Kiwi::Epoll::epoll_del(Channel *channel)
+void Epoll::epoll_del(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
@@ -97,7 +100,7 @@ void Kiwi::Epoll::epoll_del(Channel *channel)
 	}
 }
 
-void Kiwi::Epoll::epoll_mod(Channel *channel)
+void Epoll::epoll_mod(Channel *channel)
 {
 	int fd = channel->get_fd();
 	struct epoll_event event{};
