@@ -42,7 +42,7 @@ void EventLoop::loop()
 	{
 		_active_channels_.clear();
 		_epoll_ptr_->poll(_active_channels_);
-		for (Channel* channel:_active_channels_)
+		for (Channel *channel:_active_channels_)
 		{
 			channel->handle_event();
 		}
@@ -87,4 +87,49 @@ void EventLoop::assert_in_event_loop_thread()
 EventLoop::~EventLoop()
 {
 	_thread_local_event_loop_ = nullptr;
+}
+
+void EventLoop::run_in_loop(Functor functor)
+{
+	if (std::this_thread::get_id() == _thread_id_)
+	{
+		functor();
+	} else
+	{
+		{
+			std::lock_guard<std::mutex> lock_guard(_mutex_);
+			_pending_functors_.emplace_back(std::move(functor));
+		}
+		if (_handling_functors_.load() || std::this_thread::get_id() != _thread_id_)
+		{
+			wakeup();
+		}
+	}
+}
+
+std::future<Type::TimerID> EventLoop::run_after(TimerHandler handler, TimeRange interval)
+{
+	auto functor_ptr = std::make_shared<std::packaged_task<Type::TimerID()>>(
+			[this, handler, interval] -> TimerID { return this->_timer_pool_->start_timer(interval, handler); });
+
+	std::future<Type::TimerID> res = functor_ptr->get_future();
+
+	run_in_loop([functor_ptr] { (*functor_ptr)(); });
+
+	return res;
+}
+
+void EventLoop::cancel_in_loop(std::future<TimerID> future)
+{
+	run_in_loop([this, future] { this->_timer_pool_->stop_timer(future.get()); });
+}
+
+void EventLoop::wakeup()
+{
+	
+}
+
+void EventLoop::handle_pending_functors()
+{
+
 }
