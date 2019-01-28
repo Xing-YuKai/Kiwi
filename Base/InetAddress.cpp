@@ -4,22 +4,24 @@
 
 #include "InetAddress.h"
 
-Kiwi::InetAddress::InetAddress()
+using namespace Kiwi;
+
+InetAddress::InetAddress()
 {
 	bzero(&_inet_addr_, sizeof(_inet_addr_));
 	_inet_addr_.sin_family = AF_INET;
 }
 
-Kiwi::InetAddress::InetAddress(sockaddr_in sockaddr) :
+InetAddress::InetAddress(sockaddr_in sockaddr) :
 		_inet_addr_(sockaddr) {}
 
-Kiwi::InetAddress::InetAddress(uint16_t port, std::string address)
+InetAddress::InetAddress(uint16_t port, std::string address)
 {
 	bzero(&_inet_addr_, sizeof(_inet_addr_));
 	_inet_addr_.sin_family = AF_INET;
 }
 
-void Kiwi::InetAddress::set_address(std::string address)
+void InetAddress::set_address(std::string address)
 {
 	int retval = inet_pton(AF_INET, address.data(), &_inet_addr_.sin_addr);
 	if (retval == 0)
@@ -34,7 +36,7 @@ void Kiwi::InetAddress::set_address(std::string address)
 	}
 }
 
-std::string Kiwi::InetAddress::get_address() const
+std::string InetAddress::get_address() const
 {
 	char buf[16];
 	const char *retval = inet_ntop(AF_INET, &_inet_addr_.sin_addr, buf, 16);
@@ -47,17 +49,17 @@ std::string Kiwi::InetAddress::get_address() const
 	return res;
 }
 
-void Kiwi::InetAddress::set_port(uint16_t port)
+void InetAddress::set_port(uint16_t port)
 {
 	_inet_addr_.sin_port = htons(port);
 }
 
-uint16_t Kiwi::InetAddress::get_port() const
+uint16_t InetAddress::get_port() const
 {
 	return ntohs(_inet_addr_.sin_port);
 }
 
-sockaddr_in Kiwi::InetAddress::get_sockaddr_in() const
+sockaddr_in InetAddress::get_sockaddr_in() const
 {
 	return _inet_addr_;
 }

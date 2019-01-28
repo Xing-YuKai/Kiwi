@@ -4,7 +4,9 @@
 
 #include "Semaphore.h"
 
-Kiwi::Semaphore::Semaphore(const unsigned int &value, bool pshared)
+using namespace Kiwi;
+
+Semaphore::Semaphore(const unsigned int &value, bool pshared)
 {
 	int retval = sem_init(&_sem_, pshared, value);
 	if (retval < 0)
@@ -14,7 +16,7 @@ Kiwi::Semaphore::Semaphore(const unsigned int &value, bool pshared)
 	}
 }
 
-void Kiwi::Semaphore::post()
+void Semaphore::post()
 {
 	int retval = sem_post(&_sem_);
 	if (retval < 0)
@@ -24,7 +26,7 @@ void Kiwi::Semaphore::post()
 	}
 }
 
-void Kiwi::Semaphore::wait()
+void Semaphore::wait()
 {
 	int retval;
 	flag:
@@ -42,7 +44,7 @@ void Kiwi::Semaphore::wait()
 	}
 }
 
-bool Kiwi::Semaphore::try_wait()
+bool Semaphore::try_wait()
 {
 	int retval;
 	flag:
@@ -63,7 +65,7 @@ bool Kiwi::Semaphore::try_wait()
 	return true;
 }
 
-int Kiwi::Semaphore::get_value()
+int Semaphore::get_value()
 {
 	int res;
 	int retval = sem_getvalue(&_sem_, &res);
@@ -75,7 +77,7 @@ int Kiwi::Semaphore::get_value()
 	return res;
 }
 
-Kiwi::Semaphore::~Semaphore()
+Semaphore::~Semaphore()
 {
 	int retval = sem_destroy(&_sem_);
 	if (retval < 0)

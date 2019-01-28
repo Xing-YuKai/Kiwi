@@ -13,7 +13,13 @@
 namespace Kiwi
 {
 	class Channel;
+
 	class TimerNode;
+
+	class TimeRange
+	class TcpConnection;
+
+	class Buffer;
 
 	namespace Type
 	{
@@ -25,6 +31,11 @@ namespace Kiwi
 		using TimerList = std::vector<TimerNodePtr>;
 		using TimerHandler = std::function<void()>;
 		using TimerID = uint32_t;
+		using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
+		using BufferPtr = std::shared_ptr<Buffer>;
+		using MessageHandler = std::function<void(const TcpConnectionPtr &)>;
+		using ConnectionHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
+		using WriteCompleteHandler = std::function<void(const TcpConnectionPtr &)>;
 	}
 }
 #endif //KIWI_TYPES_H

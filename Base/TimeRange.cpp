@@ -4,7 +4,9 @@
 
 #include "TimeRange.h"
 
-Kiwi::TimeRange Kiwi::TimeRange::now()
+using namespace Kiwi;
+
+TimeRange TimeRange::now()
 {
 	struct timeval tv{};
 	gettimeofday(&tv, nullptr);
@@ -14,27 +16,27 @@ Kiwi::TimeRange Kiwi::TimeRange::now()
 	return res;
 }
 
-Kiwi::TimeRange operator "" ms(unsigned long long milliseconds)
+TimeRange operator "" ms(unsigned long long milliseconds)
 {
-	return Kiwi::TimeRange(milliseconds * Kiwi::TimeRange::MILLISECOND_RATIO);
+	return TimeRange(milliseconds * TimeRange::MILLISECOND_RATIO);
 }
 
-Kiwi::TimeRange operator "" s(unsigned long long seconds)
+TimeRange operator "" s(unsigned long long seconds)
 {
-	return Kiwi::TimeRange(seconds * Kiwi::TimeRange::SECOND_RATIO);
+	return TimeRange(seconds * TimeRange::SECOND_RATIO);
 }
 
-Kiwi::TimeRange operator "" min(unsigned long long minutes)
+TimeRange operator "" min(unsigned long long minutes)
 {
-	return Kiwi::TimeRange(minutes * Kiwi::TimeRange::MINUTE_RATIO);
+	return TimeRange(minutes * TimeRange::MINUTE_RATIO);
 }
 
-Kiwi::TimeRange operator "" h(unsigned long long hours)
+TimeRange operator "" h(unsigned long long hours)
 {
-	return Kiwi::TimeRange(hours * Kiwi::TimeRange::HOUR_RATIO);
+	return TimeRange(hours * TimeRange::HOUR_RATIO);
 }
 
-Kiwi::TimeRange operator "" day(unsigned long long days)
+TimeRange operator "" day(unsigned long long days)
 {
-	return Kiwi::TimeRange(days * Kiwi::TimeRange::DAY_RATIO);
+	return TimeRange(days * TimeRange::DAY_RATIO);
 }

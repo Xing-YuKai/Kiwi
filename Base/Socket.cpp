@@ -4,10 +4,12 @@
 
 #include "Socket.h"
 
-Kiwi::Socket::Socket(int socket_fd) :
+using namespace Kiwi;
+
+Socket::Socket(int socket_fd) :
 		_socket_fd_(socket_fd) {}
 
-void Kiwi::Socket::connect(const Kiwi::InetAddress &addr)
+void Socket::connect(const InetAddress &addr)
 {
 	sockaddr_in tmp = addr.get_sockaddr_in();
 	int retval;
@@ -26,7 +28,7 @@ void Kiwi::Socket::connect(const Kiwi::InetAddress &addr)
 	}
 }
 
-void Kiwi::Socket::bind(const Kiwi::InetAddress &addr)
+void Socket::bind(const InetAddress &addr)
 {
 	sockaddr_in tmp = addr.get_sockaddr_in();
 	int retval = ::bind(_socket_fd_, (const sockaddr *) &tmp, sizeof(tmp));
@@ -37,7 +39,7 @@ void Kiwi::Socket::bind(const Kiwi::InetAddress &addr)
 	}
 }
 
-void Kiwi::Socket::listen()
+void Socket::listen()
 {
 	int retval = ::listen(_socket_fd_, BACKLOG_SIZE);
 	if (retval < 0)
@@ -47,7 +49,7 @@ void Kiwi::Socket::listen()
 	}
 }
 
-Kiwi::Socket Kiwi::Socket::accept(Kiwi::InetAddress &addr)
+Socket Socket::accept(InetAddress &addr)
 {
 	sockaddr_in tmp = addr.get_sockaddr_in();
 	socklen_t len = sizeof(tmp);
@@ -71,7 +73,7 @@ Kiwi::Socket Kiwi::Socket::accept(Kiwi::InetAddress &addr)
 	return res;
 }
 
-void Kiwi::Socket::set_tcp_no_delay(bool on)
+void Socket::set_tcp_no_delay(bool on)
 {
 	int optval = on ? 1 : 0;
 	int retval = setsockopt(_socket_fd_, IPPROTO_TCP, TCP_NODELAY, &optval, static_cast<socklen_t >(sizeof(optval)));
@@ -82,7 +84,7 @@ void Kiwi::Socket::set_tcp_no_delay(bool on)
 	}
 }
 
-void Kiwi::Socket::set_keep_alive(bool on)
+void Socket::set_keep_alive(bool on)
 {
 	int optval = on ? 1 : 0;
 	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_KEEPALIVE, &optval, static_cast<socklen_t >(sizeof(optval)));
@@ -93,7 +95,7 @@ void Kiwi::Socket::set_keep_alive(bool on)
 	}
 }
 
-void Kiwi::Socket::set_reuse_address(bool on)
+void Socket::set_reuse_address(bool on)
 {
 	int optval = on ? 1 : 0;
 	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_REUSEADDR, &optval, static_cast<socklen_t >(sizeof(optval)));
@@ -104,7 +106,7 @@ void Kiwi::Socket::set_reuse_address(bool on)
 	}
 }
 
-void Kiwi::Socket::set_reuse_port(bool on)
+void Socket::set_reuse_port(bool on)
 {
 	int optval = on ? 1 : 0;
 	int retval = setsockopt(_socket_fd_, SOL_SOCKET, SO_REUSEPORT, &optval, static_cast<socklen_t >(sizeof(optval)));
@@ -115,7 +117,7 @@ void Kiwi::Socket::set_reuse_port(bool on)
 	}
 }
 
-Kiwi::Socket::~Socket()
+Socket::~Socket()
 {
 	close(_socket_fd_);
 }
