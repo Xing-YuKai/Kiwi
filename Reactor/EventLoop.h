@@ -15,7 +15,6 @@
 #include <queue>
 #include <memory>
 #include "../Base/Types.h"
-#include "../Base/TimeRange.h"
 #include "../Base/TimerPool.h"
 
 namespace Kiwi
@@ -64,12 +63,15 @@ namespace Kiwi
 		void wakeup_read_handler();
 
 	private:
+		static const int EPOLL_WAIT_TIME_OUT = 50;
+
 		std::mutex _mutex_;
 		std::atomic<bool> _looping_;
 		std::atomic<bool> _stop_;
+		std::atomic<bool> _handling_events_;
 		std::atomic<bool> _handling_functors_;
 		std::unique_ptr<Epoll> _epoll_ptr_;
-		std::unique_ptr<TimerPool> _timer_pool_;
+		std::unique_ptr<TimerPool> _timer_pool_ptr_;
 		std::unique_ptr<Channel> _wakeup_channel_;
 		std::vector<Type::Functor> _pending_functors_;
 		std::thread::id _thread_id_;

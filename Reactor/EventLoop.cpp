@@ -28,11 +28,12 @@ namespace
 EventLoop::EventLoop() :
 		_looping_(false),
 		_stop_(false),
+		_handling_events_(false),
 		_handling_functors_(false),
-		_thread_id_(std::this_thread::get_id()),
 		_epoll_ptr_(new Epoll(this)),
-		_timer_pool_(new TimerPool),
-		_wakeup_channel_(new Channel(this, create_eventfd()))
+		_timer_pool_ptr_(new TimerPool),
+		_wakeup_channel_(new Channel(this, create_eventfd())),
+		_thread_id_(std::this_thread::get_id())
 {
 	if (_thread_local_event_loop_)
 	{
@@ -43,8 +44,10 @@ EventLoop::EventLoop() :
 	{
 		_thread_local_event_loop_ = this;
 	}
-	EventHandler handler = std::bind(&EventLoop::wakeup_read_handler, this);
+	ReadEventHandler handler = std::bind(&EventLoop::wakeup_read_handler, this);
 	_wakeup_channel_->set_read_handler(handler);
+	_wakeup_channel_->enable_reading();
+	_wakeup_channel_->update();
 }
 
 void EventLoop::loop()
@@ -60,17 +63,28 @@ void EventLoop::loop()
 	while (!_stop_.load())
 	{
 		_active_channels_.clear();
-		_epoll_ptr_->poll(_active_channels_);
+
+		TimeRange ret_time = _epoll_ptr_->poll(_active_channels_, EPOLL_WAIT_TIME_OUT);
+		_timer_pool_ptr_->update();
+
+		_handling_events_.store(true);
 		for (Channel *channel:_active_channels_)
 		{
-			channel->handle_event();
+			channel->handle_event(TimeRange());
 		}
+		_handling_events_.store(false);
+
+		handle_pending_functors();
 	}
+
+	_looping_.store(false);
 }
 
 void EventLoop::stop()
 {
 	_stop_.store(true);
+	if (std::this_thread::get_id() != _thread_id_)
+		wakeup();
 }
 
 void EventLoop::add_channel(Channel *channel)
@@ -122,7 +136,7 @@ void EventLoop::run_in_loop(Functor functor)
 std::future<Type::TimerID> EventLoop::run_after(TimerHandler handler, TimeRange interval)
 {
 	auto functor_ptr = std::make_shared<std::packaged_task<Type::TimerID()>>(
-			[this, handler, interval]() -> TimerID { return this->_timer_pool_->start_timer(interval, handler); });
+			[this, handler, interval]() -> TimerID { return this->_timer_pool_ptr_->start_timer(interval, handler); });
 
 	std::future<Type::TimerID> res = functor_ptr->get_future();
 
@@ -136,7 +150,7 @@ void EventLoop::cancel_in_loop(std::future<TimerID> future)
 	run_in_loop([this, &future]
 				{
 					TimerID id = future.get();
-					this->_timer_pool_->stop_timer(id);
+					this->_timer_pool_ptr_->stop_timer(id);
 				});
 }
 

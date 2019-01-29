@@ -24,7 +24,7 @@ namespace Kiwi
 
 		explicit Epoll(EventLoop *event_loop);
 
-		void poll(Type::ChannelList &active_channels);
+		TimeRange poll(Type::ChannelList &active_channels, int time_out_ms);
 
 		void add_channel(Channel *channel);
 
@@ -33,6 +33,7 @@ namespace Kiwi
 		void update_channel(Channel *channel);
 
 		bool has_channel(Channel *channel);
+
 
 		~Epoll();
 
@@ -49,7 +50,6 @@ namespace Kiwi
 		void epoll_mod(Channel *channel);
 
 	private:
-
 		static const int INIT_EVENT_LIST_SIZE = 16;
 		Type::ChannelMap _channels_;
 		Type::EventList _event_list_;

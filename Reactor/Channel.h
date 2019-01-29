@@ -9,6 +9,7 @@
 #include <sys/epoll.h>
 #include "EventLoop.h"
 #include "../Base/Types.h"
+
 namespace Kiwi
 {
 	class Channel
@@ -16,7 +17,7 @@ namespace Kiwi
 	public:
 		Channel(EventLoop *event_loop, int fd);
 
-		void set_read_handler(Type::EventHandler handler) { _read_handler_ = std::move(handler); }
+		void set_read_handler(Type::ReadEventHandler handler) { _read_handler_ = std::move(handler); }
 
 		void set_write_handler(Type::EventHandler handler) { _write_handler_ = std::move(handler); }
 
@@ -38,7 +39,7 @@ namespace Kiwi
 
 		bool is_none_event() const { return _events_ == NONE_EVENT; }
 
-		void handle_event();
+		void handle_event(TimeRange receive_time);
 
 		void set_events(uint32_t events) { _events_ = events; }
 
@@ -50,6 +51,10 @@ namespace Kiwi
 
 		EventLoop *get_loop() const { return _owner_event_loop_; }
 
+		void update();
+
+		void remove();
+
 		~Channel();
 
 		Channel(const Channel &) = delete;
@@ -57,8 +62,6 @@ namespace Kiwi
 		Channel &operator=(const Channel &) = delete;
 
 	private:
-		void update();
-
 		EventLoop *_owner_event_loop_;
 		const int _fd_;
 
@@ -72,7 +75,7 @@ namespace Kiwi
 		uint32_t _events_;
 		uint32_t _revents_;
 
-		Type::EventHandler _read_handler_;
+		Type::ReadEventHandler _read_handler_;
 		Type::EventHandler _write_handler_;
 		Type::EventHandler _error_handler_;
 	};

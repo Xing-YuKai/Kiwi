@@ -12,34 +12,45 @@ Channel::Channel(EventLoop *event_loop, int fd) :
 		_fd_(fd),
 		_events_(0),
 		_revents_(0),
-		_handling_event_(false),
-		_in_loop_(false) {}
+		_in_loop_(false),
+		_handling_event_(false) {}
 
 
-void Channel::handle_event()
+void Channel::handle_event(TimeRange receive_time)
 {
+	_handling_event_ = true;
+
 	if (_revents_ & EPOLLERR)
 		if (_error_handler_)
 			_error_handler_();
 	if (_revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
 		if (_read_handler_)
-			_read_handler_();
+			_read_handler_(receive_time);
 	if (_revents_ & EPOLLOUT)
 		if (_write_handler_)
 			_write_handler_();
-}
 
-
-Channel::~Channel()
-{
-
+	_handling_event_ = false;
 }
 
 void Channel::update()
 {
+	_in_loop_ = true;
+
 	if (_owner_event_loop_->has_channel(this))
 		_owner_event_loop_->update_channel(this);
 	else
 		_owner_event_loop_->add_channel(this);
 }
 
+void Channel::remove()
+{
+	_in_loop_ = false;
+	_owner_event_loop_->remove_channel(this);
+}
+
+Channel::~Channel()
+{
+	assert(_in_loop_);
+	assert(_handling_event_);
+}

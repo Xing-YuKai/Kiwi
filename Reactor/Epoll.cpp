@@ -12,11 +12,12 @@ Epoll::Epoll(EventLoop *event_loop) :
 		_owner_event_loop_(event_loop),
 		_event_list_(INIT_EVENT_LIST_SIZE) {}
 
-void Epoll::poll(ChannelList &active_channels)
+TimeRange Epoll::poll(Type::ChannelList &active_channels, int time_out_ms)
 {
 	flag:
 	int event_count = epoll_wait(_epoll_fd_, _event_list_.begin().base(), static_cast<int>(_event_list_.size()),
-								 -1);
+								 time_out_ms);
+	TimeRange time = TimeRange::now();
 	if (event_count < 0)
 	{
 		switch (errno)
@@ -36,6 +37,7 @@ void Epoll::poll(ChannelList &active_channels)
 			active_channels.emplace_back(channel);
 		}
 	}
+	return time;
 }
 
 void Epoll::add_channel(Channel *channel)
