@@ -26,6 +26,7 @@ namespace Kiwi
 	{
 		using Functor = std::function<void()>;
 		using EventHandler = std::function<void()>;
+		using ReadEventHandler = std::function<void(TimeRange)>;
 		using ChannelList = std::vector<Channel *>;
 		using ChannelMap = std::map<int, Channel *>;
 		using EventList = std::vector<struct epoll_event>;
