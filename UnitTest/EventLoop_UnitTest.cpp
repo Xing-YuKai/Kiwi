@@ -19,7 +19,7 @@ void echo_cli(int sockfd);
 
 void fun(char buffer[],int sockfd)
 {
-	memset(buffer, 0, sizeof(buffer));
+	memset(buffer, 0, BUFFER_SIZE);
 	read(sockfd, buffer, BUFFER_SIZE);
 	printf("read msg:%s\n", buffer);
 }
