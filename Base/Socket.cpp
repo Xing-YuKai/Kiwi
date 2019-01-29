@@ -60,7 +60,6 @@ Socket Socket::accept(InetAddress &addr)
 	{
 		switch (errno)
 		{
-			case EAGAIN:
 			case EWOULDBLOCK:
 			case EINTR:
 				goto flag;

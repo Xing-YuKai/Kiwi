@@ -16,7 +16,8 @@ namespace Kiwi
 
 	class TimerNode;
 
-	class TimeRange
+	class TimeRange;
+
 	class TcpConnection;
 
 	class Buffer;

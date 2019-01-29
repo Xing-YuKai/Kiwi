@@ -32,10 +32,10 @@ namespace Kiwi
 		uint64_t _micro_second_units_;
 	};
 }
-Kiwi::TimeRange operator "" ms(unsigned long long milliseconds);
-Kiwi::TimeRange operator "" s(unsigned long long seconds);
-Kiwi::TimeRange operator "" min(unsigned long long minutes);
-Kiwi::TimeRange operator "" h(unsigned long long hours);
-Kiwi::TimeRange operator "" day(unsigned long long days);
+Kiwi::TimeRange operator ""_ms(unsigned long long milliseconds);
+Kiwi::TimeRange operator ""_s(unsigned long long seconds);
+Kiwi::TimeRange operator ""_min(unsigned long long minutes);
+Kiwi::TimeRange operator ""_h(unsigned long long hours);
+Kiwi::TimeRange operator ""_day(unsigned long long days);
 
 #endif //KIWI_TIMEPOINT_H
