@@ -13,7 +13,7 @@ Channel::Channel(EventLoop *event_loop, int fd) :
 		_events_(0),
 		_revents_(0),
 		_handling_event_(false),
-		_in_loop_(false){}
+		_in_loop_(false) {}
 
 
 void Channel::handle_event()
@@ -33,5 +33,13 @@ void Channel::handle_event()
 Channel::~Channel()
 {
 
+}
+
+void Channel::update()
+{
+	if (_owner_event_loop_->has_channel(this))
+		_owner_event_loop_->update_channel(this);
+	else
+		_owner_event_loop_->add_channel(this);
 }
 

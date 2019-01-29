@@ -9,13 +9,30 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-thread_local EventLoop *_thread_local_event_loop_ = nullptr;
+namespace
+{
+	thread_local EventLoop *_thread_local_event_loop_ = nullptr;
+
+	int create_eventfd()
+	{
+		int fd = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK);
+		if (fd < 0)
+		{
+			std::cerr << "create_eventfd error : " << errno << strerror(errno) << std::endl;
+			std::terminate();
+		}
+		return fd;
+	}
+}
 
 EventLoop::EventLoop() :
 		_looping_(false),
 		_stop_(false),
+		_handling_functors_(false),
 		_thread_id_(std::this_thread::get_id()),
-		_epoll_ptr_(new Epoll(this))
+		_epoll_ptr_(new Epoll(this)),
+		_timer_pool_(new TimerPool),
+		_wakeup_channel_(new Channel(this, create_eventfd()))
 {
 	if (_thread_local_event_loop_)
 	{
@@ -26,6 +43,8 @@ EventLoop::EventLoop() :
 	{
 		_thread_local_event_loop_ = this;
 	}
+	EventHandler handler = std::bind(&EventLoop::wakeup_read_handler, this);
+	_wakeup_channel_->set_read_handler(handler);
 }
 
 void EventLoop::loop()
@@ -57,6 +76,7 @@ void EventLoop::stop()
 void EventLoop::add_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
+	assert(channel->get_loop() == this);
 	_epoll_ptr_->add_channel(channel);
 }
 
@@ -74,19 +94,11 @@ void EventLoop::update_channel(Channel *channel)
 	_epoll_ptr_->update_channel(channel);
 }
 
-void EventLoop::assert_in_event_loop_thread()
+bool EventLoop::has_channel(Channel *channel)
 {
-	if (_thread_id_ != std::this_thread::get_id())
-	{
-		std::cerr << "EventLoop assert_in_event_loop_thread error : " << "EventLoop thread "
-				  << _thread_id_ << "is not this thread" << std::this_thread::get_id() << std::endl;
-		std::terminate();
-	}
-}
-
-EventLoop::~EventLoop()
-{
-	_thread_local_event_loop_ = nullptr;
+	assert_in_event_loop_thread();
+	assert(channel->get_loop() == this);
+	return _epoll_ptr_->has_channel(channel);
 }
 
 void EventLoop::run_in_loop(Functor functor)
@@ -110,7 +122,7 @@ void EventLoop::run_in_loop(Functor functor)
 std::future<Type::TimerID> EventLoop::run_after(TimerHandler handler, TimeRange interval)
 {
 	auto functor_ptr = std::make_shared<std::packaged_task<Type::TimerID()>>(
-			[this, handler, interval] -> TimerID { return this->_timer_pool_->start_timer(interval, handler); });
+			[this, handler, interval]() -> TimerID { return this->_timer_pool_->start_timer(interval, handler); });
 
 	std::future<Type::TimerID> res = functor_ptr->get_future();
 
@@ -121,15 +133,61 @@ std::future<Type::TimerID> EventLoop::run_after(TimerHandler handler, TimeRange 
 
 void EventLoop::cancel_in_loop(std::future<TimerID> future)
 {
-	run_in_loop([this, future] { this->_timer_pool_->stop_timer(future.get()); });
+	run_in_loop([this, &future]
+				{
+					TimerID id = future.get();
+					this->_timer_pool_->stop_timer(id);
+				});
 }
 
 void EventLoop::wakeup()
 {
-	
+	int32_t data = 1;
+	ssize_t n = write(_wakeup_channel_->get_fd(), &data, sizeof(data));
+	if (n != sizeof(data))
+	{
+		std::cerr << "wakeup error : write " << n << "bytes instead of " << sizeof(data) << std::endl;
+		std::terminate();
+	}
 }
 
 void EventLoop::handle_pending_functors()
 {
+	std::vector<Functor> functors;
+	_handling_functors_.store(true);
 
+	{
+		std::lock_guard<std::mutex> lock_guard(_mutex_);
+		functors.swap(_pending_functors_);
+	}
+	for (const auto &functor:functors)
+		functor();
+
+	_handling_functors_.store(false);
+}
+
+void EventLoop::assert_in_event_loop_thread()
+{
+	if (_thread_id_ != std::this_thread::get_id())
+	{
+		std::cerr << "EventLoop assert_in_event_loop_thread error : " << "EventLoop thread "
+				  << _thread_id_ << "is not this thread" << std::this_thread::get_id() << std::endl;
+		std::terminate();
+	}
+}
+
+EventLoop::~EventLoop()
+{
+	_thread_local_event_loop_ = nullptr;
+}
+
+void EventLoop::wakeup_read_handler()
+{
+	int32_t data = 1;
+	ssize_t n = read(_wakeup_channel_->get_fd(), &data, sizeof(data));
+	if (n != sizeof(data))
+	{
+		std::cerr << "wakeup error : write " << n << "bytes instead of " << sizeof(data) << std::endl;
+		std::terminate();
+	}
 }

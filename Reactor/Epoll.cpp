@@ -61,6 +61,12 @@ void Epoll::update_channel(Channel *channel)
 	epoll_mod(channel);
 }
 
+bool Epoll::has_channel(Channel *channel)
+{
+	int fd = channel->get_fd();
+	return _channels_.find(fd) != _channels_.end();
+}
+
 Epoll::~Epoll()
 {
 	close(_epoll_fd_);

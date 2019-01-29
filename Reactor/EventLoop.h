@@ -6,6 +6,7 @@
 #define KIWI_EVENT_LOOP_H
 
 #include <cassert>
+#include <sys/eventfd.h>
 #include <atomic>
 #include <future>
 #include <thread>
@@ -39,6 +40,8 @@ namespace Kiwi
 
 		void update_channel(Channel *channel);
 
+		bool has_channel(Channel *channel);
+
 		void run_in_loop(Type::Functor functor);
 
 		std::future<Type::TimerID> run_after(Type::TimerHandler handler, TimeRange interval);
@@ -55,7 +58,11 @@ namespace Kiwi
 
 	private:
 		void wakeup();
+
 		void handle_pending_functors();
+
+		void wakeup_read_handler();
+
 	private:
 		std::mutex _mutex_;
 		std::atomic<bool> _looping_;
@@ -63,7 +70,7 @@ namespace Kiwi
 		std::atomic<bool> _handling_functors_;
 		std::unique_ptr<Epoll> _epoll_ptr_;
 		std::unique_ptr<TimerPool> _timer_pool_;
-		std::unique_ptr<Channel> _wakeup_channel;
+		std::unique_ptr<Channel> _wakeup_channel_;
 		std::vector<Type::Functor> _pending_functors_;
 		std::thread::id _thread_id_;
 		Type::ChannelList _active_channels_;

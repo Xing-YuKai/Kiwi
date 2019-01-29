@@ -32,6 +32,8 @@ namespace Kiwi
 
 		void update_channel(Channel *channel);
 
+		bool has_channel(Channel *channel);
+
 		~Epoll();
 
 		Epoll(const Epoll &) = delete;
