@@ -17,6 +17,8 @@ namespace Kiwi
 	public:
 		static const int BACKLOG_SIZE = 16;
 
+		static Socket nonblocking_socket();
+
 		explicit Socket(int socket_fd);
 
 		void connect(const InetAddress &addr);
@@ -35,7 +37,10 @@ namespace Kiwi
 
 		void set_reuse_port(bool on);
 
-		~Socket();
+		int get_fd() const { return _socket_fd_; }
+
+		~Socket() = default;
+
 	private:
 		int _socket_fd_;
 	};

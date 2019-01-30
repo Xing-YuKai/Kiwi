@@ -38,6 +38,7 @@ namespace Kiwi
 		using BufferPtr = std::shared_ptr<Buffer>;
 		using MessageHandler = std::function<void(const TcpConnectionPtr &)>;
 		using ConnectionHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
+		using NewConnectionHandler = std::function<void()>;
 		using WriteCompleteHandler = std::function<void(const TcpConnectionPtr &)>;
 	}
 }

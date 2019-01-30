@@ -6,6 +6,17 @@
 
 using namespace Kiwi;
 
+Socket Socket::nonblocking_socket()
+{
+	int retval = ::socket(AF_INET,SOCK_STREAM|SOCK_NONBLOCK|SOCK_CLOEXEC,IPPROTO_TCP);
+	if (retval < 0)
+	{
+		std::cerr << "Socket nonblocking_socket error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+	return Socket(retval);
+}
+
 Socket::Socket(int socket_fd) :
 		_socket_fd_(socket_fd) {}
 
@@ -114,9 +125,4 @@ void Socket::set_reuse_port(bool on)
 		std::cerr << "Socket set_reuse_port error : " << errno << " " << strerror(errno) << std::endl;
 		std::terminate();
 	}
-}
-
-Socket::~Socket()
-{
-	close(_socket_fd_);
 }
