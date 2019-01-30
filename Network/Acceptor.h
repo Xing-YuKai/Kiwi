@@ -5,6 +5,7 @@
 #ifndef KIWI_ACCEPTOR_H
 #define KIWI_ACCEPTOR_H
 
+#include "../Base/Types.h"
 #include "../Base/Socket.h"
 #include "../Reactor/Channel.h"
 
@@ -15,7 +16,7 @@ namespace Kiwi
 	class Acceptor
 	{
 	public:
-		Acceptor(EventLoop* loop,const InetAddress & address);
+		Acceptor(Type::EventLoopPtr loop, const InetAddress &address);
 
 		void set_new_connection_handler(const Type::NewConnectionHandler & handler);
 
@@ -32,9 +33,9 @@ namespace Kiwi
 	private:
 		Channel _acceptor_channel_;
 		Socket _acceptor_socket_;
-		EventLoop* _owner_event_loop_;
+		Type::EventLoopPtr _owner_event_loop_;
 		Type::NewConnectionHandler _new_connection_handler_;
-		std::atomic<bool> _listening_;
+		bool _listening_;
 	};
 }
 
