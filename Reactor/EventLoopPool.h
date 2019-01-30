@@ -9,6 +9,7 @@
 #include <vector>
 #include <mutex>
 #include <condition_variable>
+#include "../Base/Types.h"
 
 namespace Kiwi
 {
@@ -18,9 +19,9 @@ namespace Kiwi
 	{
 	public:
 
-		EventLoopPool(EventLoop *base_loop, size_t size);
+		EventLoopPool(Type::EventLoopPtr base_loop, size_t size);
 
-		EventLoop *get_loop();
+		Type::EventLoopPtr get_loop();
 
 		void add_loop(size_t size);
 
@@ -34,10 +35,10 @@ namespace Kiwi
 
 		std::mutex _mutex_;
 		std::condition_variable _cv_;
-		EventLoop *_base_loop_;
+		Type::EventLoopPtr _base_loop_;
 		size_t _loop_num_;
 		size_t _next_;
-		std::vector<EventLoop *> _loops_;
+		std::vector<Type::EventLoopPtr> _loops_;
 		std::vector<std::thread> _threads_;
 	};
 }

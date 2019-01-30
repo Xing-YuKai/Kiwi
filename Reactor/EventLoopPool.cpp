@@ -6,8 +6,9 @@
 #include "EventLoop.h"
 
 using namespace Kiwi;
+using namespace Kiwi::Type;
 
-EventLoopPool::EventLoopPool(EventLoop *base_loop, size_t size = 0) :
+EventLoopPool::EventLoopPool(EventLoopPtr base_loop, size_t size = 0) :
 		_base_loop_(base_loop),
 		_next_(0),
 		_loop_num_(size)
@@ -15,9 +16,9 @@ EventLoopPool::EventLoopPool(EventLoop *base_loop, size_t size = 0) :
 	add_loop(size);
 }
 
-EventLoop *EventLoopPool::get_loop()
+EventLoopPtr EventLoopPool::get_loop()
 {
-	EventLoop *res = _base_loop_;
+	EventLoopPtr res = _base_loop_;
 	if (!_loops_.empty())
 	{
 		res = _loops_[_next_];
@@ -28,20 +29,20 @@ EventLoop *EventLoopPool::get_loop()
 
 void EventLoopPool::add_loop(size_t size)
 {
-	EventLoop *loop_ptr;
+	EventLoopPtr loop_ptr;
 	bool flag = false;
 	for (size_t i = 0; i < size; i++)
 	{
 		_threads_.emplace_back([this, &loop_ptr, &flag]
 							   {
-								   EventLoop loop;
+							   		EventLoopPtr loop = std::make_shared<EventLoop>();
 								   {
 									   std::lock_guard<std::mutex> lock_guard(this->_mutex_);
-									   loop_ptr = &loop;
+									   loop_ptr = loop;
 									   flag = true;
 									   this->_cv_.notify_one();
 								   }
-								   loop.loop();
+								   loop->loop();
 							   });
 
 		{
@@ -55,11 +56,8 @@ void EventLoopPool::add_loop(size_t size)
 
 EventLoopPool::~EventLoopPool()
 {
-	for (auto &ptr : _loops_)
-	{
+	for (auto ptr : _loops_)
 		ptr->stop();
-		ptr = nullptr;
-	}
 	for (auto &thread : _threads_)
 		thread.detach();
 }

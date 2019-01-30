@@ -70,7 +70,7 @@ void EventLoop::loop()
 		_handling_events_.store(true);
 		for (Channel *channel:_active_channels_)
 		{
-			channel->handle_event(TimeRange());
+			channel->handle_event(ret_time);
 		}
 		_handling_events_.store(false);
 

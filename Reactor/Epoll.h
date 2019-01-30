@@ -22,7 +22,7 @@ namespace Kiwi
 	{
 	public:
 
-		explicit Epoll(EventLoop *event_loop);
+		explicit Epoll(Type::EventLoopPtr event_loop);
 
 		TimeRange poll(Type::ChannelList &active_channels, int time_out_ms);
 
@@ -53,7 +53,7 @@ namespace Kiwi
 		static const int INIT_EVENT_LIST_SIZE = 16;
 		Type::ChannelMap _channels_;
 		Type::EventList _event_list_;
-		EventLoop *_owner_event_loop_;
+		Type::EventLoopPtr _owner_event_loop_;
 		int _epoll_fd_;
 	};
 }

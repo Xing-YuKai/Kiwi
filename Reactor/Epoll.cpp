@@ -7,7 +7,7 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-Epoll::Epoll(EventLoop *event_loop) :
+Epoll::Epoll(EventLoopPtr event_loop) :
 		_epoll_fd_(epoll_create(INIT_EVENT_LIST_SIZE)),
 		_owner_event_loop_(event_loop),
 		_event_list_(INIT_EVENT_LIST_SIZE) {}

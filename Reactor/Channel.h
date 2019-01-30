@@ -15,13 +15,13 @@ namespace Kiwi
 	class Channel
 	{
 	public:
-		Channel(EventLoop *event_loop, int fd);
+		Channel(Type::EventLoopPtr event_loop, int fd);
 
-		void set_read_handler(Type::ReadEventHandler handler) { _read_handler_ = std::move(handler); }
+		void set_read_handler(const Type::ReadEventHandler &handler) { _read_handler_ = handler; }
 
-		void set_write_handler(Type::EventHandler handler) { _write_handler_ = std::move(handler); }
+		void set_write_handler(const Type::EventHandler &handler) { _write_handler_ = handler; }
 
-		void set_error_handler(Type::EventHandler handler) { _error_handler_ = std::move(handler); }
+		void set_error_handler(const Type::EventHandler &handler) { _error_handler_ = handler; }
 
 		void enable_reading() { _events_ |= READ_EVENT; }
 
@@ -49,7 +49,7 @@ namespace Kiwi
 
 		int get_fd() const { return _fd_; }
 
-		EventLoop *get_loop() const { return _owner_event_loop_; }
+		Type::EventLoopPtr get_loop() const { return _owner_event_loop_; }
 
 		void update();
 
@@ -62,7 +62,7 @@ namespace Kiwi
 		Channel &operator=(const Channel &) = delete;
 
 	private:
-		EventLoop *_owner_event_loop_;
+		Type::EventLoopPtr _owner_event_loop_;
 		const int _fd_;
 
 		bool _in_loop_;

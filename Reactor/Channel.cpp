@@ -7,7 +7,7 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-Channel::Channel(EventLoop *event_loop, int fd) :
+Channel::Channel(EventLoopPtr event_loop, int fd) :
 		_owner_event_loop_(event_loop),
 		_fd_(fd),
 		_events_(0),
