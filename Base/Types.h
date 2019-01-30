@@ -7,11 +7,15 @@
 
 #include <functional>
 #include <vector>
-#include <map>
 #include <memory>
+#include <unordered_map>
 
 namespace Kiwi
 {
+	class Socket;
+
+	class InetAddress;
+
 	class Channel;
 
 	class TimerNode;
@@ -22,24 +26,32 @@ namespace Kiwi
 
 	class Buffer;
 
+	class EventLoop;
+
+	using namespace std::placeholders;
+
 	namespace Type
 	{
 		using Functor = std::function<void()>;
 		using EventHandler = std::function<void()>;
 		using ReadEventHandler = std::function<void(TimeRange)>;
 		using ChannelList = std::vector<Channel *>;
-		using ChannelMap = std::map<int, Channel *>;
+		using ChannelMap = std::unordered_map<int, Channel *>;
 		using EventList = std::vector<struct epoll_event>;
+		using EventLoopPtr = std::shared_ptr<EventLoop>;
 		using TimerNodePtr = std::shared_ptr<TimerNode>;
 		using TimerList = std::vector<TimerNodePtr>;
 		using TimerHandler = std::function<void()>;
 		using TimerID = uint32_t;
-		using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
 		using BufferPtr = std::shared_ptr<Buffer>;
-		using MessageHandler = std::function<void(const TcpConnectionPtr &)>;
-		using ConnectionHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
-		using NewConnectionHandler = std::function<void()>;
+		using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
+		using MessageHandler = std::function<void(const TcpConnectionPtr &, BufferPtr, TimeRange)>;
 		using WriteCompleteHandler = std::function<void(const TcpConnectionPtr &)>;
+		using CloseHandler = std::function<void(const TcpConnectionPtr &)>;
+		using ConnectionHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
+		using NewConnectionHandler = std::function<void(const Socket &, const InetAddress &)>;
+		using TcpConnectionID = uint32_t;
+		using TcpConnectionMap = std::unordered_map<TcpConnectionID, TcpConnectionPtr>;
 	}
 }
 #endif //KIWI_TYPES_H

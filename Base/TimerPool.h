@@ -49,7 +49,7 @@ namespace Kiwi
 		uint64_t _pool_time_;
 		uint64_t _jiffy_;
 		Type::TimerList _buckets_[TV_MAX_NUM][TV_SIZE];
-		std::unordered_map<Type::TimerID, Type::TimerNodePtr> _timer_node_ref_;
+		std::unordered_map<Type::TimerID, Type::TimerNodePtr> _timers_;
 		uint32_t _id_counter_;
 	};
 }

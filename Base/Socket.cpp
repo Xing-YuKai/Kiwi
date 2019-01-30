@@ -8,7 +8,7 @@ using namespace Kiwi;
 
 Socket Socket::nonblocking_socket()
 {
-	int retval = ::socket(AF_INET,SOCK_STREAM|SOCK_NONBLOCK|SOCK_CLOEXEC,IPPROTO_TCP);
+	int retval = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
 	if (retval < 0)
 	{
 		std::cerr << "Socket nonblocking_socket error : " << errno << " " << strerror(errno) << std::endl;
@@ -125,4 +125,19 @@ void Socket::set_reuse_port(bool on)
 		std::cerr << "Socket set_reuse_port error : " << errno << " " << strerror(errno) << std::endl;
 		std::terminate();
 	}
+}
+
+InetAddress Socket::get_local_address() const
+{
+	sockaddr_in addr;
+	bzero(&addr, sizeof(addr));
+	socklen_t len = sizeof(addr);
+	int retval = getsockname(_socket_fd_, (sockaddr *) &addr, &len);
+	if (retval < 0)
+	{
+		std::cerr << "Socket get_local_address error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+	InetAddress res(addr);
+	return res;
 }

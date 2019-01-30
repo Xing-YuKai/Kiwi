@@ -37,6 +37,8 @@ namespace Kiwi
 
 		void set_reuse_port(bool on);
 
+		InetAddress get_local_address() const;
+
 		int get_fd() const { return _socket_fd_; }
 
 		~Socket() = default;

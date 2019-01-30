@@ -7,10 +7,12 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-TimerPool::TimerPool()
+TimerPool::TimerPool() :
+		_id_counter_(0),
+		_jiffy_(0),
+		_pool_time_(TimeRange::now().cast_to_10_milliseconds())
 {
-	_timer_node_ref_.rehash(128);
-	_pool_time_ = TimeRange::now().cast_to_10_milliseconds();
+	_timers_.rehash(128);
 }
 
 TimerID TimerPool::start_timer(const TimeRange &interval, const TimerHandler &handler)
@@ -29,13 +31,13 @@ TimerID TimerPool::start_timer(const TimeRange &interval, const TimerHandler &ha
 	node_ptr->_handler_ = handler;
 	node_ptr->_expire_time_ = time_units + _jiffy_;
 	add_timer_node(node_ptr);
-	_timer_node_ref_[node_ptr->_id_] = node_ptr;
+	_timers_.emplace(node_ptr->_id_, node_ptr);
 	return node_ptr->_id_;
 }
 
 void TimerPool::stop_timer(const TimerID &timer_id)
 {
-	TimerNodePtr node_ptr = _timer_node_ref_[timer_id];
+	TimerNodePtr node_ptr = _timers_[timer_id];
 	node_ptr->_stopped_ = true;
 }
 
@@ -72,7 +74,7 @@ void TimerPool::execute()
 	{
 		if (!node_ptr->_stopped_ && node_ptr->_handler_)
 			node_ptr->_handler_();
-		_timer_node_ref_.erase(node_ptr->_id_);
+		_timers_.erase(node_ptr->_id_);
 	}
 }
 
