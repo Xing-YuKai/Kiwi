@@ -7,8 +7,8 @@
 
 int main()
 {
-	Kiwi::EventLoop base;
-	Kiwi::EventLoopPool pool(&base, 4);
+	Kiwi::Type::EventLoopPtr base_ptr = std::make_shared<Kiwi::EventLoop>();
+	Kiwi::EventLoopPool pool(base_ptr, 4);
 
 	auto loop1 = pool.get_loop();
 	auto loop2 = pool.get_loop();

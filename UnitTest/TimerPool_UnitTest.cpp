@@ -63,7 +63,7 @@ int main()
 		std::cout << "Timer7 " << current.get_micro_second_units() - nowtime.get_micro_second_units() << "us" << std::endl;
 	});
 
-	Kiwi::Type::TimerID timer8 = pool.start_timer(200ms, [nowtime]
+	Kiwi::Type::TimerID timer8 = pool.start_timer(200_ms, [nowtime]
 	{
 		std::cout << "Timer8 stop fail " << std::endl;
 	});
