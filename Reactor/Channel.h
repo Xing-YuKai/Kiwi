@@ -21,6 +21,8 @@ namespace Kiwi
 
 		void set_write_handler(const Type::EventHandler &handler) { _write_handler_ = handler; }
 
+		void set_close_handler(const Type::EventHandler &handler) { _close_handler_ = handler; }
+
 		void set_error_handler(const Type::EventHandler &handler) { _error_handler_ = handler; }
 
 		void enable_reading() { _events_ |= READ_EVENT; }
@@ -77,6 +79,7 @@ namespace Kiwi
 
 		Type::ReadEventHandler _read_handler_;
 		Type::EventHandler _write_handler_;
+		Type::EventHandler _close_handler_;
 		Type::EventHandler _error_handler_;
 	};
 }
