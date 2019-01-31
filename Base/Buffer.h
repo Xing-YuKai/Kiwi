@@ -7,6 +7,10 @@
 
 #include <vector>
 #include <string>
+#include <sys/uio.h>
+#include <zconf.h>
+#include <iostream>
+#include <cstring>
 #include "Types.h"
 
 namespace Kiwi
@@ -31,6 +35,8 @@ namespace Kiwi
 		std::string retrieve(size_t len);
 
 		ssize_t append_from(int fd);
+
+		ssize_t retrieve_to(int fd);
 
 		~Buffer() = default;
 

@@ -19,7 +19,7 @@ namespace Kiwi
 
 		static Socket nonblocking_socket();
 
-		explicit Socket(int socket_fd);
+		Socket(int socket_fd);
 
 		void connect(const InetAddress &addr);
 
@@ -27,7 +27,13 @@ namespace Kiwi
 
 		void listen();
 
+		void close();
+
 		Socket accept(InetAddress &addr);
+
+		void shutdown_write();
+
+		void shutdown_read();
 
 		void set_tcp_no_delay(bool on);
 
@@ -38,6 +44,8 @@ namespace Kiwi
 		void set_reuse_port(bool on);
 
 		InetAddress get_local_address() const;
+
+		int get_socket_error()const;
 
 		int get_fd() const { return _socket_fd_; }
 

@@ -45,10 +45,10 @@ namespace Kiwi
 		using TimerID = uint32_t;
 		using BufferPtr = std::shared_ptr<Buffer>;
 		using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
-		using MessageHandler = std::function<void(const TcpConnectionPtr &, BufferPtr, TimeRange)>;
+		using MessageHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
 		using WriteCompleteHandler = std::function<void(const TcpConnectionPtr &)>;
 		using CloseHandler = std::function<void(const TcpConnectionPtr &)>;
-		using ConnectionHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>;
+		using ConnectionHandler = std::function<void(const TcpConnectionPtr &)>;
 		using NewConnectionHandler = std::function<void(const Socket &, const InetAddress &)>;
 		using TcpConnectionID = uint32_t;
 		using TcpConnectionMap = std::unordered_map<TcpConnectionID, TcpConnectionPtr>;

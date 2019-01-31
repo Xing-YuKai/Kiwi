@@ -62,6 +62,11 @@ void Socket::listen()
 	}
 }
 
+void Socket::close()
+{
+	::close(_socket_fd_);
+}
+
 Socket Socket::accept(InetAddress &addr)
 {
 	sockaddr_in tmp = addr.get_sockaddr_in();
@@ -75,6 +80,7 @@ Socket Socket::accept(InetAddress &addr)
 		switch (errno)
 		{
 			case EWOULDBLOCK:
+				return Socket(-1);
 			case EINTR:
 				errno = errno_backup;
 				goto flag;
@@ -85,6 +91,26 @@ Socket Socket::accept(InetAddress &addr)
 	}
 	Socket res(retval);
 	return res;
+}
+
+void Socket::shutdown_write()
+{
+	int retval = shutdown(_socket_fd_,SHUT_WR);
+	if (retval < 0)
+	{
+		std::cerr << "Socket shutdown_write error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+}
+
+void Socket::shutdown_read()
+{
+	int retval = shutdown(_socket_fd_,SHUT_RD);
+	if (retval < 0)
+	{
+		std::cerr << "Socket shutdown_read error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
 }
 
 void Socket::set_tcp_no_delay(bool on)
@@ -144,4 +170,15 @@ InetAddress Socket::get_local_address() const
 	}
 	InetAddress res(addr);
 	return res;
+}
+
+int Socket::get_socket_error() const
+{
+	int optval;
+	socklen_t optlen = sizeof(optval);
+	int retval = getsockopt(_socket_fd_, SOL_SOCKET, SO_ERROR, &optval, &optlen);
+	if (retval < 0)
+		return errno;
+	else
+		return optval;
 }
