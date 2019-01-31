@@ -29,6 +29,7 @@ void Semaphore::post()
 void Semaphore::wait()
 {
 	int retval;
+	int errno_backup = errno;
 	flag:
 	retval = sem_wait(&_sem_);
 	if (retval < 0)
@@ -36,6 +37,7 @@ void Semaphore::wait()
 		switch (errno)
 		{
 			case EINTR:
+				errno = errno_backup;
 				goto flag;
 			default:
 				std::cerr << "Semaphore wait error : " << errno << " " << strerror(errno) << std::endl;
@@ -47,6 +49,7 @@ void Semaphore::wait()
 bool Semaphore::try_wait()
 {
 	int retval;
+	int errno_backup = errno;
 	flag:
 	retval = sem_trywait(&_sem_);
 	if (retval < 0)
@@ -54,8 +57,10 @@ bool Semaphore::try_wait()
 		switch (errno)
 		{
 			case EAGAIN:
+				errno = errno_backup;
 				return false;
 			case EINTR:
+				errno = errno_backup;
 				goto flag;
 			default:
 				std::cerr << "Semaphore try_wait error : " << errno << " " << strerror(errno) << std::endl;

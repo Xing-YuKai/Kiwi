@@ -24,6 +24,7 @@ void Socket::connect(const InetAddress &addr)
 {
 	sockaddr_in tmp = addr.get_sockaddr_in();
 	int retval;
+	int errno_backup = errno;
 	flag:
 	retval = ::connect(_socket_fd_, (const sockaddr *) &tmp, sizeof(tmp));
 	if (retval < 0)
@@ -31,6 +32,7 @@ void Socket::connect(const InetAddress &addr)
 		switch (errno)
 		{
 			case EINTR:
+				errno = errno_backup;
 				goto flag;
 			default:
 				std::cerr << "Socket connect error : " << errno << " " << strerror(errno) << std::endl;
@@ -65,6 +67,7 @@ Socket Socket::accept(InetAddress &addr)
 	sockaddr_in tmp = addr.get_sockaddr_in();
 	socklen_t len = sizeof(tmp);
 	int retval;
+	int errno_backup = errno;
 	flag:
 	retval = ::accept(_socket_fd_, (sockaddr *) &tmp, &len);
 	if (retval < 0)
@@ -73,6 +76,7 @@ Socket Socket::accept(InetAddress &addr)
 		{
 			case EWOULDBLOCK:
 			case EINTR:
+				errno = errno_backup;
 				goto flag;
 			default:
 				std::cerr << "Socket accept error : " << errno << " " << strerror(errno) << std::endl;
