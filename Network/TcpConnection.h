@@ -5,13 +5,15 @@
 #ifndef KIWI_TCPCONNECTION_H
 #define KIWI_TCPCONNECTION_H
 
+#include <atomic>
 #include "../Base/Types.h"
 #include "../Base/Socket.h"
 #include "../Base/Buffer.h"
+#include "../Base/TimeRange.h"
 
 namespace Kiwi
 {
-	class TcpConnection
+	class TcpConnection : std::enable_shared_from_this<TcpConnection>
 	{
 	public:
 		TcpConnection(Type::EventLoopPtr io_loop_ptr,
@@ -28,17 +30,46 @@ namespace Kiwi
 
 		void set_close_handler(const Type::CloseHandler &handler) { _close_handler_ = handler; }
 
+		void send(const std::string &data);
+
+		void shutdown_write();
+
+		void set_tcp_no_delay(bool on);
+
+		void start_read();
+
+		void stop_read();
+
 		void connection_established();
 
 		void connection_destroyed();
 
+		int get_state() const { return _state_.load(); }
+
 		Type::TcpConnectionID get_id() const { return _id_; }
+
+		Type::EventLoopPtr get_loop() const { return _owner_event_loop_; }
 
 		~TcpConnection();
 
 		TcpConnection(const TcpConnection &) = delete;
 
 		TcpConnection &operator=(const TcpConnection &) = delete;
+
+	public:
+		static const int STATE_CONNECTING = 1;
+		static const int STATE_CONNECTED = 2;
+		static const int STATE_DISCONNECTING = 3;
+		static const int STATE_DISCONNECTED = 4;
+
+	private:
+		void tcp_connection_read_handler(TimeRange receive_time);
+
+		void tcp_connection_write_handler();
+
+		void tcp_connection_close_handler();
+
+		void tcp_connection_error_handler();
 
 	private:
 		Type::ConnectionHandler _connection_handler_;
@@ -47,14 +78,15 @@ namespace Kiwi
 		Type::CloseHandler _close_handler_;
 		Type::EventLoopPtr _owner_event_loop_;
 		Type::TcpConnectionID _id_;
-		std::unique_ptr<Socket> _socket_;
-		std::unique_ptr<Channel> _channel_;
+		Type::BufferPtr _input_buffer_ptr_;
+		Type::BufferPtr _output_buffer_ptr_;
+
+		std::unique_ptr<Socket> _socket_ptr_;
+		std::unique_ptr<Channel> _channel_ptr_;
+		std::atomic<int> _state_;
+
 		const InetAddress _local_address_;
 		const InetAddress _peer_address_;
-		Buffer _input_buffer_;
-		Buffer _output_buffer_;
-
-
 	};
 }
 

@@ -11,7 +11,13 @@ Acceptor::Acceptor(EventLoopPtr loop, const InetAddress &address) :
 		_owner_event_loop_(loop),
 		_acceptor_socket_(Socket::nonblocking_socket()),
 		_acceptor_channel_(loop, _acceptor_socket_.get_fd()),
-		_listening_(false) {}
+		_listening_(false)
+{
+	_acceptor_socket_.set_reuse_address(true);
+	_acceptor_socket_.set_reuse_port(true);
+	_acceptor_socket_.bind(address);
+	_acceptor_channel_.set_read_handler(std::bind(&Acceptor::acceptor_read_handler, this));
+}
 
 void Acceptor::set_new_connection_handler(const Type::NewConnectionHandler &handler)
 {
@@ -31,14 +37,20 @@ void Acceptor::listen()
 
 Acceptor::~Acceptor()
 {
-
+	_acceptor_channel_.disable_all();
+	_acceptor_channel_.remove();
+	_acceptor_socket_.close();
 }
 
 void Acceptor::acceptor_read_handler()
 {
 	InetAddress peer_address;
 	Socket conn = _acceptor_socket_.accept(peer_address);
-	if (_new_connection_handler_)
-		_new_connection_handler_(conn, peer_address);
-
+	if (conn.get_fd() != -1)
+	{
+		if (_new_connection_handler_)
+			_new_connection_handler_(conn, peer_address);
+		else
+			conn.close();
+	}
 }

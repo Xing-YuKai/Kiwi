@@ -18,7 +18,7 @@ TcpServer::TcpServer(unsigned int io_thread_num, const InetAddress &acceptor_add
 		_event_loop_pool_(new EventLoopPool(_acceptor_loop_ptr_, io_thread_num)),
 		_running_(false)
 {
-	_acceptor_ptr_->set_new_connection_handler(std::bind(&TcpServer::new_connection, this, _1, _2));
+	_acceptor_ptr_->set_new_connection_handler(std::bind(&TcpServer::new_connection_handler, this, _1, _2));
 }
 
 void TcpServer::run()
@@ -36,7 +36,7 @@ TcpServer::~TcpServer()
 
 }
 
-void TcpServer::new_connection(const Socket &socket, const InetAddress &peer_address)
+void TcpServer::new_connection_handler(const Socket &socket, const InetAddress &peer_address)
 {
 	_acceptor_loop_ptr_->assert_in_event_loop_thread();
 	EventLoopPtr io_loop_ptr = _event_loop_pool_->get_loop();
@@ -51,16 +51,16 @@ void TcpServer::new_connection(const Socket &socket, const InetAddress &peer_add
 	conn_ptr->set_connection_handler(_connection_handler_);
 	conn_ptr->set_message_handler(_message_handler_);
 	conn_ptr->set_write_complete_handler(_write_complete_handler_);
-	conn_ptr->set_close_handler(std::bind(&TcpServer::remove_connection, this, _1));
+	conn_ptr->set_close_handler(std::bind(&TcpServer::remove_connection_handler, this, _1));
 	io_loop_ptr->run_in_loop(std::bind(&TcpConnection::connection_established, conn_ptr));
 }
 
-void TcpServer::remove_connection(const TcpConnectionPtr &conn_ptr)
+void TcpServer::remove_connection_handler(const TcpConnectionPtr &conn_ptr)
 {
 	_acceptor_loop_ptr_->run_in_loop([conn_ptr, this]
 									 {
 										 this->_tcp_connections_.erase(conn_ptr->get_id());
-										 EventLoopPtr io_loop_ptr;
+										 EventLoopPtr io_loop_ptr = conn_ptr->get_loop();
 										 io_loop_ptr->run_in_loop(std::bind(&TcpConnection::connection_destroyed,conn_ptr));
 									 });
 }

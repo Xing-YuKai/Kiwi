@@ -40,9 +40,9 @@ namespace Kiwi
 		TcpServer &operator=(const TcpServer &) = delete;
 
 	private:
-		void new_connection(const Socket &socket, const InetAddress &peer_address);
+		void new_connection_handler(const Socket &socket, const InetAddress &peer_address);
 
-		void remove_connection(const Type::TcpConnectionPtr &conn_ptr);
+		void remove_connection_handler(const Type::TcpConnectionPtr &conn_ptr);
 
 	private:
 		Type::TcpConnectionID _id_counter_;
