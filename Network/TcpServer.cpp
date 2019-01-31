@@ -33,7 +33,7 @@ void TcpServer::run()
 TcpServer::~TcpServer()
 {
 	_acceptor_loop_ptr_->assert_in_event_loop_thread();
-	
+
 }
 
 void TcpServer::new_connection(const Socket &socket, const InetAddress &peer_address)
