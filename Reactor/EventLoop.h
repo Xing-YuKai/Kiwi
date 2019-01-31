@@ -23,7 +23,7 @@ namespace Kiwi
 
 	class Channel;
 
-	class EventLoop
+	class EventLoop : std::enable_shared_from_this<EventLoop>
 	{
 	public:
 

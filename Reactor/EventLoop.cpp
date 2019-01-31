@@ -30,9 +30,9 @@ EventLoop::EventLoop() :
 		_stop_(false),
 		_handling_events_(false),
 		_handling_functors_(false),
-		_epoll_ptr_(new Epoll(this)),
+		_epoll_ptr_(new Epoll(shared_from_this())),
 		_timer_pool_ptr_(new TimerPool),
-		_wakeup_channel_(new Channel(this, create_eventfd())),
+		_wakeup_channel_(new Channel(shared_from_this(), create_eventfd())),
 		_thread_id_(std::this_thread::get_id())
 {
 	if (_thread_local_event_loop_)
@@ -90,28 +90,28 @@ void EventLoop::stop()
 void EventLoop::add_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel->get_loop() == this);
+	assert(channel->get_loop().get() == this);
 	_epoll_ptr_->add_channel(channel);
 }
 
 void EventLoop::remove_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel->get_loop() == this);
+	assert(channel->get_loop().get() == this);
 	_epoll_ptr_->remove_channel(channel);
 }
 
 void EventLoop::update_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel->get_loop() == this);
+	assert(channel->get_loop().get() == this);
 	_epoll_ptr_->update_channel(channel);
 }
 
 bool EventLoop::has_channel(Channel *channel)
 {
 	assert_in_event_loop_thread();
-	assert(channel->get_loop() == this);
+	assert(channel->get_loop().get() == this);
 	return _epoll_ptr_->has_channel(channel);
 }
 

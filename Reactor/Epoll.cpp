@@ -80,12 +80,14 @@ void Epoll::epoll_add(Channel *channel)
 	struct epoll_event event{};
 	event.data.ptr = channel;
 	event.events = channel->get_events();
+	int errno_backup = errno;
 	int retval = epoll_ctl(_epoll_fd_, EPOLL_CTL_ADD, fd, &event);
 	if (retval < 0)
 	{
 		switch (errno)
 		{
 			case EEXIST:
+				errno = errno_backup;
 				return;
 			default:
 				std::cerr << "Epoll epoll_add error : " << errno << " " << strerror(errno) << std::endl;
