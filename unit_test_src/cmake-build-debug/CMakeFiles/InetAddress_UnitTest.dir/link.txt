@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/InetAddress_UnitTest.dir/InetAddress_UnitTest.cpp.o  -o InetAddress_UnitTest ../../lib_release/libkiwi.a 

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Kiwi_UnitTest"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TimerPool_UnitTest">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/TimerPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 TimerPool_UnitTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TimerPool_UnitTest/fast">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/TimerPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 TimerPool_UnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="InetAddress_UnitTest">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/InetAddress_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 InetAddress_UnitTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="InetAddress_UnitTest/fast">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/InetAddress_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 InetAddress_UnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EventLoopPool_UnitTest">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/EventLoopPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EventLoopPool_UnitTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EventLoopPool_UnitTest/fast">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/EventLoopPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EventLoopPool_UnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EventLoop_UnitTest">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/EventLoop_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EventLoop_UnitTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EventLoop_UnitTest/fast">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/EventLoop_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EventLoop_UnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ThreadPool_UnitTest">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/ThreadPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThreadPool_UnitTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ThreadPool_UnitTest/fast">
+				<Option output="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/ThreadPool_UnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThreadPool_UnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/EventLoopPool_UnitTest.cpp">
+			<Option target="EventLoopPool_UnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/EventLoop_UnitTest.cpp">
+			<Option target="EventLoop_UnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/InetAddress_UnitTest.cpp">
+			<Option target="InetAddress_UnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/ThreadPool_UnitTest.cpp">
+			<Option target="ThreadPool_UnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/TimerPool_UnitTest.cpp">
+			<Option target="TimerPool_UnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/Kiwi/unit_test_src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
