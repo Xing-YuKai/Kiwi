@@ -7,7 +7,7 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-Acceptor::Acceptor(EventLoop* loop, const InetAddress &address) :
+Acceptor::Acceptor(EventLoop *loop, const InetAddress &address) :
 		_owner_event_loop_(loop),
 		_acceptor_socket_(Socket::nonblocking_socket()),
 		_acceptor_channel_(loop, _acceptor_socket_.get_fd()),
@@ -37,9 +37,12 @@ void Acceptor::listen()
 
 Acceptor::~Acceptor()
 {
-	_acceptor_channel_.disable_all();
-	_acceptor_channel_.remove();
-	_acceptor_socket_.close();
+	if (_owner_event_loop_->has_channel(&_acceptor_channel_))
+	{
+		_acceptor_channel_.disable_all();
+		_acceptor_channel_.remove();
+		_acceptor_socket_.close();
+	}
 }
 
 void Acceptor::acceptor_read_handler()

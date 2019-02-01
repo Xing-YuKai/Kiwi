@@ -63,8 +63,3 @@ uint16_t InetAddress::get_port() const
 {
 	return ntohs(_inet_addr_.sin_port);
 }
-
-sockaddr_in InetAddress::get_sockaddr_in() const
-{
-	return _inet_addr_;
-}

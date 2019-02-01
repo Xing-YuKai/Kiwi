@@ -32,11 +32,9 @@ namespace Kiwi
 
 		uint16_t get_port() const;
 
-		sockaddr_in get_sockaddr_in() const;
-
 		~InetAddress() = default;
 
-	private:
+	public:
 		struct sockaddr_in _inet_addr_;
 	};
 }

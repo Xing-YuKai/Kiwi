@@ -31,8 +31,8 @@ namespace Kiwi
 	private:
 		void acceptor_read_handler();
 	private:
-		Channel _acceptor_channel_;
 		Socket _acceptor_socket_;
+		Channel _acceptor_channel_;
 		EventLoop* _owner_event_loop_;
 		Type::NewConnectionHandler _new_connection_handler_;
 		bool _listening_;
