@@ -25,6 +25,7 @@ void TcpServer::run()
 {
 	if (!_running_.load())
 	{
+		_running_.store(true);
 		_acceptor_loop_ptr_->run_in_loop(std::bind(&Acceptor::listen, _acceptor_ptr_.get()));
 		_acceptor_loop_ptr_->loop();
 	}
@@ -33,7 +34,11 @@ void TcpServer::run()
 TcpServer::~TcpServer()
 {
 	_acceptor_loop_ptr_->assert_in_event_loop_thread();
-
+	for (auto &pair:_tcp_connections_)
+	{
+		pair.second.reset();
+		pair.second->get_loop()->run_in_loop(std::bind(&TcpConnection::connection_destroyed, pair.second));
+	}
 }
 
 void TcpServer::new_connection_handler(const Socket &socket, const InetAddress &peer_address)
@@ -61,7 +66,7 @@ void TcpServer::remove_connection_handler(const TcpConnectionPtr &conn_ptr)
 									 {
 										 this->_tcp_connections_.erase(conn_ptr->get_id());
 										 EventLoopPtr io_loop_ptr = conn_ptr->get_loop();
-										 io_loop_ptr->run_in_loop(std::bind(&TcpConnection::connection_destroyed,conn_ptr));
+										 io_loop_ptr->run_in_loop(std::bind(&TcpConnection::connection_destroyed, conn_ptr));
 									 });
 }
 

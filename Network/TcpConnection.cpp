@@ -20,7 +20,7 @@ TcpConnection::TcpConnection(Type::EventLoopPtr io_loop_ptr,
 		_channel_ptr_(new Channel(io_loop_ptr, socket.get_fd())),
 		_local_address_(local_address),
 		_peer_address_(_peer_address_),
-		_state_(STATE_CONNECTING)
+		_state_(STATE_INITIAL)
 {
 	_channel_ptr_->set_read_handler(std::bind(&TcpConnection::tcp_connection_read_handler, this, _1));
 	_channel_ptr_->set_write_handler(std::bind(&TcpConnection::tcp_connection_write_handler, this));
@@ -37,7 +37,12 @@ void TcpConnection::send(const std::string &data)
 										{
 											ssize_t writen;
 											size_t remain = data.size();
-
+											this->_output_buffer_ptr_->append(data);
+											if(!this->_channel_ptr_->is_writing())
+											{
+												this->_channel_ptr_->enable_writing();
+												this->_channel_ptr_->update();
+											}
 										});
 	}
 }
@@ -46,12 +51,21 @@ void TcpConnection::shutdown_write()
 {
 	if (_state_.load() == STATE_CONNECTED)
 	{
-		_state_.store(STATE_DISCONNECTING);
+		_state_.store(STATE_HALF_CLOSE);
 		_owner_event_loop_->run_in_loop([this]
 										{
 											if (this->_channel_ptr_->is_writing())
 												this->_socket_ptr_->shutdown_write();
 										});
+	}
+}
+
+void TcpConnection::close()
+{
+	if(_state_.load()==STATE_CONNECTED||_state_.load()==STATE_HALF_CLOSE)
+	{
+		_state_.store(STATE_DISCONNECTED);
+		_owner_event_loop_->run_in_loop(std::bind(&TcpConnection::tcp_connection_close_handler,this));
 	}
 }
 
@@ -90,6 +104,7 @@ void TcpConnection::connection_established()
 
 	_state_.store(STATE_CONNECTED);
 
+	_channel_ptr_->tie(shared_from_this());
 	_channel_ptr_->enable_reading();
 	_channel_ptr_->update();
 
@@ -108,18 +123,25 @@ void TcpConnection::connection_destroyed()
 	_channel_ptr_->remove();
 }
 
+TcpConnection::~TcpConnection()
+{
+	assert(_state_.load()==STATE_DISCONNECTED);
+}
+
 void TcpConnection::tcp_connection_read_handler(TimeRange receive_time)
 {
 	_owner_event_loop_->assert_in_event_loop_thread();
-	ssize_t retval = _input_buffer_ptr_->append_from(_socket_ptr_->get_fd());
-	if (retval > 0)
-		_message_handler_(shared_from_this(), _input_buffer_ptr_, receive_time);
-	if (retval == 0)
-		tcp_connection_close_handler();
-	if (retval < 0 && errno != EWOULDBLOCK)
-		tcp_connection_error_handler();
+	if (_channel_ptr_->is_reading())
+	{
+		ssize_t retval = _input_buffer_ptr_->append_from(_socket_ptr_->get_fd());
+		if (retval > 0)
+			_message_handler_(shared_from_this(), _input_buffer_ptr_, receive_time);
+		if (retval == 0)
+			tcp_connection_close_handler();
+		if (retval < 0 && errno != EWOULDBLOCK)
+			tcp_connection_error_handler();
+	}
 }
-
 void TcpConnection::tcp_connection_write_handler()
 {
 	_owner_event_loop_->assert_in_event_loop_thread();
@@ -130,6 +152,8 @@ void TcpConnection::tcp_connection_write_handler()
 		{
 			if (_output_buffer_ptr_->get_readable_bytes() == 0)
 			{
+				_channel_ptr_->disable_writing();
+				_channel_ptr_->update();
 				if (_write_complete_handler_)
 					_owner_event_loop_->run_in_loop(std::bind(_write_complete_handler_, shared_from_this()));
 			}
@@ -137,18 +161,21 @@ void TcpConnection::tcp_connection_write_handler()
 		if (retval < 0 && errno != EWOULDBLOCK)
 			tcp_connection_error_handler();
 	}
-
 }
 
 void TcpConnection::tcp_connection_close_handler()
 {
 	_owner_event_loop_->assert_in_event_loop_thread();
-
+	_state_.store(STATE_DISCONNECTED);
+	_channel_ptr_->disable_all();
+	_channel_ptr_->update();
+	TcpConnectionPtr guard = shared_from_this();
+	_connection_handler_(guard);
+	_close_handler_(guard);
 }
 
 void TcpConnection::tcp_connection_error_handler()
 {
-	_owner_event_loop_->assert_in_event_loop_thread();
 	int error = _socket_ptr_->get_socket_error();
 	std::cerr << "TcpConnection error_handler" << std::endl
 			  << "local_address : " << _local_address_.get_address() << " : " << _local_address_.get_port() << std::endl

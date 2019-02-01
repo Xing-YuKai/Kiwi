@@ -34,6 +34,8 @@ namespace Kiwi
 
 		void shutdown_write();
 
+		void close();
+
 		void set_tcp_no_delay(bool on);
 
 		void start_read();
@@ -57,9 +59,9 @@ namespace Kiwi
 		TcpConnection &operator=(const TcpConnection &) = delete;
 
 	public:
-		static const int STATE_CONNECTING = 1;
+		static const int STATE_INITIAL = 1;
 		static const int STATE_CONNECTED = 2;
-		static const int STATE_DISCONNECTING = 3;
+		static const int STATE_HALF_CLOSE = 3;
 		static const int STATE_DISCONNECTED = 4;
 
 	private:
