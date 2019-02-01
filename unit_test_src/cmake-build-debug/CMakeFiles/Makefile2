@@ -60,13 +60,87 @@ CMAKE_SOURCE_DIR = /home/kiwi/Repos/Kiwi/unit_test_src
 CMAKE_BINARY_DIR = /home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug
 
 #=============================================================================
+# Target rules for target CMakeFiles/Acceptor_UnitTest.dir
+
+# All Build rule for target.
+CMakeFiles/Acceptor_UnitTest.dir/all:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/depend
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Acceptor_UnitTest"
+.PHONY : CMakeFiles/Acceptor_UnitTest.dir/all
+
+# Include target in all.
+all: CMakeFiles/Acceptor_UnitTest.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Acceptor_UnitTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Acceptor_UnitTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Acceptor_UnitTest.dir/rule
+
+# Convenience name for target.
+Acceptor_UnitTest: CMakeFiles/Acceptor_UnitTest.dir/rule
+
+.PHONY : Acceptor_UnitTest
+
+# clean rule for target.
+CMakeFiles/Acceptor_UnitTest.dir/clean:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/clean
+.PHONY : CMakeFiles/Acceptor_UnitTest.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Acceptor_UnitTest.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Buffer_UnitTest.dir
+
+# All Build rule for target.
+CMakeFiles/Buffer_UnitTest.dir/all:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/depend
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target Buffer_UnitTest"
+.PHONY : CMakeFiles/Buffer_UnitTest.dir/all
+
+# Include target in all.
+all: CMakeFiles/Buffer_UnitTest.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Buffer_UnitTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Buffer_UnitTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Buffer_UnitTest.dir/rule
+
+# Convenience name for target.
+Buffer_UnitTest: CMakeFiles/Buffer_UnitTest.dir/rule
+
+.PHONY : Buffer_UnitTest
+
+# clean rule for target.
+CMakeFiles/Buffer_UnitTest.dir/clean:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/clean
+.PHONY : CMakeFiles/Buffer_UnitTest.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Buffer_UnitTest.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/TimerPool_UnitTest.dir
 
 # All Build rule for target.
 CMakeFiles/TimerPool_UnitTest.dir/all:
 	$(MAKE) -f CMakeFiles/TimerPool_UnitTest.dir/build.make CMakeFiles/TimerPool_UnitTest.dir/depend
 	$(MAKE) -f CMakeFiles/TimerPool_UnitTest.dir/build.make CMakeFiles/TimerPool_UnitTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target TimerPool_UnitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=13,14 "Built target TimerPool_UnitTest"
 .PHONY : CMakeFiles/TimerPool_UnitTest.dir/all
 
 # Include target in all.
@@ -103,7 +177,7 @@ clean: CMakeFiles/TimerPool_UnitTest.dir/clean
 CMakeFiles/InetAddress_UnitTest.dir/all:
 	$(MAKE) -f CMakeFiles/InetAddress_UnitTest.dir/build.make CMakeFiles/InetAddress_UnitTest.dir/depend
 	$(MAKE) -f CMakeFiles/InetAddress_UnitTest.dir/build.make CMakeFiles/InetAddress_UnitTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target InetAddress_UnitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target InetAddress_UnitTest"
 .PHONY : CMakeFiles/InetAddress_UnitTest.dir/all
 
 # Include target in all.
@@ -140,7 +214,7 @@ clean: CMakeFiles/InetAddress_UnitTest.dir/clean
 CMakeFiles/EventLoopPool_UnitTest.dir/all:
 	$(MAKE) -f CMakeFiles/EventLoopPool_UnitTest.dir/build.make CMakeFiles/EventLoopPool_UnitTest.dir/depend
 	$(MAKE) -f CMakeFiles/EventLoopPool_UnitTest.dir/build.make CMakeFiles/EventLoopPool_UnitTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target EventLoopPool_UnitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target EventLoopPool_UnitTest"
 .PHONY : CMakeFiles/EventLoopPool_UnitTest.dir/all
 
 # Include target in all.
@@ -177,7 +251,7 @@ clean: CMakeFiles/EventLoopPool_UnitTest.dir/clean
 CMakeFiles/EventLoop_UnitTest.dir/all:
 	$(MAKE) -f CMakeFiles/EventLoop_UnitTest.dir/build.make CMakeFiles/EventLoop_UnitTest.dir/depend
 	$(MAKE) -f CMakeFiles/EventLoop_UnitTest.dir/build.make CMakeFiles/EventLoop_UnitTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target EventLoop_UnitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target EventLoop_UnitTest"
 .PHONY : CMakeFiles/EventLoop_UnitTest.dir/all
 
 # Include target in all.
@@ -214,7 +288,7 @@ clean: CMakeFiles/EventLoop_UnitTest.dir/clean
 CMakeFiles/ThreadPool_UnitTest.dir/all:
 	$(MAKE) -f CMakeFiles/ThreadPool_UnitTest.dir/build.make CMakeFiles/ThreadPool_UnitTest.dir/depend
 	$(MAKE) -f CMakeFiles/ThreadPool_UnitTest.dir/build.make CMakeFiles/ThreadPool_UnitTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target ThreadPool_UnitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/Repos/Kiwi/unit_test_src/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target ThreadPool_UnitTest"
 .PHONY : CMakeFiles/ThreadPool_UnitTest.dir/all
 
 # Include target in all.

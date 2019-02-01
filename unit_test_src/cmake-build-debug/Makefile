@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Acceptor_UnitTest
+
+# Build rule for target.
+Acceptor_UnitTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Acceptor_UnitTest
+.PHONY : Acceptor_UnitTest
+
+# fast build rule for target.
+Acceptor_UnitTest/fast:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/build
+.PHONY : Acceptor_UnitTest/fast
+
+#=============================================================================
+# Target rules for targets named Buffer_UnitTest
+
+# Build rule for target.
+Buffer_UnitTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Buffer_UnitTest
+.PHONY : Buffer_UnitTest
+
+# fast build rule for target.
+Buffer_UnitTest/fast:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/build
+.PHONY : Buffer_UnitTest/fast
+
+#=============================================================================
 # Target rules for targets named TimerPool_UnitTest
 
 # Build rule for target.
@@ -174,6 +200,60 @@ ThreadPool_UnitTest: cmake_check_build_system
 ThreadPool_UnitTest/fast:
 	$(MAKE) -f CMakeFiles/ThreadPool_UnitTest.dir/build.make CMakeFiles/ThreadPool_UnitTest.dir/build
 .PHONY : ThreadPool_UnitTest/fast
+
+Acceptor_UnitTest.o: Acceptor_UnitTest.cpp.o
+
+.PHONY : Acceptor_UnitTest.o
+
+# target to build an object file
+Acceptor_UnitTest.cpp.o:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/Acceptor_UnitTest.cpp.o
+.PHONY : Acceptor_UnitTest.cpp.o
+
+Acceptor_UnitTest.i: Acceptor_UnitTest.cpp.i
+
+.PHONY : Acceptor_UnitTest.i
+
+# target to preprocess a source file
+Acceptor_UnitTest.cpp.i:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/Acceptor_UnitTest.cpp.i
+.PHONY : Acceptor_UnitTest.cpp.i
+
+Acceptor_UnitTest.s: Acceptor_UnitTest.cpp.s
+
+.PHONY : Acceptor_UnitTest.s
+
+# target to generate assembly for a file
+Acceptor_UnitTest.cpp.s:
+	$(MAKE) -f CMakeFiles/Acceptor_UnitTest.dir/build.make CMakeFiles/Acceptor_UnitTest.dir/Acceptor_UnitTest.cpp.s
+.PHONY : Acceptor_UnitTest.cpp.s
+
+Buffer_UnitTest.o: Buffer_UnitTest.cpp.o
+
+.PHONY : Buffer_UnitTest.o
+
+# target to build an object file
+Buffer_UnitTest.cpp.o:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/Buffer_UnitTest.cpp.o
+.PHONY : Buffer_UnitTest.cpp.o
+
+Buffer_UnitTest.i: Buffer_UnitTest.cpp.i
+
+.PHONY : Buffer_UnitTest.i
+
+# target to preprocess a source file
+Buffer_UnitTest.cpp.i:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/Buffer_UnitTest.cpp.i
+.PHONY : Buffer_UnitTest.cpp.i
+
+Buffer_UnitTest.s: Buffer_UnitTest.cpp.s
+
+.PHONY : Buffer_UnitTest.s
+
+# target to generate assembly for a file
+Buffer_UnitTest.cpp.s:
+	$(MAKE) -f CMakeFiles/Buffer_UnitTest.dir/build.make CMakeFiles/Buffer_UnitTest.dir/Buffer_UnitTest.cpp.s
+.PHONY : Buffer_UnitTest.cpp.s
 
 EventLoopPool_UnitTest.o: EventLoopPool_UnitTest.cpp.o
 
@@ -318,11 +398,19 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Acceptor_UnitTest"
+	@echo "... Buffer_UnitTest"
 	@echo "... TimerPool_UnitTest"
 	@echo "... InetAddress_UnitTest"
 	@echo "... EventLoopPool_UnitTest"
 	@echo "... EventLoop_UnitTest"
 	@echo "... ThreadPool_UnitTest"
+	@echo "... Acceptor_UnitTest.o"
+	@echo "... Acceptor_UnitTest.i"
+	@echo "... Acceptor_UnitTest.s"
+	@echo "... Buffer_UnitTest.o"
+	@echo "... Buffer_UnitTest.i"
+	@echo "... Buffer_UnitTest.s"
 	@echo "... EventLoopPool_UnitTest.o"
 	@echo "... EventLoopPool_UnitTest.i"
 	@echo "... EventLoopPool_UnitTest.s"

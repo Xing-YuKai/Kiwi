@@ -6,6 +6,5 @@ CMakeFiles/EventLoop_UnitTest.dir/EventLoop_UnitTest.cpp.o
  /home/kiwi/Repos/Kiwi/Kiwi/Base/TimerNode.h
  /home/kiwi/Repos/Kiwi/Kiwi/Base/TimerPool.h
  /home/kiwi/Repos/Kiwi/Kiwi/Base/Types.h
- /home/kiwi/Repos/Kiwi/Kiwi/Reactor/Channel.h
  /home/kiwi/Repos/Kiwi/Kiwi/Reactor/EventLoop.h
  /home/kiwi/Repos/Kiwi/unit_test_src/EventLoop_UnitTest.cpp

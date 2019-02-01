@@ -45,6 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/Acceptor_UnitTest.dir/DependInfo.cmake"
+  "CMakeFiles/Buffer_UnitTest.dir/DependInfo.cmake"
   "CMakeFiles/TimerPool_UnitTest.dir/DependInfo.cmake"
   "CMakeFiles/InetAddress_UnitTest.dir/DependInfo.cmake"
   "CMakeFiles/EventLoopPool_UnitTest.dir/DependInfo.cmake"

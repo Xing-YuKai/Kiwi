@@ -33,18 +33,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventLoop.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/EventLoop.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-              <folding>
-                <element signature="e#37#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="IdeDocumentHistory">
@@ -127,12 +115,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549016580107</updated>
-      <workItem from="1549016581580" duration="5964000" />
+      <workItem from="1549016581580" duration="9146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5964000" />
+    <option name="totallyTimeSpent" value="9146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="58" width="3000" height="1942" extended-state="6" />

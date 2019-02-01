@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/Buffer_UnitTest.dir/Buffer_UnitTest.cpp.o  -o Buffer_UnitTest ../../lib_release/libkiwi.a 
