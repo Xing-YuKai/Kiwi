@@ -18,19 +18,25 @@ Channel::Channel(EventLoopPtr event_loop, int fd) :
 
 void Channel::handle_event(TimeRange receive_time)
 {
-	_handling_event_ = true;
+	if (!_tied_ || !_tie_.expired())
+	{
+		_handling_event_ = true;
 
-	if (_revents_ & EPOLLERR)
-		if (_error_handler_)
-			_error_handler_();
-	if (_revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
-		if (_read_handler_)
-			_read_handler_(receive_time);
-	if (_revents_ & EPOLLOUT)
-		if (_write_handler_)
-			_write_handler_();
+		if((_revents_&EPOLLHUP)&&!(_revents_&EPOLLIN))
+			if(_close_handler_)
+				_close_handler_();
+		if (_revents_ & EPOLLERR)
+			if (_error_handler_)
+				_error_handler_();
+		if (_revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
+			if (_read_handler_)
+				_read_handler_(receive_time);
+		if (_revents_ & EPOLLOUT)
+			if (_write_handler_)
+				_write_handler_();
 
-	_handling_event_ = false;
+		_handling_event_ = false;
+	}
 }
 
 void Channel::update()
@@ -49,8 +55,15 @@ void Channel::remove()
 	_owner_event_loop_->remove_channel(this);
 }
 
+void Channel::tie(const std::shared_ptr<void> &obj_ptr)
+{
+	_tie_ = obj_ptr;
+	_tied_ = true;
+}
+
 Channel::~Channel()
 {
-	assert(_in_loop_);
-	assert(_handling_event_);
+	assert(!_in_loop_);
+	assert(!_handling_event_);
 }
+

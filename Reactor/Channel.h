@@ -57,6 +57,8 @@ namespace Kiwi
 
 		void remove();
 
+		void tie(const std::shared_ptr<void> &obj_ptr);
+
 		~Channel();
 
 		Channel(const Channel &) = delete;
@@ -64,23 +66,23 @@ namespace Kiwi
 		Channel &operator=(const Channel &) = delete;
 
 	private:
-		Type::EventLoopPtr _owner_event_loop_;
-		const int _fd_;
-
-		bool _in_loop_;
-		bool _handling_event_;
-
 		static const int NONE_EVENT = 0;
 		static const int READ_EVENT = EPOLLIN | EPOLLPRI | EPOLLRDHUP;
 		static const int WRITE_EVENT = EPOLLOUT;
 
 		uint32_t _events_;
 		uint32_t _revents_;
+		const int _fd_;
+		bool _in_loop_;
+		bool _handling_event_;
+		bool _tied_;
+		std::weak_ptr<void> _tie_;
 
 		Type::ReadEventHandler _read_handler_;
 		Type::EventHandler _write_handler_;
 		Type::EventHandler _close_handler_;
 		Type::EventHandler _error_handler_;
+		Type::EventLoopPtr _owner_event_loop_;
 	};
 }
 
