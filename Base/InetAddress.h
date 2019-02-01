@@ -24,6 +24,8 @@ namespace Kiwi
 
 		void set_address(std::string address);
 
+		void set_address_any();
+
 		std::string get_address() const;
 
 		void set_port(uint16_t port);

@@ -15,6 +15,7 @@
 
 namespace Kiwi
 {
+	//class Buffer is non-thread-safe
 	class Buffer
 	{
 	public:

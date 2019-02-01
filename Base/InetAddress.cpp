@@ -36,6 +36,11 @@ void InetAddress::set_address(std::string address)
 	}
 }
 
+void InetAddress::set_address_any()
+{
+	_inet_addr_.sin_addr.s_addr = INADDR_ANY;
+}
+
 std::string InetAddress::get_address() const
 {
 	char buf[16];
