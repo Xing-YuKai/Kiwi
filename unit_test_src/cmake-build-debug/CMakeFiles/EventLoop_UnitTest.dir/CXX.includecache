@@ -44,6 +44,16 @@ memory
 unordered_map
 -
 
+/home/kiwi/Repos/Kiwi/Kiwi/Reactor/Channel.h
+functional
+-
+sys/epoll.h
+-
+EventLoop.h
+/home/kiwi/Repos/Kiwi/Kiwi/Reactor/EventLoop.h
+../Base/Types.h
+/home/kiwi/Repos/Kiwi/Kiwi/Base/Types.h
+
 /home/kiwi/Repos/Kiwi/Kiwi/Reactor/EventLoop.h
 cassert
 -
@@ -69,6 +79,14 @@ memory
 /home/kiwi/Repos/Kiwi/unit_test_src/EventLoop_UnitTest.cpp
 ../Kiwi/Reactor/EventLoop.h
 /home/kiwi/Repos/Kiwi/Kiwi/Reactor/EventLoop.h
+../Kiwi/Reactor/Channel.h
+/home/kiwi/Repos/Kiwi/Kiwi/Reactor/Channel.h
 iostream
+-
+sys/eventfd.h
+-
+cstring
+-
+zconf.h
 -
 
