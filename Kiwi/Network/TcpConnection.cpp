@@ -9,7 +9,7 @@
 using namespace Kiwi;
 using namespace Kiwi::Type;
 
-TcpConnection::TcpConnection(EventLoop* io_loop_ptr,
+TcpConnection::TcpConnection(EventLoop *io_loop_ptr,
 							 Type::TcpConnectionID id,
 							 Socket socket,
 							 const InetAddress &local_address,
@@ -19,7 +19,9 @@ TcpConnection::TcpConnection(EventLoop* io_loop_ptr,
 		_socket_ptr_(new Socket(socket)),
 		_channel_ptr_(new Channel(io_loop_ptr, socket.get_fd())),
 		_local_address_(local_address),
-		_peer_address_(_peer_address_),
+		_peer_address_(peer_address),
+		_output_buffer_ptr_(new Buffer()),
+		_input_buffer_ptr_(new Buffer()),
 		_state_(STATE_INITIAL)
 {
 	_channel_ptr_->set_read_handler(std::bind(&TcpConnection::tcp_connection_read_handler, this, _1));
@@ -33,13 +35,14 @@ void TcpConnection::send(const std::string &data)
 {
 	if (_state_.load() == STATE_CONNECTED)
 	{
-		_owner_event_loop_->run_in_loop([this, data]
+		auto this_ptr = shared_from_this();
+		_owner_event_loop_->run_in_loop([this_ptr, data]
 										{
-											this->_output_buffer_ptr_->append(data);
-											if(!this->_channel_ptr_->is_writing())
+											this_ptr->_output_buffer_ptr_->append(data);
+											if (!this_ptr->_channel_ptr_->is_writing())
 											{
-												this->_channel_ptr_->enable_writing();
-												this->_channel_ptr_->update();
+												this_ptr->_channel_ptr_->enable_writing();
+												this_ptr->_channel_ptr_->update();
 											}
 										});
 	}
@@ -50,20 +53,21 @@ void TcpConnection::shutdown_write()
 	if (_state_.load() == STATE_CONNECTED)
 	{
 		_state_.store(STATE_HALF_CLOSE);
-		_owner_event_loop_->run_in_loop([this]
+		auto this_ptr = shared_from_this();
+		_owner_event_loop_->run_in_loop([this_ptr]
 										{
-											if (this->_channel_ptr_->is_writing())
-												this->_socket_ptr_->shutdown_write();
+											if (this_ptr->_channel_ptr_->is_writing())
+												this_ptr->_socket_ptr_->shutdown_write();
 										});
 	}
 }
 
 void TcpConnection::close()
 {
-	if(_state_.load()==STATE_CONNECTED||_state_.load()==STATE_HALF_CLOSE)
+	if (_state_.load() == STATE_CONNECTED || _state_.load() == STATE_HALF_CLOSE)
 	{
 		_state_.store(STATE_DISCONNECTED);
-		_owner_event_loop_->run_in_loop(std::bind(&TcpConnection::tcp_connection_close_handler,this));
+		_owner_event_loop_->run_in_loop(std::bind(&TcpConnection::tcp_connection_close_handler, this));
 	}
 }
 
@@ -74,24 +78,26 @@ void TcpConnection::set_tcp_no_delay(bool on)
 
 void TcpConnection::start_read()
 {
-	_owner_event_loop_->run_in_loop([this]
+	auto this_ptr = shared_from_this();
+	_owner_event_loop_->run_in_loop([this_ptr]
 									{
-										if(!this->_channel_ptr_->is_reading())
+										if (!this_ptr->_channel_ptr_->is_reading())
 										{
-											this->_channel_ptr_->enable_reading();
-											this->_channel_ptr_->update();
+											this_ptr->_channel_ptr_->enable_reading();
+											this_ptr->_channel_ptr_->update();
 										}
 									});
 }
 
 void TcpConnection::stop_read()
 {
-	_owner_event_loop_->run_in_loop([this]
+	auto this_ptr = shared_from_this();
+	_owner_event_loop_->run_in_loop([this_ptr]
 									{
-										if(this->_channel_ptr_->is_reading())
+										if (this_ptr->_channel_ptr_->is_reading())
 										{
-											this->_channel_ptr_->disable_reading();
-											this->_channel_ptr_->update();
+											this_ptr->_channel_ptr_->disable_reading();
+											this_ptr->_channel_ptr_->update();
 										}
 									});
 }
@@ -99,14 +105,16 @@ void TcpConnection::stop_read()
 void TcpConnection::connection_established()
 {
 	_owner_event_loop_->assert_in_event_loop_thread();
+	if (_state_.load() == STATE_INITIAL)
+	{
+		_state_.store(STATE_CONNECTED);
 
-	_state_.store(STATE_CONNECTED);
+		_channel_ptr_->tie(shared_from_this());
+		_channel_ptr_->enable_reading();
+		_channel_ptr_->update();
 
-	_channel_ptr_->tie(shared_from_this());
-	_channel_ptr_->enable_reading();
-	_channel_ptr_->update();
-
-	_connection_handler_(shared_from_this());
+		_connection_handler_(shared_from_this());
+	}
 }
 
 void TcpConnection::connection_destroyed()
@@ -115,6 +123,7 @@ void TcpConnection::connection_destroyed()
 	if (_state_.load() == STATE_CONNECTED)
 	{
 		_state_.store(STATE_DISCONNECTED);
+
 		_channel_ptr_->disable_all();
 		_channel_ptr_->update();
 	}
@@ -123,7 +132,7 @@ void TcpConnection::connection_destroyed()
 
 TcpConnection::~TcpConnection()
 {
-	assert(_state_.load()==STATE_DISCONNECTED);
+	assert(_state_.load() == STATE_DISCONNECTED);
 }
 
 void TcpConnection::tcp_connection_read_handler(TimeRange receive_time)
@@ -140,6 +149,7 @@ void TcpConnection::tcp_connection_read_handler(TimeRange receive_time)
 			tcp_connection_error_handler();
 	}
 }
+
 void TcpConnection::tcp_connection_write_handler()
 {
 	_owner_event_loop_->assert_in_event_loop_thread();
@@ -168,7 +178,6 @@ void TcpConnection::tcp_connection_close_handler()
 	_channel_ptr_->disable_all();
 	_channel_ptr_->update();
 	TcpConnectionPtr guard = shared_from_this();
-	_connection_handler_(guard);
 	_close_handler_(guard);
 }
 
@@ -179,5 +188,5 @@ void TcpConnection::tcp_connection_error_handler()
 			  << "local_address : " << _local_address_.get_address() << " : " << _local_address_.get_port() << std::endl
 			  << "peer_address : " << _peer_address_.get_address() << " : " << _peer_address_.get_port() << std::endl
 			  << "errno : " << error << " " << strerror(error) << std::endl;
-	std::terminate();
+	tcp_connection_close_handler();
 }

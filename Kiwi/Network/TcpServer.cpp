@@ -44,8 +44,8 @@ TcpServer::~TcpServer()
 void TcpServer::new_connection_handler(const Socket &socket, const InetAddress &peer_address)
 {
 	_acceptor_loop_ptr_->assert_in_event_loop_thread();
+	_id_counter_++;
 	EventLoop *io_loop_ptr = _event_loop_pool_->get_loop();
-
 	InetAddress local_address = socket.get_local_address();
 	TcpConnectionPtr conn_ptr = std::make_shared<TcpConnection>(io_loop_ptr,
 																_id_counter_,
@@ -57,6 +57,7 @@ void TcpServer::new_connection_handler(const Socket &socket, const InetAddress &
 	conn_ptr->set_message_handler(_message_handler_);
 	conn_ptr->set_write_complete_handler(_write_complete_handler_);
 	conn_ptr->set_close_handler(std::bind(&TcpServer::remove_connection_handler, this, _1));
+
 	io_loop_ptr->run_in_loop(std::bind(&TcpConnection::connection_established, conn_ptr));
 }
 

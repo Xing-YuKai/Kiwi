@@ -136,7 +136,7 @@ void EventLoop::run_in_loop(Functor functor)
 	{
 		{
 			std::lock_guard<std::mutex> lock_guard(_mutex_);
-			_pending_functors_.emplace_back(std::move(functor));
+			_pending_functors_.emplace_back(functor);
 		}
 		if (_handling_functors_.load() || std::this_thread::get_id() != _thread_id_)
 		{
