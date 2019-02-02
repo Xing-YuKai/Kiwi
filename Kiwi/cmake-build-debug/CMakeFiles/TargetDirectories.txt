@@ -1,0 +1,4 @@
+/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles/kiwi_static.dir
+/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles/kiwi.dir

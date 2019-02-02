@@ -3,3 +3,6 @@
 //
 
 #include "TcpClient.h"
+
+using namespace Kiwi;
+using namespace Kiwi::Type;

@@ -2,10 +2,10 @@
 // Created by kiwi on 19-1-19.
 //
 
-#include "../Kiwi/Network/TcpServer.h"
-#include "../Kiwi/Network/TcpConnection.h"
-#include "../Kiwi/Base/InetAddress.h"
-#include "../Kiwi/Reactor/EventLoop.h"
+#include "Network/TcpServer.h"
+#include "Network/TcpConnection.h"
+#include "Base/InetAddress.h"
+#include "Reactor/EventLoop.h"
 
 void connection_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr)
 {

@@ -5,11 +5,22 @@
 #ifndef KIWI_CONNECTOR_H
 #define KIWI_CONNECTOR_H
 
+#include "../Base/Types.h"
 
-class Connector
+namespace Kiwi
 {
+	class Connector
+	{
+	public:
+		Connector();
 
-};
+		~Connector();
+
+		Connector(const Connector &) = delete;
+
+		Connector &operator=(const Connector &) = delete;
+	};
+}
 
 
 #endif //KIWI_CONNECTOR_H
