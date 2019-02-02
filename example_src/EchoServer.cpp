@@ -9,8 +9,7 @@
 
 void connection_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr)
 {
-	std::string data("EchoServer");
-	conn_ptr->send(data);
+
 }
 
 void message_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr,

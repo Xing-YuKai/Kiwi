@@ -23,20 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EchoServer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EchoServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+            <state relative-caret-position="288">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#38#76#0" expanded="true" />
               </folding>
@@ -44,14 +35,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TcpServer.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.h">
+      <file leaf-file-name="TcpConnection.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding>
-                <element signature="e#89#106#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-227">
+              <caret line="67" column="65" lean-forward="true" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TcpConnection.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="834">
+              <caret line="180" column="19" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TcpClient.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpClient.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="TcpClient.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpClient.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -59,36 +70,46 @@
       <file leaf-file-name="TcpServer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="2160">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#38#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Acceptor.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.h">
+      <file leaf-file-name="TcpServer.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-121" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Acceptor.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="671">
+              <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+              <folding>
+                <element signature="e#89#106#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>this</find>
+      <find>_connection_handler</find>
+      <find>_close_handler_</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/EchoServer.cpp" />
         <option value="$PROJECT_DIR$/../Kiwi/Network/Acceptor.cpp" />
+        <option value="$PROJECT_DIR$/../Kiwi/Reactor/EventLoop.cpp" />
+        <option value="$PROJECT_DIR$/../Kiwi/Network/TcpConnection.h" />
+        <option value="$PROJECT_DIR$/../Kiwi/Network/TcpServer.cpp" />
+        <option value="$PROJECT_DIR$/EchoServer.cpp" />
+        <option value="$PROJECT_DIR$/../Kiwi/Network/TcpConnection.cpp" />
       </list>
     </option>
   </component>
@@ -101,6 +122,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="206" />
@@ -112,6 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,11 +171,17 @@
               <item name="Kiwi" type="462c0819:PsiDirectoryNode" />
               <item name="Network" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Kiwi_Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
+              <item name="Kiwi" type="462c0819:PsiDirectoryNode" />
+              <item name="Reactor" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,17 +224,18 @@
       <workItem from="1549015879713" duration="16000" />
       <workItem from="1549015930783" duration="2593000" />
       <workItem from="1549033653779" duration="2756000" />
+      <workItem from="1549093231461" duration="11094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5848000" />
+    <option name="totallyTimeSpent" value="16942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="58" width="3000" height="1942" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24974619" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24974619" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.329859" />
       <window_info anchor="bottom" id="Statistic" order="7" />
@@ -214,9 +244,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.329859" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329859" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39975476" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -233,6 +263,53 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EchoServer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1044">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <element signature="e#38#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#89#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="e#38#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1728">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -269,19 +346,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/Epoll.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="294">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.cpp">
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Base/Socket.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3132" />
+        <state relative-caret-position="-5616" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.h">
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Base/Socket.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-972" />
+        <state relative-caret-position="324">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/EventLoopPool.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Kiwi/Base/Types.h">
@@ -294,43 +390,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/c++/8.2.1/bits/shared_ptr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="667" column="25" lean-forward="true" selection-start-line="667" selection-start-column="25" selection-end-line="667" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8.2.1/bits/shared_ptr_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8.2.1/bits/invoke.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8.2.1/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="805" selection-start-line="805" selection-end-line="805" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8.2.1/functional">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="483" selection-start-line="483" selection-end-line="483" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8.2.1/bits/std_function.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="296" selection-start-line="296" selection-end-line="296" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Base/Buffer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Base/Buffer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-678">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/Channel.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/Channel.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-227">
+          <caret line="67" column="65" lean-forward="true" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EchoServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        <state relative-caret-position="288">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#38#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.h">
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpConnection.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding>
-            <element signature="e#89#106#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="834">
+          <caret line="180" column="19" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpClient.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="2160">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#38#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.cpp">
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/EventLoop.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="311">
+          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/Acceptor.h">
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Reactor/EventLoop.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-121" />
+        <state relative-caret-position="-3486">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Kiwi/Network/TcpServer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="e#89#106#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
