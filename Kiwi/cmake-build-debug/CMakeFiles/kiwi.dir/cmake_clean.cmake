@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o"
-  "CMakeFiles/kiwi.dir/Network/Connector.cpp.o"
   "CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o"
   "CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o"
   "CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o"

@@ -24,15 +24,20 @@ namespace Kiwi
 
 		void connect();
 
-		void disconnect();
-
-		~TcpClient();
+		~TcpClient() = default;
 
 		TcpClient(const TcpClient &) = delete;
 
 		TcpClient &operator=(const TcpClient &) = delete;
 
+	public:
+		static const int STATE_INITIAL = 1;
+		static const int STATE_CONNECTED = 2;
+		static const int STATE_DISCONNECTED = 3;
+
 	private:
+		void try_connect();
+
 		void new_connection_handler(const Socket &socket);
 
 		void remove_connection_handler(const Type::TcpConnectionPtr &conn_ptr);
@@ -40,11 +45,12 @@ namespace Kiwi
 	private:
 		uint32_t _client_id_;
 		EventLoop *_base_loop_;
-		Type::TcpConnectionPtr _connection_ptr_;
+		InetAddress _server_address_;
+		int _state_;
+		Type::TcpConnectionPtr _conn_ptr_;
 		Type::ConnectionHandler _connection_handler_;
 		Type::MessageHandler _message_handler_;
 		Type::WriteCompleteHandler _write_complete_handler_;
-
 	};
 }
 

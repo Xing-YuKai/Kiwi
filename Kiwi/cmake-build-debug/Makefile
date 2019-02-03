@@ -346,36 +346,6 @@ Network/Acceptor.cpp.s:
 	$(MAKE) -f CMakeFiles/kiwi.dir/build.make CMakeFiles/kiwi.dir/Network/Acceptor.cpp.s
 .PHONY : Network/Acceptor.cpp.s
 
-Network/Connector.o: Network/Connector.cpp.o
-
-.PHONY : Network/Connector.o
-
-# target to build an object file
-Network/Connector.cpp.o:
-	$(MAKE) -f CMakeFiles/kiwi_static.dir/build.make CMakeFiles/kiwi_static.dir/Network/Connector.cpp.o
-	$(MAKE) -f CMakeFiles/kiwi.dir/build.make CMakeFiles/kiwi.dir/Network/Connector.cpp.o
-.PHONY : Network/Connector.cpp.o
-
-Network/Connector.i: Network/Connector.cpp.i
-
-.PHONY : Network/Connector.i
-
-# target to preprocess a source file
-Network/Connector.cpp.i:
-	$(MAKE) -f CMakeFiles/kiwi_static.dir/build.make CMakeFiles/kiwi_static.dir/Network/Connector.cpp.i
-	$(MAKE) -f CMakeFiles/kiwi.dir/build.make CMakeFiles/kiwi.dir/Network/Connector.cpp.i
-.PHONY : Network/Connector.cpp.i
-
-Network/Connector.s: Network/Connector.cpp.s
-
-.PHONY : Network/Connector.s
-
-# target to generate assembly for a file
-Network/Connector.cpp.s:
-	$(MAKE) -f CMakeFiles/kiwi_static.dir/build.make CMakeFiles/kiwi_static.dir/Network/Connector.cpp.s
-	$(MAKE) -f CMakeFiles/kiwi.dir/build.make CMakeFiles/kiwi.dir/Network/Connector.cpp.s
-.PHONY : Network/Connector.cpp.s
-
 Network/TcpClient.o: Network/TcpClient.cpp.o
 
 .PHONY : Network/TcpClient.o
@@ -617,9 +587,6 @@ help:
 	@echo "... Network/Acceptor.o"
 	@echo "... Network/Acceptor.i"
 	@echo "... Network/Acceptor.s"
-	@echo "... Network/Connector.o"
-	@echo "... Network/Connector.i"
-	@echo "... Network/Connector.s"
 	@echo "... Network/TcpClient.o"
 	@echo "... Network/TcpClient.i"
 	@echo "... Network/TcpClient.s"

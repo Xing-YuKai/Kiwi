@@ -31,9 +31,10 @@ namespace
 	public:
 		IgnoreSIGPIPE()
 		{
-			signal(SIGPIPE,SIG_IGN);
+			signal(SIGPIPE, SIG_IGN);
 		}
 	};
+
 	IgnoreSIGPIPE obj;
 }
 
@@ -130,18 +131,20 @@ bool EventLoop::has_channel(Channel *channel)
 void EventLoop::run_in_loop(Functor functor)
 {
 	if (std::this_thread::get_id() == _thread_id_)
-	{
 		functor();
-	} else
+	else
+		queue_in_loop(functor);
+}
+
+void EventLoop::queue_in_loop(Type::Functor functor)
+{
 	{
-		{
-			std::lock_guard<std::mutex> lock_guard(_mutex_);
-			_pending_functors_.emplace_back(functor);
-		}
-		if (_handling_functors_.load() || std::this_thread::get_id() != _thread_id_)
-		{
-			wakeup();
-		}
+		std::lock_guard<std::mutex> lock_guard(_mutex_);
+		_pending_functors_.emplace_back(functor);
+	}
+	if (_handling_functors_.load() || std::this_thread::get_id() != _thread_id_)
+	{
+		wakeup();
 	}
 }
 
@@ -172,7 +175,7 @@ void EventLoop::wakeup()
 	ssize_t n = write(_wakeup_channel_->get_fd(), &one, sizeof(one));
 	if (n != sizeof(one))
 	{
-		std::cerr << "wakeup error : write " << n << "bytes instead of " << sizeof(one) <<std::endl;
+		std::cerr << "wakeup error : write " << n << "bytes instead of " << sizeof(one) << std::endl;
 		std::terminate();
 	}
 }

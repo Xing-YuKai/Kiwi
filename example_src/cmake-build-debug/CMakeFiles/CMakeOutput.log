@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_95b82/fast"
-/usr/bin/make -f CMakeFiles/cmTC_95b82.dir/build.make CMakeFiles/cmTC_95b82.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_95b82.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_95b82.dir/testCCompiler.c.o   -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_95b82
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95b82.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_95b82.dir/testCCompiler.c.o  -o cmTC_95b82 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_85c15/fast"
+/usr/bin/make -f CMakeFiles/cmTC_85c15.dir/build.make CMakeFiles/cmTC_85c15.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_85c15.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_85c15.dir/testCCompiler.c.o   -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_85c15
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85c15.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_85c15.dir/testCCompiler.c.o  -o cmTC_85c15 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bc3a4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bc3a4.dir/build.make CMakeFiles/cmTC_bc3a4.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o   -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_bc3a4
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc3a4.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o  -o cmTC_bc3a4 
+Run Build Command:"/usr/bin/make" "cmTC_719a5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_719a5.dir/build.make CMakeFiles/cmTC_719a5.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o   -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_719a5
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_719a5.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o  -o cmTC_719a5 
 使用内建 specs。
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper
@@ -59,24 +59,24 @@ COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper
 gcc 版本 8.2.1 20181127 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bc3a4' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDXjdp8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_bc3a4 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bc3a4' '-mtune=generic' '-march=x86-64'
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_719a5' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccX5UtFt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_719a5 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_719a5' '-mtune=generic' '-march=x86-64'
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bc3a4/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bc3a4.dir/build.make CMakeFiles/cmTC_bc3a4.dir/build]
-  ignore line: [make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”]
-  ignore line: [Building C object CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o   -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_bc3a4]
-  ignore line: [/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc3a4.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o  -o cmTC_bc3a4 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_719a5/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_719a5.dir/build.make CMakeFiles/cmTC_719a5.dir/build]
+  ignore line: [make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”]
+  ignore line: [Building C object CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o   -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_719a5]
+  ignore line: [/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_719a5.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o  -o cmTC_719a5 ]
   ignore line: [使用内建 specs。]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc 版本 8.2.1 20181127 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bc3a4' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDXjdp8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_bc3a4 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_719a5' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccX5UtFt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_719a5 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o]
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccDXjdp8.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccX5UtFt.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -107,7 +107,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_bc3a4] ==> ignore
+    arg [cmTC_719a5] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib] ==> dir [/lib/../lib]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../..]
-    arg [CMakeFiles/cmTC_bc3a4.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_719a5.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -141,17 +141,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2607a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2607a.dir/build.make CMakeFiles/cmTC_2607a.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_2607a.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_2607a.dir/feature_tests.c.o   -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_2607a
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2607a.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_2607a.dir/feature_tests.c.o  -o cmTC_2607a 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_62390/fast"
+/usr/bin/make -f CMakeFiles/cmTC_62390.dir/build.make CMakeFiles/cmTC_62390.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_62390.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_62390.dir/feature_tests.c.o   -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_62390
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62390.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_62390.dir/feature_tests.c.o  -o cmTC_62390 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -161,17 +161,17 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a2071/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a2071.dir/build.make CMakeFiles/cmTC_a2071.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_a2071.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_a2071.dir/feature_tests.c.o   -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a2071
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2071.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_a2071.dir/feature_tests.c.o  -o cmTC_a2071 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_65842/fast"
+/usr/bin/make -f CMakeFiles/cmTC_65842.dir/build.make CMakeFiles/cmTC_65842.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_65842.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_65842.dir/feature_tests.c.o   -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_65842
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65842.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_65842.dir/feature_tests.c.o  -o cmTC_65842 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -181,17 +181,17 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_30d55/fast"
-/usr/bin/make -f CMakeFiles/cmTC_30d55.dir/build.make CMakeFiles/cmTC_30d55.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_30d55.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_30d55.dir/feature_tests.c.o   -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_30d55
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30d55.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_30d55.dir/feature_tests.c.o  -o cmTC_30d55 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_83f15/fast"
+/usr/bin/make -f CMakeFiles/cmTC_83f15.dir/build.make CMakeFiles/cmTC_83f15.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_83f15.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_83f15.dir/feature_tests.c.o   -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_83f15
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_83f15.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_83f15.dir/feature_tests.c.o  -o cmTC_83f15 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -199,30 +199,30 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_75076/fast"
-/usr/bin/make -f CMakeFiles/cmTC_75076.dir/build.make CMakeFiles/cmTC_75076.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_75076.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_75076.dir/testCXXCompiler.cxx.o -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_75076
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75076.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_75076.dir/testCXXCompiler.cxx.o  -o cmTC_75076 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_08cde/fast"
+/usr/bin/make -f CMakeFiles/cmTC_08cde.dir/build.make CMakeFiles/cmTC_08cde.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_08cde.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_08cde.dir/testCXXCompiler.cxx.o -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_08cde
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08cde.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_08cde.dir/testCXXCompiler.cxx.o  -o cmTC_08cde 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_37b60/fast"
-/usr/bin/make -f CMakeFiles/cmTC_37b60.dir/build.make CMakeFiles/cmTC_37b60.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_37b60
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37b60.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_37b60 
+Run Build Command:"/usr/bin/make" "cmTC_2638f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2638f.dir/build.make CMakeFiles/cmTC_2638f.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_2638f
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2638f.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2638f 
 使用内建 specs。
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper
@@ -232,24 +232,24 @@ COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper
 gcc 版本 8.2.1 20181127 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_37b60' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJN0uhK.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_37b60 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_37b60' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2638f' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVTCjtI.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_2638f /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2638f' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_37b60/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_37b60.dir/build.make CMakeFiles/cmTC_37b60.dir/build]
-  ignore line: [make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”]
-  ignore line: [Building CXX object CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_37b60]
-  ignore line: [/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37b60.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_37b60 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_2638f/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_2638f.dir/build.make CMakeFiles/cmTC_2638f.dir/build]
+  ignore line: [make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”]
+  ignore line: [Building CXX object CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o -c /home/kiwi/IDE/clion-2018.1.1/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_2638f]
+  ignore line: [/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2638f.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2638f ]
   ignore line: [使用内建 specs。]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper]
@@ -259,13 +259,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc 版本 8.2.1 20181127 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_37b60' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJN0uhK.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_37b60 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2638f' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVTCjtI.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_2638f /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../.. CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crtn.o]
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccJN0uhK.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccVTCjtI.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -280,7 +280,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_37b60] ==> ignore
+    arg [cmTC_2638f] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/crtbeginS.o] ==> ignore
@@ -289,7 +289,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib] ==> dir [/lib/../lib]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../..]
-    arg [CMakeFiles/cmTC_37b60.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_2638f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -312,17 +312,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_036cd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_036cd.dir/build.make CMakeFiles/cmTC_036cd.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_036cd.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_036cd.dir/feature_tests.cxx.o -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_036cd
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_036cd.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_036cd.dir/feature_tests.cxx.o  -o cmTC_036cd 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_d1d88/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d1d88.dir/build.make CMakeFiles/cmTC_d1d88.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_d1d88.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_d1d88.dir/feature_tests.cxx.o -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d1d88
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1d88.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_d1d88.dir/feature_tests.cxx.o  -o cmTC_d1d88 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -385,17 +385,17 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3a895/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3a895.dir/build.make CMakeFiles/cmTC_3a895.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_3a895.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_3a895.dir/feature_tests.cxx.o -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3a895
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a895.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_3a895.dir/feature_tests.cxx.o  -o cmTC_3a895 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_b2638/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b2638.dir/build.make CMakeFiles/cmTC_b2638.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_b2638.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_b2638.dir/feature_tests.cxx.o -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_b2638
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2638.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_b2638.dir/feature_tests.cxx.o  -o cmTC_b2638 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -458,17 +458,17 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ffe04/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ffe04.dir/build.make CMakeFiles/cmTC_ffe04.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_ffe04.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_ffe04.dir/feature_tests.cxx.o -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_ffe04
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffe04.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_ffe04.dir/feature_tests.cxx.o  -o cmTC_ffe04 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_8d83f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8d83f.dir/build.make CMakeFiles/cmTC_8d83f.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_8d83f.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_8d83f.dir/feature_tests.cxx.o -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_8d83f
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d83f.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_8d83f.dir/feature_tests.cxx.o  -o cmTC_8d83f 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -531,17 +531,17 @@ make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMak
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_305cf/fast"
-/usr/bin/make -f CMakeFiles/cmTC_305cf.dir/build.make CMakeFiles/cmTC_305cf.dir/build
-make[1]: 进入目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_305cf.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_305cf.dir/feature_tests.cxx.o -c /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_305cf
-/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_305cf.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_305cf.dir/feature_tests.cxx.o  -o cmTC_305cf 
-make[1]: 离开目录“/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Run Build Command:"/usr/bin/make" "cmTC_fd816/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fd816.dir/build.make CMakeFiles/cmTC_fd816.dir/build
+make[1]: 进入目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_fd816.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_fd816.dir/feature_tests.cxx.o -c /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fd816
+/home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd816.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_fd816.dir/feature_tests.cxx.o  -o cmTC_fd816 
+make[1]: 离开目录“/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/CMakeTmp”
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

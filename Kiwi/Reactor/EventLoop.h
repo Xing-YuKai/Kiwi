@@ -42,6 +42,8 @@ namespace Kiwi
 
 		void run_in_loop(Type::Functor functor);
 
+		void queue_in_loop(Type::Functor functor);
+
 		std::future<Type::TimerID> run_after(Type::TimerHandler handler, TimeRange interval);
 
 		void cancel_in_loop(std::future<Type::TimerID> future);

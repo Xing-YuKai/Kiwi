@@ -48,10 +48,10 @@ RM = /home/kiwi/IDE/clion-2018.1.1/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kiwi/Repos/Kiwi/example_src
+CMAKE_SOURCE_DIR = /home/kiwi/Repos/C++/Kiwi/example_src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named EchoClient
+
+# Build rule for target.
+EchoClient: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EchoClient
+.PHONY : EchoClient
+
+# fast build rule for target.
+EchoClient/fast:
+	$(MAKE) -f CMakeFiles/EchoClient.dir/build.make CMakeFiles/EchoClient.dir/build
+.PHONY : EchoClient/fast
+
+#=============================================================================
 # Target rules for targets named EchoServer
 
 # Build rule for target.
@@ -122,6 +135,33 @@ EchoServer: cmake_check_build_system
 EchoServer/fast:
 	$(MAKE) -f CMakeFiles/EchoServer.dir/build.make CMakeFiles/EchoServer.dir/build
 .PHONY : EchoServer/fast
+
+EchoClient.o: EchoClient.cpp.o
+
+.PHONY : EchoClient.o
+
+# target to build an object file
+EchoClient.cpp.o:
+	$(MAKE) -f CMakeFiles/EchoClient.dir/build.make CMakeFiles/EchoClient.dir/EchoClient.cpp.o
+.PHONY : EchoClient.cpp.o
+
+EchoClient.i: EchoClient.cpp.i
+
+.PHONY : EchoClient.i
+
+# target to preprocess a source file
+EchoClient.cpp.i:
+	$(MAKE) -f CMakeFiles/EchoClient.dir/build.make CMakeFiles/EchoClient.dir/EchoClient.cpp.i
+.PHONY : EchoClient.cpp.i
+
+EchoClient.s: EchoClient.cpp.s
+
+.PHONY : EchoClient.s
+
+# target to generate assembly for a file
+EchoClient.cpp.s:
+	$(MAKE) -f CMakeFiles/EchoClient.dir/build.make CMakeFiles/EchoClient.dir/EchoClient.cpp.s
+.PHONY : EchoClient.cpp.s
 
 EchoServer.o: EchoServer.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... EchoClient"
 	@echo "... EchoServer"
+	@echo "... EchoClient.o"
+	@echo "... EchoClient.i"
+	@echo "... EchoClient.s"
 	@echo "... EchoServer.o"
 	@echo "... EchoServer.i"
 	@echo "... EchoServer.s"

@@ -8,43 +8,89 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EchoClient">
+				<Option output="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/EchoClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/C++/Kiwi/example_src/../lib_release/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoClient"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EchoClient/fast">
+				<Option output="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/EchoClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiwi/Repos/C++/Kiwi/example_src/../lib_release/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoClient/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EchoServer">
-				<Option output="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/EchoServer" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug"/>
+				<Option output="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/EchoServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/kiwi/Repos/Kiwi/example_src/../Kiwi"/>
+					<Add directory="/home/kiwi/Repos/C++/Kiwi/example_src/../lib_release/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
@@ -54,20 +100,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoServer"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoServer"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EchoServer/fast">
-				<Option output="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/EchoServer" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug"/>
+				<Option output="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/EchoServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/kiwi/Repos/Kiwi/example_src/../Kiwi"/>
+					<Add directory="/home/kiwi/Repos/C++/Kiwi/example_src/../lib_release/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
@@ -77,17 +123,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoServer/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 EchoServer/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/kiwi/Repos/Kiwi/example_src/EchoServer.cpp">
+		<Unit filename="/home/kiwi/Repos/C++/Kiwi/example_src/EchoClient.cpp">
+			<Option target="EchoClient"/>
+		</Unit>
+		<Unit filename="/home/kiwi/Repos/C++/Kiwi/example_src/EchoServer.cpp">
 			<Option target="EchoServer"/>
 		</Unit>
-		<Unit filename="/home/kiwi/Repos/Kiwi/example_src/CMakeLists.txt">
+		<Unit filename="/home/kiwi/Repos/C++/Kiwi/example_src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

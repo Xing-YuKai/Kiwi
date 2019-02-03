@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kiwi/Repos/Kiwi/example_src/EchoServer.cpp" "/home/kiwi/Repos/Kiwi/example_src/cmake-build-debug/CMakeFiles/EchoServer.dir/EchoServer.cpp.o"
+  "/home/kiwi/Repos/C++/Kiwi/example_src/EchoServer.cpp" "/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/EchoServer.dir/EchoServer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../Kiwi"
+  "../../lib_release/include"
   )
 
 # Targets to which this target links.

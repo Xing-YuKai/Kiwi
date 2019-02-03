@@ -81,33 +81,9 @@ CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o.provides: CMakeFiles/kiwi.dir/Network
 CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o.provides.build: CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o
 
 
-CMakeFiles/kiwi.dir/Network/Connector.cpp.o: CMakeFiles/kiwi.dir/flags.make
-CMakeFiles/kiwi.dir/Network/Connector.cpp.o: ../Network/Connector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kiwi.dir/Network/Connector.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Network/Connector.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/Connector.cpp
-
-CMakeFiles/kiwi.dir/Network/Connector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kiwi.dir/Network/Connector.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/Connector.cpp > CMakeFiles/kiwi.dir/Network/Connector.cpp.i
-
-CMakeFiles/kiwi.dir/Network/Connector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kiwi.dir/Network/Connector.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/Connector.cpp -o CMakeFiles/kiwi.dir/Network/Connector.cpp.s
-
-CMakeFiles/kiwi.dir/Network/Connector.cpp.o.requires:
-
-.PHONY : CMakeFiles/kiwi.dir/Network/Connector.cpp.o.requires
-
-CMakeFiles/kiwi.dir/Network/Connector.cpp.o.provides: CMakeFiles/kiwi.dir/Network/Connector.cpp.o.requires
-	$(MAKE) -f CMakeFiles/kiwi.dir/build.make CMakeFiles/kiwi.dir/Network/Connector.cpp.o.provides.build
-.PHONY : CMakeFiles/kiwi.dir/Network/Connector.cpp.o.provides
-
-CMakeFiles/kiwi.dir/Network/Connector.cpp.o.provides.build: CMakeFiles/kiwi.dir/Network/Connector.cpp.o
-
-
 CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o: ../Network/TcpClient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/TcpClient.cpp
 
 CMakeFiles/kiwi.dir/Network/TcpClient.cpp.i: cmake_force
@@ -131,7 +107,7 @@ CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o.provides.build: CMakeFiles/kiwi.dir/
 
 CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o: ../Network/TcpConnection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/TcpConnection.cpp
 
 CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.i: cmake_force
@@ -155,7 +131,7 @@ CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o.provides.build: CMakeFiles/kiwi.
 
 CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o: ../Network/TcpServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Network/TcpServer.cpp
 
 CMakeFiles/kiwi.dir/Network/TcpServer.cpp.i: cmake_force
@@ -179,7 +155,7 @@ CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o.provides.build: CMakeFiles/kiwi.dir/
 
 CMakeFiles/kiwi.dir/Base/Buffer.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/Buffer.cpp.o: ../Base/Buffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kiwi.dir/Base/Buffer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kiwi.dir/Base/Buffer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/Buffer.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/Buffer.cpp
 
 CMakeFiles/kiwi.dir/Base/Buffer.cpp.i: cmake_force
@@ -203,7 +179,7 @@ CMakeFiles/kiwi.dir/Base/Buffer.cpp.o.provides.build: CMakeFiles/kiwi.dir/Base/B
 
 CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o: ../Base/InetAddress.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/InetAddress.cpp
 
 CMakeFiles/kiwi.dir/Base/InetAddress.cpp.i: cmake_force
@@ -227,7 +203,7 @@ CMakeFiles/kiwi.dir/Base/InetAddress.cpp.o.provides.build: CMakeFiles/kiwi.dir/B
 
 CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o: ../Base/Semaphore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/Semaphore.cpp
 
 CMakeFiles/kiwi.dir/Base/Semaphore.cpp.i: cmake_force
@@ -251,7 +227,7 @@ CMakeFiles/kiwi.dir/Base/Semaphore.cpp.o.provides.build: CMakeFiles/kiwi.dir/Bas
 
 CMakeFiles/kiwi.dir/Base/Socket.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/Socket.cpp.o: ../Base/Socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kiwi.dir/Base/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kiwi.dir/Base/Socket.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/Socket.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/Socket.cpp
 
 CMakeFiles/kiwi.dir/Base/Socket.cpp.i: cmake_force
@@ -275,7 +251,7 @@ CMakeFiles/kiwi.dir/Base/Socket.cpp.o.provides.build: CMakeFiles/kiwi.dir/Base/S
 
 CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o: ../Base/TimeRange.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/TimeRange.cpp
 
 CMakeFiles/kiwi.dir/Base/TimeRange.cpp.i: cmake_force
@@ -299,7 +275,7 @@ CMakeFiles/kiwi.dir/Base/TimeRange.cpp.o.provides.build: CMakeFiles/kiwi.dir/Bas
 
 CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o: ../Base/TimerPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Base/TimerPool.cpp
 
 CMakeFiles/kiwi.dir/Base/TimerPool.cpp.i: cmake_force
@@ -323,7 +299,7 @@ CMakeFiles/kiwi.dir/Base/TimerPool.cpp.o.provides.build: CMakeFiles/kiwi.dir/Bas
 
 CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o: ../Reactor/Channel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Reactor/Channel.cpp
 
 CMakeFiles/kiwi.dir/Reactor/Channel.cpp.i: cmake_force
@@ -347,7 +323,7 @@ CMakeFiles/kiwi.dir/Reactor/Channel.cpp.o.provides.build: CMakeFiles/kiwi.dir/Re
 
 CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o: ../Reactor/Epoll.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Reactor/Epoll.cpp
 
 CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.i: cmake_force
@@ -371,7 +347,7 @@ CMakeFiles/kiwi.dir/Reactor/Epoll.cpp.o.provides.build: CMakeFiles/kiwi.dir/Reac
 
 CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o: ../Reactor/EventLoop.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Reactor/EventLoop.cpp
 
 CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.i: cmake_force
@@ -395,7 +371,7 @@ CMakeFiles/kiwi.dir/Reactor/EventLoop.cpp.o.provides.build: CMakeFiles/kiwi.dir/
 
 CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o: CMakeFiles/kiwi.dir/flags.make
 CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o: ../Reactor/EventLoopPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o -c /home/kiwi/Repos/C++/Kiwi/Kiwi/Reactor/EventLoopPool.cpp
 
 CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.i: cmake_force
@@ -420,7 +396,6 @@ CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o.provides.build: CMakeFiles/kiwi.
 # Object files for target kiwi
 kiwi_OBJECTS = \
 "CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o" \
-"CMakeFiles/kiwi.dir/Network/Connector.cpp.o" \
 "CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o" \
 "CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o" \
 "CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o" \
@@ -439,7 +414,6 @@ kiwi_OBJECTS = \
 kiwi_EXTERNAL_OBJECTS =
 
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o
-/home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Network/Connector.cpp.o
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o
@@ -455,7 +429,7 @@ kiwi_EXTERNAL_OBJECTS =
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/Reactor/EventLoopPool.cpp.o
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/build.make
 /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so: CMakeFiles/kiwi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX shared library /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/Repos/C++/Kiwi/Kiwi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared library /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kiwi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -464,7 +438,6 @@ CMakeFiles/kiwi.dir/build: /home/kiwi/Repos/C++/Kiwi/lib_release/libkiwi.so
 .PHONY : CMakeFiles/kiwi.dir/build
 
 CMakeFiles/kiwi.dir/requires: CMakeFiles/kiwi.dir/Network/Acceptor.cpp.o.requires
-CMakeFiles/kiwi.dir/requires: CMakeFiles/kiwi.dir/Network/Connector.cpp.o.requires
 CMakeFiles/kiwi.dir/requires: CMakeFiles/kiwi.dir/Network/TcpClient.cpp.o.requires
 CMakeFiles/kiwi.dir/requires: CMakeFiles/kiwi.dir/Network/TcpConnection.cpp.o.requires
 CMakeFiles/kiwi.dir/requires: CMakeFiles/kiwi.dir/Network/TcpServer.cpp.o.requires

@@ -182,14 +182,6 @@
 			<Option target="kiwi_static"/>
 			<Option target="kiwi"/>
 		</Unit>
-		<Unit filename="/home/kiwi/Repos/C++/Kiwi/Kiwi/Network/Connector.cpp">
-			<Option target="kiwi_static"/>
-			<Option target="kiwi"/>
-		</Unit>
-		<Unit filename="/home/kiwi/Repos/C++/Kiwi/Kiwi/Network/Connector.h">
-			<Option target="kiwi_static"/>
-			<Option target="kiwi"/>
-		</Unit>
 		<Unit filename="/home/kiwi/Repos/C++/Kiwi/Kiwi/Network/TcpClient.cpp">
 			<Option target="kiwi_static"/>
 			<Option target="kiwi"/>

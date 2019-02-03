@@ -8,3 +8,4 @@ include_directories(${PROJECT_SOURCE_DIR}/../lib_release/include/)
 link_libraries(${PROJECT_SOURCE_DIR}/../lib_release/libkiwi.a)
 
 add_executable(EchoServer EchoServer.cpp)
+add_executable(EchoClient EchoClient.cpp)
