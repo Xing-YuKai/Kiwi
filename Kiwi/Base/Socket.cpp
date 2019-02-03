@@ -20,25 +20,36 @@ Socket Socket::nonblocking_socket()
 Socket::Socket(int socket_fd) :
 		_socket_fd_(socket_fd) {}
 
-void Socket::connect(const InetAddress &addr)
+bool Socket::connect(const InetAddress &addr)
 {
 	sockaddr_in tmp = addr._inet_addr_;
-	int retval;
 	int errno_backup = errno;
-	flag:
-	retval = ::connect(_socket_fd_, static_cast<const sockaddr *>(&tmp), sizeof(tmp));
+	int retval = ::connect(_socket_fd_, static_cast<const sockaddr *>(&tmp), sizeof(tmp));
 	if (retval < 0)
 	{
 		switch (errno)
 		{
-			case EINTR:
+			case EINPROGRESS:
+			case EISCONN:
 				errno = errno_backup;
-				goto flag;
+				return true;
+			case ECONNRESET:
+			case EAGAIN:
+			case ETIMEDOUT:
+			case EADDRINUSE:
+			case EADDRNOTAVAIL:
+			case ECONNREFUSED:
+			case EHOSTUNREACH:
+			case ENOBUFS:
+			case EINTR:
+			case EALREADY:
+				return false;
 			default:
 				std::cerr << "Socket connect error : " << errno << " " << strerror(errno) << std::endl;
 				std::terminate();
 		}
 	}
+	return true;
 }
 
 void Socket::bind(const InetAddress &addr)
@@ -156,6 +167,14 @@ void Socket::set_reuse_port(bool on)
 		std::cerr << "Socket set_reuse_port error : " << errno << " " << strerror(errno) << std::endl;
 		std::terminate();
 	}
+}
+
+bool Socket::is_self_connect()
+{
+	InetAddress peer_address = get_peer_address();
+	InetAddress local_address = get_local_address();
+	return peer_address._inet_addr_.sin_addr.s_addr == local_address._inet_addr_.sin_addr.s_addr &&
+		   peer_address._inet_addr_.sin_port == local_address._inet_addr_.sin_port;
 }
 
 InetAddress Socket::get_local_address() const

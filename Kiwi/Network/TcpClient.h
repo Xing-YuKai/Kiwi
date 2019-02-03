@@ -38,11 +38,13 @@ namespace Kiwi
 		void remove_connection_handler(const Type::TcpConnectionPtr &conn_ptr);
 
 	private:
+		uint32_t _client_id_;
+		EventLoop *_base_loop_;
+		Type::TcpConnectionPtr _connection_ptr_;
 		Type::ConnectionHandler _connection_handler_;
 		Type::MessageHandler _message_handler_;
 		Type::WriteCompleteHandler _write_complete_handler_;
-		EventLoop *_base_loop_;
-		uint32_t _client_id_;
+
 	};
 }
 

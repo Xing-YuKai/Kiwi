@@ -21,7 +21,7 @@ namespace Kiwi
 
 		Socket(int socket_fd);
 
-		void connect(const InetAddress &addr);
+		bool connect(const InetAddress &addr);
 
 		void bind(const InetAddress &addr);
 
@@ -42,6 +42,8 @@ namespace Kiwi
 		void set_reuse_address(bool on);
 
 		void set_reuse_port(bool on);
+
+		bool is_self_connect();
 
 		InetAddress get_local_address() const;
 
