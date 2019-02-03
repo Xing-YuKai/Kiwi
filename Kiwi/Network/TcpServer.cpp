@@ -16,18 +16,17 @@ TcpServer::TcpServer(EventLoop *base_loop, unsigned int io_thread_num, const Ine
 		_acceptor_loop_ptr_(base_loop),
 		_acceptor_ptr_(new Acceptor(_acceptor_loop_ptr_, acceptor_address)),
 		_event_loop_pool_(new EventLoopPool(_acceptor_loop_ptr_, io_thread_num)),
-		_running_(false)
+		_listening_(false)
 {
 	_acceptor_ptr_->set_new_connection_handler(std::bind(&TcpServer::new_connection_handler, this, _1, _2));
 }
 
-void TcpServer::run()
+void TcpServer::listen()
 {
-	if (!_running_.load())
+	if (!_listening_.load())
 	{
-		_running_.store(true);
+		_listening_.store(true);
 		_acceptor_loop_ptr_->run_in_loop(std::bind(&Acceptor::listen, _acceptor_ptr_.get()));
-		_acceptor_loop_ptr_->loop();
 	}
 }
 

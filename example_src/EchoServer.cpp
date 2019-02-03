@@ -31,7 +31,7 @@ int main()
 	Kiwi::TcpServer server(&base_loop, 4, listen_address);
 	server.set_message_handler(message_handler);
 	server.set_connection_handler(connection_handler);
-	server.run();
-	std::cout << "des" << std::endl;
+	server.listen();
+    loop.loop;
 	return 0;
 }

@@ -6,5 +6,5 @@ CXX_FLAGS = -pthread -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kiwi/Repos/Kiwi/unit_test_src/../Kiwi 
+CXX_INCLUDES = -I/home/kiwi/Repos/C++/Kiwi/unit_test_src/../lib_release/include 
 

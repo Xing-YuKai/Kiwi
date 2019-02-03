@@ -45,6 +45,8 @@ namespace Kiwi
 
 		InetAddress get_local_address() const;
 
+		InetAddress get_peer_address() const;
+
 		int get_socket_error()const;
 
 		int get_fd() const { return _socket_fd_; }

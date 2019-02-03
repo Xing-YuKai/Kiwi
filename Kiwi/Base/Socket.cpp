@@ -26,7 +26,7 @@ void Socket::connect(const InetAddress &addr)
 	int retval;
 	int errno_backup = errno;
 	flag:
-	retval = ::connect(_socket_fd_, (const sockaddr *) &tmp, sizeof(tmp));
+	retval = ::connect(_socket_fd_, static_cast<const sockaddr *>(&tmp), sizeof(tmp));
 	if (retval < 0)
 	{
 		switch (errno)
@@ -44,7 +44,7 @@ void Socket::connect(const InetAddress &addr)
 void Socket::bind(const InetAddress &addr)
 {
 	sockaddr_in tmp = addr._inet_addr_;
-	int retval = ::bind(_socket_fd_, (const sockaddr *) &tmp, sizeof(tmp));
+	int retval = ::bind(_socket_fd_, static_cast<const sockaddr *>(&tmp), sizeof(tmp));
 	if (retval < 0)
 	{
 		std::cerr << "Socket bind error : " << errno << " " << strerror(errno) << std::endl;
@@ -74,7 +74,7 @@ Socket Socket::accept(InetAddress &addr)
 	int retval;
 	int errno_backup = errno;
 	flag:
-	retval = ::accept(_socket_fd_, (sockaddr *) &tmp, &len);
+	retval = ::accept(_socket_fd_, static_cast<sockaddr *>(&tmp), &len);
 	if (retval < 0)
 	{
 		switch (errno)
@@ -96,7 +96,7 @@ Socket Socket::accept(InetAddress &addr)
 
 void Socket::shutdown_write()
 {
-	int retval = shutdown(_socket_fd_,SHUT_WR);
+	int retval = shutdown(_socket_fd_, SHUT_WR);
 	if (retval < 0)
 	{
 		std::cerr << "Socket shutdown_write error : " << errno << " " << strerror(errno) << std::endl;
@@ -106,7 +106,7 @@ void Socket::shutdown_write()
 
 void Socket::shutdown_read()
 {
-	int retval = shutdown(_socket_fd_,SHUT_RD);
+	int retval = shutdown(_socket_fd_, SHUT_RD);
 	if (retval < 0)
 	{
 		std::cerr << "Socket shutdown_read error : " << errno << " " << strerror(errno) << std::endl;
@@ -163,7 +163,22 @@ InetAddress Socket::get_local_address() const
 	sockaddr_in addr;
 	bzero(&addr, sizeof(addr));
 	socklen_t len = sizeof(addr);
-	int retval = getsockname(_socket_fd_, (sockaddr *) &addr, &len);
+	int retval = getsockname(_socket_fd_, static_cast<sockaddr *>(&addr), &len);
+	if (retval < 0)
+	{
+		std::cerr << "Socket get_local_address error : " << errno << " " << strerror(errno) << std::endl;
+		std::terminate();
+	}
+	InetAddress res(addr);
+	return res;
+}
+
+InetAddress Socket::get_peer_address() const
+{
+	sockaddr_in addr;
+	bzero(&addr, sizeof(addr));
+	socklen_t len = sizeof(addr);
+	int retval = getpeername(_socket_fd_, static_cast<sockaddr *>(&addr), &len);
 	if (retval < 0)
 	{
 		std::cerr << "Socket get_local_address error : " << errno << " " << strerror(errno) << std::endl;

@@ -12,13 +12,18 @@ namespace Kiwi
 	class Connector
 	{
 	public:
-		Connector();
+		Connector(EventLoop* loop,const InetAddress & server_adderss);
+
+		void connect();
 
 		~Connector();
 
 		Connector(const Connector &) = delete;
 
 		Connector &operator=(const Connector &) = delete;
+
+	private:
+		EventLoop* _owner_event_loop_;
 	};
 }
 
