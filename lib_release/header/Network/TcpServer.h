@@ -31,7 +31,7 @@ namespace Kiwi
 
 		void set_write_complete_handler(const Type::WriteCompleteHandler &handler) { _write_complete_handler_ = handler; }
 
-		void run();
+		void listen();
 
 		~TcpServer();
 
@@ -53,7 +53,7 @@ namespace Kiwi
 		EventLoop *_acceptor_loop_ptr_;
 		std::shared_ptr<EventLoopPool> _event_loop_pool_;
 		std::unique_ptr<Acceptor> _acceptor_ptr_;
-		std::atomic<bool> _running_;
+		std::atomic<bool> _listening_;
 	};
 }
 
