@@ -1,6 +1,6 @@
 # Kiwi
 Kiwi is a multi-thread network library implemented in Reactor design pattern  
-[**中文文档**](./README_CN.md)  
+[**中文文档**](./README_CH.md)  
 ## Build
 *Change your directory to floder *Kiwi* and use **cmake** to build the library  
 *The output path is located at *lib_release*  
