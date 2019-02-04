@@ -17,9 +17,14 @@ void message_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr,
 {
 	std::string data;
 	data = buffer->retrieve(buffer->get_readable_bytes());
-	std::cout<<data<<std::endl;
-
-	std::cin>>data;
+	if(data=="q")
+	{
+		conn_ptr->close();
+		std::cout<<"close";
+		return ;
+	}
+	std::cout << data << std::endl;
+	std::cin >> data;
 	conn_ptr->send(data);
 }
 
@@ -30,9 +35,10 @@ int main()
 	server_address.set_address("127.0.0.1");
 	server_address.set_port(23333);
 
-	Kiwi::TcpClient client(&base_loop,server_address,1);
+	Kiwi::TcpClient client(&base_loop, server_address, 1);
 	client.set_message_handler(message_handler);
 	client.set_connection_handler(connection_handler);
 	client.connect();
 	base_loop.loop();
+	return 0;
 }
