@@ -36,7 +36,7 @@ void TcpConnection::send(const std::string &data)
 	if (_state_.load() == STATE_CONNECTED)
 	{
 		auto this_ptr = shared_from_this();
-		_owner_event_loop_->run_in_loop([this_ptr, data]
+		_owner_event_loop_->queue_in_loop([this_ptr, data]
 										{
 											this_ptr->_output_buffer_ptr_->append(data);
 											if (!this_ptr->_channel_ptr_->is_writing())
@@ -67,7 +67,7 @@ void TcpConnection::close()
 	if (_state_.load() == STATE_CONNECTED || _state_.load() == STATE_HALF_CLOSE)
 	{
 		_state_.store(STATE_DISCONNECTED);
-		_owner_event_loop_->run_in_loop(std::bind(&TcpConnection::tcp_connection_close_handler, this));
+		_owner_event_loop_->queue_in_loop(std::bind(&TcpConnection::tcp_connection_close_handler, this));
 	}
 }
 
@@ -128,6 +128,7 @@ void TcpConnection::connection_destroyed()
 		_channel_ptr_->update();
 	}
 	_channel_ptr_->remove();
+	_socket_ptr_->close();
 }
 
 TcpConnection::~TcpConnection()
