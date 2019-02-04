@@ -1,4 +1,0 @@
-/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/EchoClient.dir
-/home/kiwi/Repos/C++/Kiwi/example_src/cmake-build-debug/CMakeFiles/EchoServer.dir

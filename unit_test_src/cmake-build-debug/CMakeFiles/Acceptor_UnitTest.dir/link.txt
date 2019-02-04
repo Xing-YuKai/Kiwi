@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/Acceptor_UnitTest.dir/Acceptor_UnitTest.cpp.o  -o Acceptor_UnitTest ../../lib_release/libkiwi.a 

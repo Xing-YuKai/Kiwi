@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/EchoServer.dir/EchoServer.cpp.o  -o EchoServer ../../lib_release/libkiwi.a 

@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/TimerPool_UnitTest.dir/TimerPool_UnitTest.cpp.o  -o TimerPool_UnitTest ../../lib_release/libkiwi.a 

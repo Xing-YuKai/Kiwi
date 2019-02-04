@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/EventLoopPool_UnitTest.dir/EventLoopPool_UnitTest.cpp.o  -o EventLoopPool_UnitTest ../../lib_release/libkiwi.a 
