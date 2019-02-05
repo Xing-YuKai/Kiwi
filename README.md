@@ -1,6 +1,5 @@
 # Kiwi
-Kiwi is a multi-thread network library implemented in Reactor design pattern  
-[**中文文档**](./README_CH.md)  
+Kiwi is a multi-thread network library implemented in Reactor design pattern
 ## Build
 ---
 * Change your directory to floder *Kiwi* and use **cmake** to build the library  
@@ -13,18 +12,38 @@ Kiwi is a multi-thread network library implemented in Reactor design pattern
 ## Usage
 ---
 **This library is under namespace Kiwi::**  
-### For server :
 * `EventLoop()`  
   inital an eventloop  
   this class is included in file *Ractor/EventLoop.h*
 * `InetAddress()`  
   inital an internet address  
   this class is included in file *Base/InetAddress.h*
-* `void set_address(std::string address)`  
+* `void InetAddress::set_address(std::string address)`  
   set ipv4 address in dot-decimal format **eg : "127.0.0.1"**
-* `void set_address_any()`  
+* `void InetAddress::set_address_any()`  
   set ipv4 address to **INADDR_ANY**
-* `void set_port(uint16_t port)`  
+* `void InetAddress::set_port(uint16_t port)`  
   set port number
+  ### For server :
 * `TcpServer(EventLoop *base_loop, unsigned int io_thread_num, const InetAddress &acceptor_address)`  
-  
+  Initial a tcp server  
+  Bind it to an eventloop , set the number of io thread and listen address  
+  this class is included in file *Network/TcpServer.h*
+* `void TcpServer::set_connection_handler(const Type::ConnectionHandler &handler)`  
+  Set connection handler  
+  Function type `ConnectionHandler = std::function<void(const TcpConnectionPtr &)>`  
+  This function will be called after the server receive establish new connection  
+* `void TcpServer::set_message_handler(const Type::MessageHandler &handler)`  
+  Set message handler  
+  Function type `MessageHandler = std::function<void(const TcpConnectionPtr &, const BufferPtr &, const TimeRange &)>`  
+  This function will be called after the server receive a new  message  
+* `void TcpServer::set_write_complete_handler(const Type::WriteCompleteHandler &handler)`  
+  Set write complete handler  
+  Function type `WriteCompleteHandler = std::function<void(const TcpConnectionPtr &)>`  
+  This function will be called after the server write the data to kernel buffer  
+* `void TcpServer::listen()`  
+  Make the server listen on the previous set listen address  
+* `void EventLoop::loop()`  
+  Loop the eventloop  
+  This function call will block the current thread
+  ### For client :
