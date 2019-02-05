@@ -5,10 +5,10 @@ Kiwi is a multi-thread network library implemented in Reactor design pattern
 >**Linux kernel version requirement :** 2.6.22 or higher  
 >**std::C++ version :** C++11  
 >**Dependencies :** pthread
-* Change your directory to floder *Kiwi* and use **cmake** to build the library  
+* Change your directory to folder *Kiwi* and use **cmake** to build the library  
 * The output path is located at *release*  
-* Change your directory to floder *example* and use **cmake** to build examples for this library  
-* Change your directory to floder *unit_test* and use **cmake** to build unit tests for this library  
+* Change your directory to folder *example* and use **cmake** to build examples for this library  
+* Change your directory to folder *unit_test* and use **cmake** to build unit tests for this library  
 ## Design Pattern
 ---
 ![Design Pattern](./model.png "Design Pattern")
