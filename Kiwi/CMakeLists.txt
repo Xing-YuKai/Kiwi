@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(Kiwi)
 
 set(CMAKE_CXX_STANDARD 11)
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../lib_release/)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../release/)
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/Network SRC_NETWORK)
 aux_source_directory(${PROJECT_SOURCE_DIR}/Reactor SRC_REACTOR)
