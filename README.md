@@ -13,17 +13,17 @@ Kiwi is a multi-thread network library implemented in Reactor design pattern
 ---
 **This library is under namespace Kiwi::**  
 * `EventLoop()`  
-  inital an eventloop  
-  this class is included in file *Ractor/EventLoop.h*
+  Inital an eventloop  
+  This class is included in file *Ractor/EventLoop.h*
 * `InetAddress()`  
-  inital an internet address  
-  this class is included in file *Base/InetAddress.h*
+  Inital an internet address  
+  This class is included in file *Base/InetAddress.h*
 * `void InetAddress::set_address(std::string address)`  
-  set ipv4 address in dot-decimal format **eg : "127.0.0.1"**
+  Set ipv4 address in dot-decimal format **eg : "127.0.0.1"**
 * `void InetAddress::set_address_any()`  
-  set ipv4 address to **INADDR_ANY**
+  Set ipv4 address to **INADDR_ANY**
 * `void InetAddress::set_port(uint16_t port)`  
-  set port number
+  Set port number
   ### For server :
 * `TcpServer(EventLoop *base_loop, unsigned int io_thread_num, const InetAddress &acceptor_address)`  
   Initial a tcp server  
@@ -46,4 +46,14 @@ Kiwi is a multi-thread network library implemented in Reactor design pattern
 * `void EventLoop::loop()`  
   Loop the eventloop  
   This function call will block the current thread
-  ### For client :
+  ### For client :  
+* `TcpClient(EventLoop *base_loop, const InetAddress &server_address, uint32_t client_id)`  
+  Initial a tcp client  
+  Bind it to an eventloop , set client ID and server address  
+  This class is included in file *Network/TcpClient.h*
+* The set handler member function is as well as TcpServer  
+* `void TcpClient::connect()`  
+  Try to connect to the specified server  
+* `void EventLoop::loop()`  
+  Loop the eventloop  
+  This function call will block the current thread
