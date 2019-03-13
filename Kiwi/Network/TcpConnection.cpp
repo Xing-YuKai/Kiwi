@@ -109,7 +109,6 @@ void TcpConnection::connection_established()
 	{
 		_state_.store(STATE_CONNECTED);
 
-		_channel_ptr_->tie(shared_from_this());
 		_channel_ptr_->enable_reading();
 		_channel_ptr_->update();
 
@@ -178,8 +177,8 @@ void TcpConnection::tcp_connection_close_handler()
 	_state_.store(STATE_DISCONNECTED);
 	_channel_ptr_->disable_all();
 	_channel_ptr_->update();
-	TcpConnectionPtr guard = shared_from_this();
-	_close_handler_(guard);
+	TcpConnectionPtr shared_this = shared_from_this();
+	_close_handler_(shared_this);
 }
 
 void TcpConnection::tcp_connection_error_handler()

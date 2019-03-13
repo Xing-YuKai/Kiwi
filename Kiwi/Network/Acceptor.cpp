@@ -29,9 +29,9 @@ void Acceptor::listen()
 	if (!_listening_)
 	{
 		_listening_ = true;
-		_acceptor_socket_.listen();
 		_acceptor_channel_.enable_reading();
 		_acceptor_channel_.update();
+		_acceptor_socket_.listen();
 	}
 }
 
