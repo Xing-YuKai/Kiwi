@@ -4,8 +4,8 @@ project(Kiwi_Example)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS -pthread)
 
-include_directories(${PROJECT_SOURCE_DIR}/../release/include/)
-link_libraries(${PROJECT_SOURCE_DIR}/../release/libkiwi.a)
+include_directories(${PROJECT_SOURCE_DIR}/../lib_release/include/)
+link_libraries(${PROJECT_SOURCE_DIR}/../lib_release/libkiwi.a)
 
 add_executable(EchoServer EchoServer.cpp)
 add_executable(EchoClient EchoClient.cpp)

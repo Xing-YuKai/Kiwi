@@ -15,17 +15,12 @@ void message_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr,
 					 const Kiwi::Type::BufferPtr &buffer,
 					 const Kiwi::TimeRange &receive)
 {
-	std::string data;
-	data = buffer->retrieve(buffer->get_readable_bytes());
-	if(data=="q")
-	{
-		conn_ptr->close();
-		std::cout<<"close";
-		return ;
-	}
-	std::cout << data << std::endl;
-	std::cin >> data;
-	conn_ptr->send(data);
+	std::string data_receive;
+	std::string data_send;
+	data_receive = buffer->retrieve(buffer->get_readable_bytes());
+	std::cout << data_receive << std::endl;
+	std::cin >> data_send;
+	conn_ptr->send(data_send);
 }
 
 int main()
