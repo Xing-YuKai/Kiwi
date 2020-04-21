@@ -57,8 +57,6 @@ namespace Kiwi
 
 		void remove();
 
-		void tie(const std::shared_ptr<void> &obj_ptr);
-
 		~Channel();
 
 		Channel(const Channel &) = delete;
@@ -75,9 +73,7 @@ namespace Kiwi
 		const int _fd_;
 		bool _in_loop_;
 		bool _handling_event_;
-		bool _tied_;
 		EventLoop* _owner_event_loop_;
-		std::weak_ptr<void> _tie_;
 
 		Type::ReadEventHandler _read_handler_;
 		Type::EventHandler _write_handler_;
