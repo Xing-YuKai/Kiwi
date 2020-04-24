@@ -11,11 +11,14 @@
 #include <zconf.h>
 #include <iostream>
 #include <cstring>
+#include <algorithm>
 #include "Types.h"
 
 namespace Kiwi
 {
-	//class Buffer is non-thread-safe
+    const char CRLF[] = "\r\n";
+
+    //class Buffer is non-thread-safe
 	class Buffer
 	{
 	public:
@@ -35,6 +38,8 @@ namespace Kiwi
 
 		std::string retrieve(size_t len);
 
+        std::string retrieve_by_CRLF();
+
 		ssize_t append_from(int fd);
 
 		ssize_t retrieve_to(int fd);
@@ -47,8 +52,7 @@ namespace Kiwi
 	private:
 		static const size_t PREPEND_SIZE = 8;
 		static const size_t INITIAL_SIZE = 1024;
-
-		std::vector<char> _buffer_;
+        std::vector<char> _buffer_;
 		size_t _read_index_;
 		size_t _write_index_;
 	};
