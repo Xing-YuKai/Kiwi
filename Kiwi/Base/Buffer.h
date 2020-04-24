@@ -11,6 +11,7 @@
 #include <zconf.h>
 #include <iostream>
 #include <cstring>
+#include <algorithm>
 #include "Types.h"
 
 namespace Kiwi
