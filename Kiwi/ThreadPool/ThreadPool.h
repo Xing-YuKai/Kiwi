@@ -5,143 +5,100 @@
 #ifndef KIWI_THREADPOOL_H
 #define KIWI_THREADPOOL_H
 
-#include <list>
+#include <vector>
+#include <queue>
+#include <memory>
 #include <thread>
 #include <mutex>
+#include <condition_variable>
 #include <future>
-#include <utility>
-#include <memory>
 #include <functional>
-#include <queue>
-#include "../Base/Semaphore.h"
+#include <stdexcept>
 
 namespace Kiwi
 {
-	class ThreadPool
-	{
-	public:
-		ThreadPool(size_t size = 4);
+    class ThreadPool
+    {
+    public:
+        ThreadPool(size_t);
 
-		void increase_pool(size_t size);
+        template<class F, class... Args>
+        auto enqueue(F &&f, Args &&... args) -> std::future<typename std::result_of<F(Args...)>::type>;
 
-		void decrease_pool(size_t size);
+        ~ThreadPool();
 
-		template<typename F, typename... Args>
-		auto commit(F &&f, Args &&... rest) -> std::future<decltype(f(rest...))>;
+    private:
+        std::vector<std::thread> workers;
+        std::queue<std::function<void()> > tasks;
 
-		~ThreadPool();
+        std::mutex queue_mutex;
+        std::condition_variable condition;
+        bool stop;
+    };
 
-		ThreadPool &operator=(const ThreadPool &) = delete;
+    inline ThreadPool::ThreadPool(size_t threads)
+            : stop(false)
+    {
+        for (size_t i = 0; i < threads; ++i)
+            workers.emplace_back(
+                    [this]
+                    {
+                        for (;;)
+                        {
+                            std::function<void()> task;
 
-		ThreadPool(const ThreadPool &) = delete;
+                            {
+                                std::unique_lock<std::mutex> lock(this->queue_mutex);
+                                this->condition.wait(lock,
+                                                     [this]
+                                                     { return this->stop || !this->tasks.empty(); });
+                                if (this->stop && this->tasks.empty())
+                                    return;
+                                task = std::move(this->tasks.front());
+                                this->tasks.pop();
+                            }
 
-	private:
-		std::list<std::thread> _pool_;
-		std::queue<std::function<void()>> _task_queue_;
-		std::mutex _mutex_;
-		std::condition_variable _cv_;
-		Semaphore _idle_thread_;
-		bool _decreasing_;
-		bool _stop_;
-	};
+                            task();
+                        }
+                    }
+            );
+    }
 
-	ThreadPool::ThreadPool(size_t size)
-	{
-		_decreasing_ = false;
-		_stop_ = false;
-		increase_pool(size);
-	}
+    template<class F, class... Args>
+    auto ThreadPool::enqueue(F &&f, Args &&... args)
+    -> std::future<typename std::result_of<F(Args...)>::type>
+    {
+        using return_type = typename std::result_of<F(Args...)>::type;
 
-	void ThreadPool::increase_pool(size_t size)
-	{
-		for (int i = 0; i < size; i++)
-		{
-			_pool_.emplace_back([this]() -> void
-								{
-									while (true)
-									{
-										this->_idle_thread_.post();
-										std::function<void()> task;
+        auto task = std::make_shared<std::packaged_task<return_type()> >(
+                std::bind(std::forward<F>(f), std::forward<Args>(args)...)
+        );
 
-										{
-											std::unique_lock<std::mutex> _unique_lock(this->_mutex_);
-											this->_cv_.wait(_unique_lock, [this]
-											{
-												return this->_stop_ || this->_decreasing_ || !this->_task_queue_.empty();
-											});
+        std::future<return_type> res = task->get_future();
+        {
+            std::unique_lock<std::mutex> lock(queue_mutex);
 
-											if (this->_stop_ && this->_task_queue_.empty())
-												return;
+            // don't allow enqueueing after stopping the pool
+            if (stop)
+                throw std::runtime_error("enqueue on stopped ThreadPool");
 
-											if (this->_decreasing_)
-											{
-												for (auto itr = this->_pool_.begin(); itr != this->_pool_.end(); itr++)
-												{
-													if (itr->get_id() == std::this_thread::get_id())
-													{
-														itr->detach();
-														this->_pool_.erase(itr);
-														return;
-													}
-												}
-											}
+            tasks.emplace([task]()
+                          { (*task)(); });
+        }
+        condition.notify_one();
+        return res;
+    }
 
-											task = std::move(this->_task_queue_.front());
-											this->_task_queue_.pop();
-										}
-										this->_idle_thread_.wait();
-										task();
-									}
-								});
-		}
-	}
-
-	void ThreadPool::decrease_pool(size_t size)
-	{
-		{
-			std::lock_guard<std::mutex> _lock_guard_(_mutex_);
-			_decreasing_ = true;
-			for (int i = 0; i < size; i++)
-			{
-				_cv_.notify_one();
-				_idle_thread_.wait();
-			}
-			_decreasing_ = false;
-		}
-	}
-
-	template<typename F, typename... Args>
-	auto ThreadPool::commit(F &&f, Args &&... rest) -> std::future<decltype(f(rest...))>
-	{
-		using return_type = decltype(f(rest...));
-
-		auto task_ptr = std::make_shared<std::packaged_task<return_type()>>(
-				std::bind(std::forward<F>(f), std::forward<Args>(rest)...));
-
-		std::future<return_type> res = task_ptr->get_future();
-
-		{
-			std::lock_guard<std::mutex> _lock_guard_(_mutex_);
-			_task_queue_.emplace([task_ptr] { (*task_ptr)(); });
-		}
-
-		_cv_.notify_one();
-		return res;
-	}
-
-	ThreadPool::~ThreadPool()
-	{
-		{
-			std::lock_guard<std::mutex> _lock_guard_(_mutex_);
-			_stop_ = true;
-		}
-
-		_cv_.notify_all();
-
-		for (auto &thread : _pool_)
-			thread.detach();
-	}
+    inline ThreadPool::~ThreadPool()
+    {
+        {
+            std::unique_lock<std::mutex> lock(queue_mutex);
+            stop = true;
+        }
+        condition.notify_all();
+        for (std::thread &worker: workers)
+            worker.join();
+    }
 }
-
 
 #endif //KIWI_THREADPOOL_H
