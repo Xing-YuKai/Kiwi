@@ -11,8 +11,7 @@ using namespace Kiwi::Type;
 Buffer::Buffer(size_t initial_size) :
         _buffer_(initial_size + PREPEND_SIZE),
         _read_index_(PREPEND_SIZE),
-        _write_index_(PREPEND_SIZE)
-{}
+        _write_index_(PREPEND_SIZE) {}
 
 void Buffer::swap(Buffer &rhs)
 {
@@ -41,10 +40,13 @@ std::string Buffer::retrieve(size_t len)
     return res;
 }
 
-std::string Buffer::retrieve_by_CRLF()
+std::string Buffer::retrieve_by_flag(const std::string &flag)
 {
-    auto itr = std::search(peek(), peek() + _write_index_, CRLF, CRLF + 2);
-    return retrieve(itr - peek());
+    auto itr = std::search(_buffer_.cbegin() + _read_index_, _buffer_.cbegin() + _read_index_ + _write_index_,
+                           flag.cbegin(), flag.cend());
+    if (itr == _buffer_.cend())
+        return std::string();
+    return retrieve(itr - _buffer_.cbegin() + _read_index_);
 }
 
 ssize_t Buffer::append_from(int fd)

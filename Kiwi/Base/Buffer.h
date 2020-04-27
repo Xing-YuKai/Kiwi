@@ -16,8 +16,6 @@
 
 namespace Kiwi
 {
-    const char CRLF[] = "\r\n";
-
     //class Buffer is non-thread-safe
 	class Buffer
 	{
@@ -38,7 +36,7 @@ namespace Kiwi
 
 		std::string retrieve(size_t len);
 
-        std::string retrieve_by_CRLF();
+        std::string retrieve_by_flag(const std::string& flag);
 
 		ssize_t append_from(int fd);
 
