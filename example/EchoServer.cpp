@@ -23,7 +23,7 @@ void message_handler(const Kiwi::Type::TcpConnectionPtr &conn_ptr,
 
 int main(int argc, char **argv)
 {
-    u_int16_t port = 23333;
+    u_int16_t port = 8888;
     Kiwi::InetAddress listen_address;
 
     for (int i = 1; i < argc; i++)

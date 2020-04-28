@@ -21,29 +21,31 @@ namespace Kiwi
 
 		Socket(int socket_fd);
 
-		bool connect(const InetAddress &addr);
+		bool connect(const InetAddress &addr) const;
 
-		void bind(const InetAddress &addr);
+		void bind(const InetAddress &addr) const;
 
-		void listen();
+		void listen() const;
 
-		void close();
+		void close() const;
 
-		Socket accept(InetAddress &addr);
+		Socket accept(InetAddress &addr) const;
 
-		void shutdown_write();
+		void shutdown_write() const;
 
-		void shutdown_read();
+		void shutdown_read() const;
 
-		void set_tcp_no_delay(bool on);
+		void set_tcp_no_delay(bool on) const;
 
-		void set_keep_alive(bool on);
+		void set_keep_alive(bool on) const;
 
-		void set_reuse_address(bool on);
+		void set_reuse_address(bool on) const;
 
-		void set_reuse_port(bool on);
+		void set_reuse_port(bool on) const;
 
-		bool is_self_connect();
+		void set_nonblock(bool on) const;
+
+		bool is_self_connect() const;
 
 		InetAddress get_local_address() const;
 
