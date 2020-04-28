@@ -200,7 +200,7 @@ InetAddress Socket::get_peer_address() const
 	int retval = getpeername(_socket_fd_, (sockaddr *)&addr, &len);
 	if (retval < 0)
 	{
-		std::cerr << "Socket get_local_address error : " << errno << " " << strerror(errno) << std::endl;
+		std::cerr << "Socket get_peer_address error : " << errno << " " << strerror(errno) << std::endl;
 		std::terminate();
 	}
 	InetAddress res(addr);
