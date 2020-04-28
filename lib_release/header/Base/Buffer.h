@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 #include <sys/uio.h>
-#include <zconf.h>
+#include <unistd.h>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
